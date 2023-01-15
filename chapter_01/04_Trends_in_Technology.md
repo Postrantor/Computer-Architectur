@@ -1,7 +1,6 @@
 ---
 data: 2023-01-15
 ---
-
 ## Trends in Technology(技术趋势)
 
 If an instruction set architecture is to prevail, it must be designed to survive rapid changes in computer technology. After all, a successful new instruction set architecture may last decades—for example, the core of the IBM mainframe has been in use for more than 50 years. An architect must plan for technology changes that can increase the lifetime of a successful computer.
@@ -40,7 +39,7 @@ Although technology improves continuously, the impact of these increases can be 
 
 As we shall see in [Section 1.8](#measuring-reporting-and-summarizing-performance), _bandwidth_ or _throughput_ is the total amount of work done in a given time, such as megabytes per second for a disk transfer. In contrast, _latency_ or _response time_ is the time between the start and the completion of an event, such as milliseconds for a disk access. [Figure 1.9](#_bookmark16) plots the relative improvement in bandwidth and latency for technology milestones for microprocessors, memory, networks, and disks. [Figure 1.10](#_bookmark17) describes the examples and milestones in more detail.
 
-> 正如我们将在[第 1.8 节]中看到的(#measuring-reporting-and-summarizing-performance)，_bandWidth_ 或 _throughput_ 是给定时间内完成的总数，例如磁盘传输的每秒兆字节。相反，_latency_ 或 _response Time_ 是事件的开始和完成之间的时间，例如用于磁盘访问的毫秒。[图 1.9](#_bookmark16)绘制微处理器，内存，网络和磁盘的技术里程碑的带宽和延迟的相对改进。[图 1.10](#_bookmark17)更详细地描述了示例和里程碑。
+> 正如我们将在[第 1.8 节]中看到的(#measuring-reporting-and-summarizing-performance)，_bandWidth_ 或 _throughput_ 是给定时间内完成的总数，例如磁盘传输的每秒兆字节。相反，_latency_ 或 _response Time_ 是事件的开始和完成之间的时间，例如用于磁盘访问的毫秒。[图 1.9](#_bookmark16) 绘制微处理器，内存，网络和磁盘的技术里程碑的带宽和延迟的相对改进。[图 1.10](#_bookmark17) 更详细地描述了示例和里程碑。
 
 Performance is the primary differentiator for microprocessors and networks, so they have seen the greatest gains: 32,000–40,000 in bandwidth and 50–90 in latency. Capacity is generally more important than performance for memory and disks, so capacity has improved more, yet bandwidth advances of 400–2400 are still much greater than gains in latency of 8–9 .
 
@@ -52,7 +51,7 @@ Clearly, bandwidth hasoutpaced latencyacrossthese technologies andwilllikely con
 
 Figure 1.9 Log-log plot of bandwidth and latency milestones in [Figure 1.10](#_bookmark17) relative to the first milestone. Note that latency improved 8–91 , while bandwidth improved about 400–32,000 . Except for networking, we note that there were modest improvements in latency and bandwidth in the other three technologies in the six years since the last edition: 0%–23% in latency and 23%–70% in bandwidth. Updated from Patterson, D., 2004. Latency lags bandwidth. Commun. ACM 47 (10), 71–75.
 
-> 图 1.9 [图 1.10](#_bookmark17)相对于第一个里程碑，带宽和延迟里程碑的日志图图。请注意，潜伏期改善了 8-91，而带宽则改善了约 400-32,000。除网络外，我们注意到，自上一版以来的六年中，其他三个技术的延迟和带宽有所改善：延迟 0％–23％和带宽的 23％–70％。从帕特森(D.社区。ACM 47(10)，71-75。
+> 图 1.9 [图 1.10](#_bookmark17) 相对于第一个里程碑，带宽和延迟里程碑的日志图图。请注意，潜伏期改善了 8-91，而带宽则改善了约 400-32,000。除网络外，我们注意到，自上一版以来的六年中，其他三个技术的延迟和带宽有所改善：延迟 0％–23％和带宽的 23％–70％。从帕特森(D.社区。ACM 47(10)，71-75。
 
 ### Scaling of Transistor Performance and Wires(晶体管性能和电线的缩放)
 
@@ -66,7 +65,7 @@ Figure 1.10 Performance milestones over 25–40 years for microprocessors, memor
 
 The increase in transistor performance, however, is more complex. As feature sizes shrink, devices shrink quadratically in the horizontal dimension and also shrink in the vertical dimension. The shrink in the vertical dimension requires a reduction in operating voltage to maintain correct operation and reliability of the transistors. This combination of scaling factors leads to a complex interrelationship between transistor performance and process feature size. To a first approximation, in the past the transistor performance improved linearly with decreasing feature size. The fact that transistor count improves quadratically with a linear increase in transistor performance is both the challenge and the opportunity for which computer architects were created! In the early days of microprocessors, the higher rate of improvement in density was used to move quickly from 4-bit, to 8-bit, to 16-bit, to 32-bit, to 64-bit microprocessors. More recently, density improvements have supported the introduction of multiple processors per chip, wider SIMD units, and many of the innovations in speculative execution and caches found in [Chapters 2–5](#_bookmark46).
 
-> 但是，晶体管性能的提高更加复杂。随着特征尺寸的收缩，设备在水平尺寸中四倍地缩小，并在垂直尺寸中收缩。垂直尺寸的收缩需要降低操作电压，以保持晶体管的正确操作和可靠性。缩放因子的这种组合导致晶体管性能和过程特征大小之间的复杂相互关系。到第一个近似值，过去晶体管性能随着特征大小的减小而线性改善。晶体管计数随着晶体管性能的线性增长而倍增的事实既是创建计算机架构师的挑战，也是创建计算机架构师的机会！在微处理器的早期，使用较高的密度提高速率从 4 位，8 位到 16 位移动到 32 位，再到 64 位的微处理器。最近，密度的改进支持了每个芯片，更宽的 SIMD 单元以及[Chapters 2–5](#_bookmark46)中发现的投机执行和 caches 中的许多创新中的许多创新。
+> 但是，晶体管性能的提高更加复杂。随着特征尺寸的收缩，设备在水平尺寸中四倍地缩小，并在垂直尺寸中收缩。垂直尺寸的收缩需要降低操作电压，以保持晶体管的正确操作和可靠性。缩放因子的这种组合导致晶体管性能和过程特征大小之间的复杂相互关系。到第一个近似值，过去晶体管性能随着特征大小的减小而线性改善。晶体管计数随着晶体管性能的线性增长而倍增的事实既是创建计算机架构师的挑战，也是创建计算机架构师的机会！在微处理器的早期，使用较高的密度提高速率从 4 位，8 位到 16 位移动到 32 位，再到 64 位的微处理器。最近，密度的改进支持了每个芯片，更宽的 SIMD 单元以及 [Chapters 2–5](#_bookmark46) 中发现的投机执行和 caches 中的许多创新中的许多创新。
 
 Although transistors generally improve in performance with decreased feature size, wires in an integrated circuit do not. In particular, the signal delay for a wire increases in proportion to the product of its resistance and capacitance. Of course, as feature size shrinks, wires get shorter, but the resistance and capacitance per unit length get worse. This relationship is complex, since both resistance and capacitance depend on detailed aspects of the process, the geometry of a wire, the loading on a wire, and even the adjacency to other structures. There are occasional process enhancements, such as the introduction of copper, which provide one-time improvements in wire delay.
 

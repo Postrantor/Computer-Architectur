@@ -1,7 +1,6 @@
 ---
 data: 2023-01-15
 ---
-
 > [!note] : 计算机架构的简单概述
 > 这一章简单概述现有几种计算机架构
 
@@ -41,7 +40,7 @@ Figure 1.4 RISC-V registers, names, usage, and calling conventions. In addition 
 
 1. _Memory addressing_—Virtually all desktop and server computers, including the 80x86, ARMv8, and RISC-V, use byte addressing to access memory operands. Some architectures, like ARMv8, require that objects must be _aligned_. An access to an object of size _s_ bytes at byte address _A_ is aligned if _A_ mod _s_ 0. (See Figure A.5 on page A-8.) The 80x86 and RISC-V do not require alignment, but accesses are generally faster if operands are aligned.
 
-> 2. _Memory addressing_-将所有台式机和服务器计算机(包括 80x86，ARMV8 和 RISC-V)列出，使用字节地址来访问内存操作数。某些架构(例如 ARMV8)要求对象必须为\_ALIGN*。如果*a* mod \_s* 0，请访问大小*s*字节的对象*s* bytes _a_。如果操作数是对齐的。
+> 2. _Memory addressing_-将所有台式机和服务器计算机(包括 80x86，ARMV8 和 RISC-V)列出，使用字节地址来访问内存操作数。某些架构(例如 ARMV8)要求对象必须为\_ALIGN*。如果 *a* mod \_s* 0，请访问大小 *s* 字节的对象 *s* bytes _a_。如果操作数是对齐的。
 
 3. _Addressing modes_—In addition to specifying registers and constant operands, addressing modes specify the address of a memory object. RISC-V addressing modes are Register, Immediate (for constants), and Displacement, where a constant offset is added to a register to form the memory address. The 80x86 supports those three modes, plus three variations of displacement: no register (absolute), two registers (based indexed with displacement), and two registers where one register is multiplied by the size of the operand in bytes (based with scaled index and displacement). It has more like the last three modes, minus the displacement field, plus register indirect, indexed, and based with scaled index. ARMv8 has the three RISC-V addressing modes plus PC-relative addressing, the sum of two registers, and the sum of two registers where one register is multiplied by the size of the operand in bytes. It also has autoincrement and autodecrement addressing, where the calculated address replaces the contents of one of the registers used in forming the address.
 
@@ -53,7 +52,7 @@ Figure 1.4 RISC-V registers, names, usage, and calling conventions. In addition 
 
 5. _Operations_—The general categories of operations are data transfer, arithmetic logical, control (discussed next), and floating point. RISC-V is a simple and easy-to-pipeline instruction set architecture, and it is representative of the RISC architectures being used in 2017. [Figure 1.5](#_bookmark11) summarizes the integer RISC-V ISA, and [Figure 1.6](#_bookmark12) lists the floating-point ISA. The 80x86 has a much richer and larger set of operations (see Appendix K).
 
-> 5. _ operations_ - 操作的一般类别是数据传输，算术逻辑，控制(下一个讨论)和浮点。RISC-V 是一种简单易于访问的指令集架构，它代表了 2017 年使用的 RISC 架构。[图 1.5](#\_ bookmark11)总结了整数 RISC-V ISA，[图 1.6](＃_Bookmark12)列出了浮点 ISA。80x86 具有更丰富和更大的操作集(请参阅附录 K)。
+> 5. _ operations_ - 操作的一般类别是数据传输，算术逻辑，控制(下一个讨论)和浮点。RISC-V 是一种简单易于访问的指令集架构，它代表了 2017 年使用的 RISC 架构。[图 1.5](#\_ bookmark11)总结了整数 RISC-V ISA，[图 1.6](%EF%BC%83_Bookmark12) 列出了浮点 ISA。80x86 具有更丰富和更大的操作集(请参阅附录 K)。
 
 6. _Control flow instructions_—Virtually all ISAs, including these three, support conditional branches, unconditional jumps, procedure calls, and returns. All three use PC-relative addressing, where the branch address is specified by an address field that is added to the PC. There are some small differences. RISC-V conditional branches (BE, BNE, etc.) test the contents of registers, and the 80x86 and ARMv8 branches test condition code bits set as side effects of arithmetic/logic operations. The ARMv8 and RISC-V procedure call places the return address in a register, whereas the 80x86 call (CALLF) places the return address on a stack in memory.
 
@@ -99,7 +98,7 @@ In this book, the word _architecture_ covers all three aspects of computer desig
 
 Computer architects must design a computer to meet functional requirements as well as price, power, performance, and availability goals. [Figure 1.8](#_bookmark14) summarizes requirements to consider in designing a new computer. Often, architects also must determine what the functional requirements are, which can be a major task. The requirements may be specific features inspired by the market. Application software typically drives the choice of certain functional requirements by determining how the computer will be used. If a large body of software exists for a particular instruction set architecture, the architect may decide that a new computer should implement an existing instruction set. The presence of a large market for a particular class of applications might encourage the designers to incorporate requirements that would make the computer competitive in that market. Later chapters examine many of these requirements and features in depth.
 
-> 计算机架构师必须设计计算机以满足功能需求以及价格，电源，性能和可用性目标。[图 1.8](#_bookmark14)总结了设计新计算机时要考虑的要求。通常，工程师还必须确定功能要求是什么，这可能是一项主要任务。要求可能是受市场启发的特定功能。应用软件通常通过确定如何使用计算机来推动某些功能要求的选择。如果存在针对特定指令集体系结构的大量软件，则工程师可以决定新计算机应实现现有指令集。对于特定类别的应用程序，大型市场的存在可能会鼓励设计师合并使计算机在该市场中竞争的要求。后来的章节研究了许多此类要求和特征。
+> 计算机架构师必须设计计算机以满足功能需求以及价格，电源，性能和可用性目标。[图 1.8](#_bookmark14) 总结了设计新计算机时要考虑的要求。通常，工程师还必须确定功能要求是什么，这可能是一项主要任务。要求可能是受市场启发的特定功能。应用软件通常通过确定如何使用计算机来推动某些功能要求的选择。如果存在针对特定指令集体系结构的大量软件，则工程师可以决定新计算机应实现现有指令集。对于特定类别的应用程序，大型市场的存在可能会鼓励设计师合并使计算机在该市场中竞争的要求。后来的章节研究了许多此类要求和特征。
 
 Figure 1.8 Summary of some of the most important functional requirements an architect faces. The left-hand column describes the class of requirement, while the right-hand column gives specific examples. The right-hand column also contains references to chapters and appendices that deal with the specific issues.
 

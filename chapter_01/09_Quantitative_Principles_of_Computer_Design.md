@@ -1,14 +1,17 @@
-## Quantitative Principles of Computer Design
+---
+data: 2023-01-15
+---
+> [!note] 计算机架构设计
+> 这篇文章就比较综合，整理讲了一下该如何设计一个计算机系统，应该遵循那些原则。
+> 里面给出了一些量化的衡量指标，之后可以进一步的整理。
 
-> ##计算机设计的定量原理
+## Quantitative Principles of Computer Design(计算机设计的定量原理)
 
 Now that we have seen how to define, measure, and summarize performance, cost, dependability, energy, and power, we can explore guidelines and principles that are useful in the design and analysis of computers. This section introduces important observations about design, as well as two equations to evaluate alternatives.
 
 > 既然我们已经看到了如何定义，衡量和总结性能，成本，可靠性，能源和权力，我们可以探索在计算机设计和分析中有用的准则和原理。本节介绍了有关设计的重要观察以及两个方程式以评估替代方案。
 
-### Take Advantage of Parallelism
-
-> ###利用并行性
+### Take Advantage of Parallelism(利用并行性)
 
 Using parallelism is one of the most important methods for improving perfor- mance. Every chapter in this book has an example of how performance is enhanced through the exploitation of parallelism. We give three brief examples here, which are expounded on in later chapters.
 
@@ -16,31 +19,27 @@ Using parallelism is one of the most important methods for improving perfor- man
 
 Our first example is the use of parallelism at the system level. To improve the throughput performance on a typical server benchmark, such as SPECSFS or TPC- C, multiple processors and multiple storage devices can be used. The workload of handling requests can then be spread among the processors and storage devices, resulting in improved throughput. Being able to expand memory and the number of processors and storage devices is called _scalability_, and it is a valuable asset for servers. Spreading of data across many storage devices for parallel reads and writes enables data-level parallelism. SPECSFS also relies on request-level parallelism to use many processors, whereas TPC-C uses thread-level parallelism for faster pro- cessing of database queries.
 
-> 我们的第一个示例是在系统级别上使用并行性。为了改善典型服务器基准上的吞吐性能，例如 SPECSFS 或 TPC-C，可以使用多个处理器和多个存储设备。然后可以在处理器和存储设备之间扩展处理请求的工作量，从而改善吞吐量。能够扩展内存，并且处理器和存储设备的数量称为 *Scalibality*，它是服务器的宝贵资产。在许多存储设备上传播数据以进行并行读取和写入启用数据级并行性。SPECSF 还依靠请求级并行性来使用许多处理器，而 TPC-C 则使用线程级并行性来更快地进行数据库查询。
+> 我们的第一个示例是在系统级别上使用并行性。为了改善典型服务器基准上的吞吐性能，例如 SPECSFS 或 TPC-C，可以使用多个处理器和多个存储设备。然后可以在处理器和存储设备之间扩展处理请求的工作量，从而改善吞吐量。能够扩展内存，并且处理器和存储设备的数量称为 _Scalibality_，它是服务器的宝贵资产。在许多存储设备上传播数据以进行并行读取和写入启用数据级并行性。SPECSF 还依靠请求级并行性来使用许多处理器，而 TPC-C 则使用线程级并行性来更快地进行数据库查询。
 
 At the level of an individual processor, taking advantage of parallelism among instructions is critical to achieving high performance. One of the simplest ways to do this is through pipelining. (Pipelining is explained in more detail in [Appendix C](#_bookmark481) and is a major focus of [Chapter 3](#_bookmark93).) The basic idea behind pipelining is to overlap instruction execution to reduce the total time to complete an instruction sequence. A key insight into pipelining is that not every instruction depends on its immediate predecessor, so executing the instructions completely or partially in parallel may be possible. Pipelining is the best-known example of ILP.
 
-> 在单个处理器的层面上，在指示中利用并行性对于实现高性能至关重要。做到这一点的最简单方法之一是通过管道进行。(在[附录 C](#_ bookmark481)中更详细地解释管道，并且是[第 3 章](#_ bookmark93)的主要重点。)管道上的基本思想是重叠指令执行，以减少总时间来完成一个完成的时间指令序列。对管道的关键洞察力是，并非每个指令都取决于其直接的前身，因此可以完全或部分地并行执行指令。管道是 ILP 的最著名示例。
+> 在单个处理器的层面上，在指示中利用并行性对于实现高性能至关重要。做到这一点的最简单方法之一是通过管道进行。(在[附录 C](#_bookmark481) 中更详细地解释**管道**，并且是[第 3 章](#_bookmark93)的主要重点。)管道上的基本思想是重叠指令执行，以减少总时间来完成一个完成的时间指令序列。对管道的关键洞察力是，并非每个指令都取决于其直接的前身，因此可以完全或部分地并行执行指令。管道是 ILP 的最著名示例。
 
 Parallelism can also be exploited at the level of detailed digital design. For example, set-associative caches use multiple banks of memory that are typically searched in parallel to find a desired item. Arithmetic-logical units use carry- lookahead, which uses parallelism to speed the process of computing sums from linear to logarithmic in the number of bits per operand. These are more examples of _data-level parallelism_.
 
-> 并行性也可以在详细数字设计层面上被利用。例如，设置缔合缓存使用多个内存库，这些内存通常并行搜索以找到所需的项目。算术逻辑单元使用 carry-lookahead，它使用并行性来加快计算总和从线性到对数的过程中的每个操作数量的数量。这些是 *data 级并联*的更多示例。
+> 并行性也可以在详细数字设计层面上被利用。例如，设置缔合缓存使用多个内存库，这些内存通常并行搜索以找到所需的项目。算术逻辑单元使用 carry-lookahead，它使用并行性来加快计算总和从线性到对数的过程中的每个操作数量的数量。这些是 _data-level parallelism_ 的更多示例。
 
-### Principle of Locality
+### Principle of Locality(地区原则)
 
-> ###地区原则
+Important fundamental observations have come from properties of programs. The most important program property that we regularly exploit is the _principle of locality_: programs tend to reuse data and instructions they have used recently. A widely held rule of thumb is that a program spends 90% of its execution time in only 10% of the code. An implication of locality is that we can predict with reasonable accuracy what instructions and data a program will use in the near future based on its accesses in the recent past. The principle of locality also applies to data accesses, though not as strongly as to code accesses.
 
-Important fundamental observations have come from properties of programs. The most important program property that we regularly exploit is the _principle of local- ity_: programs tend to reuse data and instructions they have used recently. A widely held rule of thumb is that a program spends 90% of its execution time in only 10% of the code. An implication of locality is that we can predict with reasonable accuracy what instructions and data a program will use in the near future based on its accesses in the recent past. The principle of locality also applies to data accesses, though not as strongly as to code accesses.
-
-> 重要的基本观察来自计划的属性。我们定期利用的最重要的程序属性是本地 - ity\_的原理：程序倾向于重复使用他们最近使用的数据和指令。一项广泛持有的经验法则是，一个程序仅在该代码的 10％上花费其执行时间的 90％。当地的一个暗示是，我们可以准确地预测程序在不久的将来根据最近的访问将使用哪些指令和数据。局部原理也适用于数据访问，尽管不像代码访问那样强。
+> 重要的基本观察来自计划的属性。我们定期利用的最重要的程序属性是 _principle of locality_：程序倾向于重复使用他们最近使用的数据和指令。一项广泛持有的经验法则是，一个程序仅在该代码的 10％上花费其执行时间的 90％。当地的一个暗示是，我们可以准确地预测程序在不久的将来根据最近的访问将使用哪些指令和数据。局部原理也适用于数据访问，尽管不像代码访问那样强。
 
 Two different types of locality have been observed. _Temporal locality_ states that recently accessed items are likely to be accessed soon. _Spatial locality_ says that items whose addresses are near one another tend to be referenced close together in time. We will see these principles applied in [Chapter 2](#_bookmark46).
 
-> 已经观察到两种不同类型的地方。*temporal locality* 状态*最近很快就会访问最近访问的项目。* -Spatial locality *说，地址彼此接近的项目往往会及时地关闭。我们将在[第 2 章](#* bookmark46)中看到这些原理。
+> 已经观察到两种不同类型的地方。_temporal locality_ 状态最近很快就会访问最近访问的项目。_Spatial locality_ 说，地址彼此接近的项目往往会及时地关闭。我们将在[第 2 章](#_bookmark46)中看到这些原理。
 
-### Focus on the Common Case
-
-> ###关注常见案例
+### Focus on the Common Case(关注常见案例)
 
 Perhaps the most important and pervasive principle of computer design is to focus on the common case: in making a design trade-off, favor the frequent case over the infrequent case. This principle applies when determining how to spend resources, because the impact of the improvement is higher if the occurrence is commonplace. Focusing on the common case works for energy as well as for resource allo- cation and performance. The instruction fetch and decode unit of a processor may be used much more frequently than a multiplier, so optimize it first. It works on dependability as well. If a database server has 50 storage devices for every processor, storage dependability will dominate system dependability.
 
@@ -52,35 +51,19 @@ In addition, the common case is often simpler and can be done faster than the in
 
 We will see many cases of this principle throughout this text. In applying this simple principle, we have to decide what the frequent case is and how much per- formance can be improved by making that case faster. A fundamental law, called _Amdahl_’_s Law_, can be used to quantify this principle.
 
-> 在本文中，我们将看到许多这一原则的情况。在应用此简单原则时，我们必须确定什么是频繁的情况以及通过使该案例更快地改善多少情况。一个称为 *amdahl *’* s Law*的基本定律可用于量化这一原则。
+> 在本文中，我们将看到许多这一原则的情况。在应用此简单原则时，我们必须确定什么是频繁的情况以及通过使该案例更快地改善多少情况。一个称为 _amdahl’s Law_ 的基本定律可用于量化这一原则。
 
-### Amdahl’s Law
-
-> ### Amdahl 的定律
+### Amdahl’s Law(Amdahl 的定律)
 
 The performance gain that can be obtained by improving some portion of a com- puter can be calculated using Amdahl’s Law. Amdahl’s Law states that the perfor- mance improvement to be gained from using some faster mode of execution is limited by the fraction of the time the faster mode can be used.
 
 > 可以使用 Amdahl 的法律来计算可以通过改进计算机的一部分来获得的绩效增长。Amdahl 的定律指出，使用某种更快的执行模式将获得的绩效改进受到使用更快模式的时间的限制。
 
-Amdahl’s Law defines the _speedup_ that can be gained by using a particular feature. What is speedup? Suppose that we can make an enhancement to a com- puter that will improve performance when it is used. Speedup is the ratio
+Amdahl’s Law defines the _speedup_ that can be gained by using a particular feature. What is speedup? Suppose that we can make an enhancement to a com- puter that will improve performance when it is used. Speedup is the ratio Speedup Performance for entire task using the enhancement when possible Performance for entire task without using the enhancement
 
-> Amdahl 的定律定义了可以使用特定功能获得的 *speedup*。什么是加速？假设我们可以对一个使用者进行增强，从而在使用时会提高性能。加速是比率
+> Amdahl 的定律定义了可以使用特定功能获得的 _speedup_。什么是加速？假设我们可以对一个使用者进行增强，从而在使用时会提高性能。加速是比率在可能的整个任务时，在不使用增强的情况下，使用增强性能加速整个任务的加速性能，或者，加速执行时间为整个任务执行时间，而无需在可能的情况下使用增强任务的增强执行时间 Speedup 告诉我们，与原始计算机相反的增强功能，任务将运行的速度更快。
 
-Speedup Performance for entire task using the enhancement when possible Performance for entire task without using the enhancement
-
-> 在可能的整个任务时，在不使用增强的情况下，使用增强性能加速整个任务的加速性能
-
-Alternatively,
-
-> 或者，
-
-Speedup Execution time for entire task without using the enhancement Execution time for entire task using the enhancement when possible
-
-> 加速执行时间为整个任务执行时间，而无需在可能的情况下使用增强任务的增强执行时间
-
-Speedup tells us how much faster a task will run using the computer with the enhance- ment contrary to the original computer.
-
-> Speedup 告诉我们，与原始计算机相反的增强功能，任务将运行的速度更快。
+Alternatively, Speedup Execution time for entire task without using the enhancement Execution time for entire task using the enhancement when possible Speedup tells us how much faster a task will run using the computer with the enhance- ment contrary to the original computer.
 
 Amdahl’s Law gives us a quick way to find the speedup from some enhance- ment, which depends on two factors:
 
@@ -88,11 +71,11 @@ Amdahl’s Law gives us a quick way to find the speedup from some enhance- ment,
 
 1. _The fraction of the computation time in the original computer that can be con- verted to take advantage of the enhancement_—For example, if 40 seconds of the execution time of a program that takes 100 seconds in total can use an enhancement, the fraction is 40/100. This value, which we call Fraction<sub>enhanced</sub>, is always less than or equal to 1.
 
-> 1. \_原始计算机中计算时间的分数可以使用以利用增强功能，例如，如果程序的执行时间的 40 秒(总计需要 100 秒)可以使用增强功能，则分数为 40/100。我们称之为分数<sub>增强</sub>的值始终小于或等于 1。
+> 1. 原始计算机中计算时间的分数可以使用以利用增强功能，例如，如果程序的执行时间的 40 秒(总计需要 100 秒)可以使用增强功能，则分数为 40/100。我们称之为分数<sub>增强</sub>的值始终小于或等于 1。
 
 2. _The improvement gained by the enhanced execution mode, that is, how much faster the task would run if the enhanced mode were used for the entire pro- gram_—This value is the time of the original mode over the time of the enhanced mode. If the enhanced mode takes, say, 4 seconds for a portion of the program, while it is 40 seconds in the original mode, the improvement is 40/4 or 10. We call this value, which is always greater than 1, Speedup<sub>enhanced</sub>.
 
-> 2. \_通过增强的执行模式获得的改进，即，如果用于整个程序的增强模式使用，则任务将运行的速度更快 - 该值是增强模式的原始模式的时间。如果增强模式为程序的一部分需要 4 秒，而在原始模式下为 40 秒，则改进为 40/4 或 10。我们称此值始终大于 1，Speedup <sub>增强</sub>。
+> 2. 通过增强的执行模式获得的改进，即，如果用于整个程序的增强模式使用，则任务将运行的速度更快 - 该值是增强模式的原始模式的时间。如果增强模式为程序的一部分需要 4 秒，而在原始模式下为 40 秒，则改进为 40/4 或 10。我们称此值始终大于 1，Speedup <sub>增强</sub>。
 
 The execution time using the original computer with the enhanced mode will be the time spent using the unenhanced portion of the computer plus the time spent using the enhancement:
 
@@ -112,7 +95,7 @@ Amdahl’s Law expresses the law of diminishing returns: The incremental improve
 
 A common mistake in applying Amdahl’s Law is to confuse “fraction of time con- verted _to use an enhancement_” and “fraction of time _after enhancement is in use_.” If, instead of measuring the time that we _could use_ the enhancement in a compu- tation, we measure the time _after_ the enhancement is in use, the results will be incorrect!
 
-> 应用 AMDAHL 定律的一个常见错误是混淆“时间的分数*使用增强*”和“时间的一部分*在使用*”。如果我们没有测量我们在构成中使用增强功能的时间，而是测量时间 *after* 的时间，则结果将是不正确的！
+> 应用 AMDAHL 定律的一个常见错误是混淆“时间的分数*使用增强*”和“时间的一部分*在使用*”。如果我们没有测量我们在构成中使用增强功能的时间，而是测量时间 _after_ 的时间，则结果将是不正确的！
 
 Amdahl’s Law can serve as a guide to how much an enhancement will improve performance and how to distribute resources to improve cost-performance. The goal, clearly, is to spend resources proportional to where time is spent. Amdahl’s Law is particularly useful for comparing the overall system performance of two alternatives, but it can also be applied to compare two processor design alterna- tives, as the following example shows.
 
@@ -152,21 +135,17 @@ In the preceding examples, we needed the fraction consumed by the new and improv
 
 > 在前面的示例中，我们需要新版本和改进版本所消耗的分数；通常很难直接测量这些时间。在下一部分中，我们将根据将 CPU 执行时间分解为三个单独的组件的方程式的使用方程式进行另一种进行比较的方法。如果我们知道替代方案如何影响这三个组件，我们可以确定其整体性能。此外，通常可以构建在硬件实际设计之前测量这些组件的模拟器。
 
-### The Processor Performance Equation
-
-> ###处理器性能方程式
+### The Processor Performance Equation(处理器性能方程式)
 
 Essentially all computers are constructed using a clock running at a constant rate. These discrete time events are called _clock periods_, _clocks_, _cycles_, or _clock cycles_. Computer designers refer to the time of a clock period by its duration (e.g., 1 ns) or by its rate (e.g., 1 GHz). CPU time for a program can then be expressed two ways:
 
-> 本质上，所有计算机都是使用以恒定速率运行的时钟构造的。这些离散的时间事件称为 *clock ofers*，_clocks_，*cycles* 或 *Clock Cycles*。计算机设计人员是指时钟时间的时间(例如 1 ns)或速率(例如 1 GHz)。然后可以用两种方式表达 CPU 的时间：
+> 本质上，所有计算机都是使用以恒定速率运行的时钟构造的。这些离散的时间事件称为 _clock ofers_，_clocks_，_cycles_ 或 _Clock Cycles_。计算机设计人员是指时钟时间的时间(例如 1 ns)或速率(例如 1 GHz)。然后可以用两种方式表达 CPU 的时间：
 
 CPU time = CPU clock cycles for a program ×Clock cycle time
 
 > CPU 时间=程序 × 时钟周期时间的 CPU 时钟周期
 
 or
-
-> 或者
 
 CPU time CPU clock cycles for a program
 
@@ -178,7 +157,7 @@ Clock rate
 
 In addition to the number of clock cycles needed to execute a program, we can also count the number of instructions executed—the _instruction path length_ or _instruction count_ (IC). If we know the number of clock cycles and the instruction count, we can calculate the average number of _clock cycles per instruction_ (CPI). Because it is easier to work with, and because we will deal with simple processors in this chapter, we use CPI. Designers sometimes also use _instructions per clock_ (IPC), which is the inverse of CPI.
 
-> 除了执行程序所需的时钟周期数外，我们还可以计算执行的指令数 - *instruction 路径长度*或 *instruction count*(ic)。如果我们知道时钟周期的数量和指令数量，则可以计算每个指令*(CPI)的平均\_Clock 循环数。因为它更容易使用，并且由于我们将在本章中处理简单的处理器，因此我们使用 CPI。设计人员有时还会使用*每个时钟\_(IPC)，这是 CPI 的倒数。
+> 除了执行程序所需的时钟周期数外，我们还可以计算执行的指令数 - *instruction 路径长度*或 _instruction count_(ic)。如果我们知道时钟周期的数量和指令数量，则可以计算每个指令*(CPI)的平均\_Clock 循环数。因为它更容易使用，并且由于我们将在本章中处理简单的处理器，因此我们使用 CPI。设计人员有时还会使用*每个时钟\_(IPC)，这是 CPI 的倒数。
 
 > ===
 
@@ -195,12 +174,7 @@ CPU time = Instruction count ×Cycles per instruction ×Clock cycle time Expandi
 > CPU 时间=指令计数 × 每指令 × 时钟周期时间，将第一个公式扩展到测量单元中显示了零件如何结合在一起：
 
 Instructions Clock cycles Seconds Seconds
-
-> 说明时钟周期秒秒
-
 Program × Instruction ×Clock cycle = Program = CPU time
-
-> 程序 × 指令 × 时钟周期=程序= CPU 时间
 
 As this formula demonstrates, processor performance is dependent upon three characteristics: clock cycle (or rate), clock cycles per instruction, and instruction count. Furthermore, CPU time is _equally_ dependent on these three characteristics; for example, a 10% improvement in any one of them leads to a 10% improvement in CPU time.
 
@@ -211,15 +185,11 @@ Unfortunately, it is difficult to change one parameter in complete isolation fro
 > 不幸的是，很难在与其他参数完全隔离的情况下更改一个参数，因为改变每个特征的基本技术是相互依存的：
 
 - _Clock cycle time_—Hardware technology and organization
-
-> - _clock 循环时间_-硬件技术和组织
-
 - _CPI_—Organization and instruction set architecture
-
-> - _cpi_ - 组织和指令集体系结构
-
 - _Instruction count_—Instruction set architecture and compiler technology
 
+> - _clock 循环时间_-硬件技术和组织
+> - _cpi_ - 组织和指令集体系结构
 > - _ Instruction count_ - Instructuction Set 架构和编译器技术
 
 Luckily, many potential performance improvement techniques primarily enhance one component of processor performance with small or predictable impacts on the other two.
@@ -264,7 +234,7 @@ Assume that the two design alternatives are to decrease the CPI of FSQRT to 2 or
 
 _Answer_ First, observe that only the CPI changes; the clock rate and instruction count remain identical. We start by finding the original CPI with neither enhancement:
 
-> *answer* 首先，观察只有 CPI 改变；时钟率和指令数量保持相同。我们首先找到最初的 CPI，都没有增强：
+> _answer_ 首先，观察只有 CPI 改变；时钟率和指令数量保持相同。我们首先找到最初的 CPI，都没有增强：
 
 > ===
 
@@ -296,4 +266,4 @@ To use the processor performance equation as a design tool, we need to be able t
 
 Techniques that help with energy efficiency, such as dynamic voltage fre- quency scaling and overclocking (see [Section 1.5](#trends-in-power-and-energy-in-integrated-circuits)), make this equation harder to use, because the clock speed may vary while we measure the program. A simple approach is to turn off those features to make the results reproducible. Fortunately, as performance and energy efficiency are often highly correlated—taking less time to run a program generally saves energy—it’s probably safe to consider perfor- mance without worrying about the impact of DVFS or overclocking on the results.
 
-> 有助于能源效率的技术，例如动态电压频率缩放和超频(请参阅[1.5](第 1.5 节)(＃趋势中的趋势和能量融合电路))，使此方程式更难使用，更难使用，因为在我们测量程序时，时钟速度可能会有所不同。一种简单的方法是关闭这些功能以使结果可重现。幸运的是，由于性能和能源效率通常高度相关 - 花更少的时间运行程序通常可以节省能源 - 因此可以安全地考虑穿孔，而不必担心 DVFS 的影响或超频对结果的影响。
+> 有助于能源效率的技术，例如动态电压频率缩放和超频(请参阅 [Section 1.5](#trends-in-power-and-energy-in-integrated-circuits)，使此方程式更难使用，更难使用，因为在我们测量程序时，时钟速度可能会有所不同。一种简单的方法是关闭这些功能以使结果可重现。幸运的是，由于性能和能源效率通常高度相关 - 花更少的时间运行程序通常可以节省能源 - 因此可以安全地考虑穿孔，而不必担心 DVFS 的影响或超频对结果的影响。

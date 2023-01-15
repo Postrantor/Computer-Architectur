@@ -8,8 +8,8 @@ These changes have set the stage for a dramatic change in how we view computing,
 
 | Feature                       | Personal mobile device (PMD)                    | Desktop                                        | Server                                        | Clusters/warehousescale computer                      | Internet of things/ embedded                   |
 | ----------------------------- | ----------------------------------------------- | ---------------------------------------------- | --------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- |
-| Price of system               | $100–$1000                                      | $300–$2500                                     | $5000–$10,000,000                             | $100,000–$200,000,000                                 | $10–$100,000                                   |
-| Price of microprocessor       | $10–$100                                        | $50–$500                                       | $200–$2000                                    | $50–$250                                              | $0.01–$100                                     |
+| Price of system               | $100–$1000                                     | $300–$2500                                    | $5000–$10,000,000                            | $100,000–$200,000,000                                | $10–$100,000                                  |
+| Price of microprocessor       | $10–$100                                       | $50–$500                                      | $200–$2000                                   | $50–$250                                             | $0.01–$100                                    |
 | Critical system design issues | Cost, energy, media performance, responsiveness | Priceperformance, energy, graphics performance | Throughput, availability, scalability, energy | Price-performance, throughput, energy proportionality | Price, energy, applicationspecific performance |
 
 Figure 1.2 A summary of the five mainstream computing classes and their system characteristics. Sales in 2015 included about 1.6 billion PMDs (90% cell phones), 275 million desktop PCs, and 15 million servers. The total number of embedded processors sold was nearly 19 billion. In total, 14.8 billion ARM-technology-based chips were shipped in 2015. Note the wide range in system price for servers and embedded systems, which go from USB keys to network routers. For servers, this range arises from the need for very large-scale multiprocessor systems for high-end transaction processing.
@@ -139,41 +139,42 @@ Parallelism at multiple levels is now the driving force of computer design acros
 1. _Data-level parallelism (DLP)_ arises because there are many data items that can be operated on at the same time.
 
    > 1. _Data-level parallelism (DLP)_ 的出现是因为有很多数据项可以同时操作。
-
+   >
 2. _Task-level parallelism (TLP)_ arises because tasks of work are created that can operate independently and largely in parallel. Computer hardware in turn can exploit these two kinds of application parallelism in four major ways:
 
    > 2. _Task-level parallelism (TLP)_ 的出现是因为创建的工作任务可以独立运行并且在很大程度上是并行的。反过来，计算机硬件可以通过四种主要方式利用这两种应用程序并行性：
-
+   >
 3. _Instruction-level parallelism_ exploits data-level parallelism at modest levels with compiler help using ideas like pipelining and at medium levels using ideas like speculative execution.
 
    > 3. _指令级并行性_ 利用数据级并行性在中等水平上利用编译器帮助使用流水线等思想，在中等水平上利用推测执行等思想。
-
+   >
 4. _Vector architectures, graphic processor units (GPUs), and multimedia instruction sets_ exploit data-level parallelism by applying a single instruction to a collection of data in parallel.
 
    > 4. _矢量架构、图形处理器单元 (GPU) 和多媒体指令集_ 通过将单个指令并行应用于数据集合来利用数据级并行性。
-
+   >
 5. _Thread-level parallelism_ exploits either data-level parallelism or task-level parallelism in a tightly coupled hardware model that allows for interaction between parallel threads.
 
    > 5. _线程级并行_ 在紧密耦合的硬件模型中利用数据级并行或任务级并行，允许并行线程之间的交互。
-
+   >
 6. _Request-level parallelism_ exploits parallelism among largely decoupled tasks specified by the programmer or the operating system. When [Flynn (1966)](#_bookmark949) studied the parallel computing efforts in the 1960s, he found a simple classification whose abbreviations we still use today. They target data-level parallelism and task-level parallelism. He looked at the parallelism in the instruction and data streams called for by the instructions at the most constrained component of the multiprocessor and placed all computers in one of four categories:
 
    > 6. _请求级并行_ 利用程序员或操作系统指定的大部分解耦任务之间的并行性。当 [Flynn (1966)](#_bookmark949) 研究 1960 年代的并行计算工作时，他发现了一个简单的分类，其缩写我们今天仍在使用。它们针对数据级并行性和任务级并行性。他研究了多处理器中最受限组件的指令所要求的指令和数据流的并行性，并将所有计算机归为以下四个类别之一：
-
+   >
 7. _Single instruction stream, single data stream_ (SISD)—This category is the uniprocessor. The programmer thinks of it as the standard sequential computer, but it can exploit ILP. [Chapter 3](#_bookmark93) covers SISD architectures that use ILP techniques such as superscalar and speculative execution.
 
    > 7. _单指令流、单数据流_(SISD)——这一类是单处理器。程序员将其视为标准的顺序计算机，但它可以利用 ILP。[第 3 章](#_bookmark93) 介绍了使用超标量和推测执行等 ILP 技术的 SISD 架构。
-
+   >
 8. _Single instruction stream, multiple data streams_ (SIMD)—The same instruction is executed by multiple processors using different data streams. SIMD computers exploit _data-level parallelism_ by applying the same operations to multiple items of data in parallel. Each processor has its own data memory (hence, the MD of SIMD), but there is a single instruction memory and control processor, which fetches and dispatches instructions. [Chapter 4](#_bookmark165) covers DLP and three different architectures that exploit it: vector architectures, multimedia extensions to standard instruction sets, and GPUs.
 
    > 8. _单指令流，多数据流_ (SIMD)——同一条指令由多个处理器使用不同的数据流执行。SIMD 计算机通过对多个数据项并行应用相同的操作来利用 _数据级并行性_。每个处理器都有自己的数据存储器(因此，SIMD 的 MD)，但只有一个指令存储器和控制处理器，用于获取和调度指令。[第 4 章](#_bookmark165) 涵盖 DLP 和利用它的三种不同架构：向量架构、标准指令集的多媒体扩展和 GPU。
-
+   >
 9. _Multiple instruction streams, single data stream_ (MISD)—No commercial multiprocessor of this type has been built to date, but it rounds out this simple classification.
 
    > 9. _多指令流，单数据流_ (MISD)——迄今为止还没有制造出这种类型的商用多处理器，但它完善了这个简单的分类。
-
+   >
 10. _Multiple instruction streams, multiple data streams_ (MIMD)—Each processor fetches its own instructions and operates on its own data, and it targets task-level parallelism. In general, MIMD is more flexible than SIMD and thus more generally applicable, but it is inherently more expensive than SIMD. For example, MIMD computers can also exploit data-level parallelism, although the overhead is likely to be higher than would be seen in an SIMD computer. This overhead means that grain size must be sufficiently large to exploit the parallelism efficiently. [Chapter 5](#_bookmark213) covers tightly coupled MIMD architectures, which exploit _thread-level parallelism_ because multiple cooperating threads operate in parallel. [Chapter 6](#_bookmark268) covers loosely coupled MIMD architectures—specifically, _clusters_ and _warehouse-scale computers_—that exploit _request-level parallelism_, where many independent tasks can proceed in parallel naturally with little need for communication or synchronization.
 
     > 10. _多指令流、多数据流_(MIMD)——每个处理器获取自己的指令并对自己的数据进行操作，它的目标是任务级并行性。一般来说，MIMD 比 SIMD 更灵活，因此更普遍适用，但它本质上比 SIMD 更昂贵。例如，MIMD 计算机也可以利用数据级并行性，尽管开销可能比在 SIMD 计算机中看到的要高。这种开销意味着粒度必须足够大才能有效地利用并行性。[第 5 章](#_bookmark213) 涵盖紧密耦合的 MIMD 架构，它利用 _线程级并行性_ ，因为多个协作线程并行运行。[第 6 章](#_bookmark268) 涵盖了松散耦合的 MIMD 架构——特别是 _集群_ 和 _仓库规模的计算机_ ——利用 _请求级并行_，其中许多独立任务可以自然地并行进行，几乎不需要通信或同步。
+    >
 
 This taxonomy is a coarse model, as many parallel processors are hybrids of the SISD, SIMD, and MIMD classes. Nonetheless, it is useful to put a framework on the design space for the computers we will see in this book.

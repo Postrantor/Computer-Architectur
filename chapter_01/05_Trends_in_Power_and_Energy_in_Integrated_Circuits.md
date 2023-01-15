@@ -1,7 +1,6 @@
 ---
 data: 2023-01-15
 ---
-
 > [!note] 芯片与功耗之间的平衡
 > 随着晶体管的数量增长，对能量的消耗也快速增长，但是芯片的散热面积并没有增加，这就需要更好的平衡功耗设计，如：
 >
@@ -72,7 +71,7 @@ As we move from one process to the next, the increase in the number of tran- sis
 
 Given the preceding equation, you would expect clock frequency growth to slow down if we can’t reduce voltage or increase power per chip. [Figure 1.11](#_bookmark19) shows that this has indeed been the case since 2003, even for the microprocessors in [Figure 1.1](#_bookmark5) that were the highest performers each year. Note that this period of flatter clock rates corresponds to the period of slow performance improvement range in [Figure 1.1](#_bookmark5).
 
-> 鉴于上述方程式，如果我们不能降低电压或增加每个芯片的功率，您可能会预计时钟频率的增长会减慢。[图 1.11](#_bookmark19)表明，自 2003 年以来，即使是[图 1.1](#_bookmark5)中表现最高的微处理器，这确实是这种情况。请注意，这个平整时钟速率的时期对应于[图 1.1](#_bookmark5)中的缓慢性能改进范围的时期。
+> 鉴于上述方程式，如果我们不能降低电压或增加每个芯片的功率，您可能会预计时钟频率的增长会减慢。[图 1.11](#_bookmark19) 表明，自 2003 年以来，即使是[图 1.1](#_bookmark5) 中表现最高的微处理器，这确实是这种情况。请注意，这个平整时钟速率的时期对应于[图 1.1](#_bookmark5) 中的缓慢性能改进范围的时期。
 
 Distributing the power, removing the heat, and preventing hot spots have become increasingly difficult challenges. Energy is now the major constraint to using transistors; in the past, it was the raw silicon area. Therefore modern microprocessors offer many techniques to try to improve energy efficiency despite flat clock rates and constant supply voltages:
 
@@ -84,7 +83,7 @@ Distributing the power, removing the heat, and preventing hot spots have become 
 
 2. _Dynamic voltage-frequency scaling (DVFS)._ The second technique comes directly from the preceding formulas. PMDs, laptops, and even servers have periods of low activity where there is no need to operate at the highest clock frequency and voltages. Modern microprocessors typically offer a few clock frequencies and voltages in which to operate that use lower power and energy. [Figure 1.12](#_bookmark20) plots the potential power savings via DVFS for a server as the work- load shrinks for three different clock rates: 2.4, 1.8, and 1 GHz. The overall server power savings is about 10%–15% for each of the two steps.
 
-> 2. _Dynamic voltage-frequency scaling (DVFS)._ 第二技术直接来自前面的公式。PMD，笔记本电脑甚至服务器的活动期间不需要以最高的时钟频率和电压操作。现代微处理器通常提供一些时钟频率和电压，在其中操作使用较低的功率和能量。[图 1.12](#_bookmark20)通过服务器的 DVF 绘制潜在的功率节省，作为三个不同时钟速率的工作负载收缩：2.4、1.8 和 1 GHz。这两个步骤中的每个步骤的总体服务器功率节省约为 10％–15％。
+> 2. _Dynamic voltage-frequency scaling (DVFS)._ 第二技术直接来自前面的公式。PMD，笔记本电脑甚至服务器的活动期间不需要以最高的时钟频率和电压操作。现代微处理器通常提供一些时钟频率和电压，在其中操作使用较低的功率和能量。[图 1.12](#_bookmark20) 通过服务器的 DVF 绘制潜在的功率节省，作为三个不同时钟速率的工作负载收缩：2.4、1.8 和 1 GHz。这两个步骤中的每个步骤的总体服务器功率节省约为 10％–15％。
 
 3. _Design for the typical case._ Given that PMDs and laptops are often idle, memory and storage offer low power modes to save energy. For example, DRAMs have a series of increasingly lower power modes to extend battery life in PMDs and laptops, and there have been proposals for disks that have a mode that spins more slowly when unused to save power. However, you cannot access DRAMs or disks in these modes, so you must return to fully active mode to read or write, no matter how low the access rate. As mentioned, microprocessors for PCs have been designed instead for heavy use at high operating temperatures, relying on on-chip temperature sensors to detect when activity should be reduced automatically to avoid overheating. This “emergency slowdown” allows manufacturers to design for a more typical case and then rely on this safety mechanism if someone really does run programs that consume much more power than is typical.
 
@@ -92,15 +91,15 @@ Distributing the power, removing the heat, and preventing hot spots have become 
 
 Figure 1.11 Growth in clock rate of microprocessors in [Figure 1.1](#_bookmark5). Between 1978 and 1986, the clock rate improved less than 15% per year while performance improved by 22% per year. During the “renaissance period” of 52% performance improvement per year between 1986 and 2003, clock rates shot up almost 40% per year. Since then, the clock rate has been nearly flat, growing at less than 2% per year, while single processor performance improved recently at just 3.5% per year.
 
-> 图 1.11 在[Figure 1.1](#_bookmark5)中的微处理器时钟速率增长。在 1978 年至 1986 年之间，时钟率每年不到 15％，而表现每年提高 22％。在 1986 年至 2003 年之间每年 52％的“文艺复兴时期”中，时钟率每年近 40％。从那时起，时钟速率几乎是平坦的，每年不到 2％，而单个处理器的性能最近以每年仅 3.5％的速度提高。
+> 图 1.11 在 [Figure 1.1](#_bookmark5) 中的微处理器时钟速率增长。在 1978 年至 1986 年之间，时钟率每年不到 15％，而表现每年提高 22％。在 1986 年至 2003 年之间每年 52％的“文艺复兴时期”中，时钟率每年近 40％。从那时起，时钟速率几乎是平坦的，每年不到 2％，而单个处理器的性能最近以每年仅 3.5％的速度提高。
 
 Figure 1.12 Energy savings for a server using an AMD Opteron microprocessor, 8 GB of DRAM, and one ATA disk. At 1.8 GHz, the server can handle at most up to two-thirds of the workload without causing service-level violations, and at 1 GHz, it can safely han- dle only one-third of the workload (Figure 5.11 in [Barroso and H](#_bookmark924)o€[lzle, 2009](#_bookmark924)).
 
-> 图 1.12 使用 AMD Opteron 微处理器，8 GB DRAM 和一个 ATA 磁盘为服务器节省能源。在 1.8 GHz 时，服务器最多可以处理多达三分之二的工作负载，而不会引起服务级别的违规行为，而在 1 GHz 时，它只能安全地仅限于工作量的三分之一(图 5.11 在[Barroso 和[Barroso and and and and and]h](#_ bookmark924)o€[lzle，2009](#_ bookmark924))。
+> 图 1.12 使用 AMD Opteron 微处理器，8 GB DRAM 和一个 ATA 磁盘为服务器节省能源。在 1.8 GHz 时，服务器最多可以处理多达三分之二的工作负载，而不会引起服务级别的违规行为，而在 1 GHz 时，它只能安全地仅限于工作量的三分之一(图 5.11 在 [Barroso 和[Barroso and and and and and]h](#_bookmark924)o€[lzle，2009](#_bookmark924))。
 
 1. _Overclocking_. Intel started offering _Turbo mode_ in 2008, where the chip decides that it is safe to run at a higher clock rate for a short time, possibly on just a few cores, until temperature starts to rise. For example, the 3.3 GHz Core i7 can run in short bursts for 3.6 GHz. Indeed, the highest-performing microprocessors each year since 2008 shown in [Figure 1.1](#_bookmark5) have all offered temporary overclock- ing of about 10% over the nominal clock rate. For single-threaded code, these microprocessors can turn off all cores but one and run it faster. Note that, although the operating system can turn off Turbo mode, there is no notification once it is enabled, so the programmers may be surprised to see their programs vary in performance because of room temperature! Although dynamic power is traditionally thought of as the primary source of power dissipation in CMOS, static power is becoming an important issue because leakage current flows even when a transistor is off:
 
-> 1. _Overclocking_. 英特尔于 2008 年开始提供 _Turbo 模式_，芯片决定在短时间内以更高的时钟速率运行，可能仅在几个内核上运行，直到温度开始升高为止。例如，3.3 GHz Core i7 可以在 3.6 GHz 的短爆发中运行。实际上，自 2008 年以来[图 1.1](#_bookmark5)所示的每年表现最高的微处理器都提供了比标称时钟速率约 10％的临时超频。对于单线读取代码，这些微处理器可以关闭所有内核，但要更快地运行它。请注意，尽管操作系统可以关闭 Turbo 模式，但是一旦启用了通知，因此没有通知，因此程序员可能会惊讶地看到他们的程序在室温下的性能有所不同！尽管传统上将动态功率视为 CMO 中功率耗散的主要来源，但静态功率正在成为一个重要问题，因为泄漏电流即使晶体管关闭，泄漏电流也会流动：
+> 1. _Overclocking_. 英特尔于 2008 年开始提供 _Turbo 模式_，芯片决定在短时间内以更高的时钟速率运行，可能仅在几个内核上运行，直到温度开始升高为止。例如，3.3 GHz Core i7 可以在 3.6 GHz 的短爆发中运行。实际上，自 2008 年以来[图 1.1](#_bookmark5) 所示的每年表现最高的微处理器都提供了比标称时钟速率约 10％的临时超频。对于单线读取代码，这些微处理器可以关闭所有内核，但要更快地运行它。请注意，尽管操作系统可以关闭 Turbo 模式，但是一旦启用了通知，因此没有通知，因此程序员可能会惊讶地看到他们的程序在室温下的性能有所不同！尽管传统上将动态功率视为 CMO 中功率耗散的主要来源，但静态功率正在成为一个重要问题，因为泄漏电流即使晶体管关闭，泄漏电流也会流动：
 
 > ===
 
@@ -118,7 +117,7 @@ Finally, because the processor is just a portion of the whole energy cost of a s
 
 The importance of power and energy has increased the scrutiny on the effi- ciency of an innovation, so the primary evaluation now is tasks per joule or per- formance per watt, contrary to performance per $mm^{2}$ of silicon as in the past. This new metric affects approaches to parallelism, as we will see in Chapters [4](#_bookmark165) and [5](#_bookmark213).
 
-> 权力和能源的重要性提高了对创新有效性的回顾，因此现在的主要评估是每瓦特的任务或每瓦的效果，与硅的每瓦尔德 $mm^{2}$ 相反，过去。正如我们将在章节[4](#_ bookmark165)和[5](#_ bookmark213)中看到的那样，这个新的指标影响了并行性的方法。
+> 权力和能源的重要性提高了对创新有效性的回顾，因此现在的主要评估是每瓦特的任务或每瓦的效果，与硅的每瓦尔德 $mm^{2}$ 相反，过去。正如我们将在章节 [4](#_bookmark165) 和 [5](#_bookmark213) 中看到的那样，这个新的指标影响了并行性的方法。
 
 ### The Shift in Computer Architecture Because of Limits of Energy(计算机体系结构的转移由于能源的限制)
 
@@ -128,7 +127,7 @@ As transistor improvement decelerates, computer architects must look elsewhere f
 
 [Figure 1.13](#_bookmark21), which lists the energy cost and area cost of the building blocks of a modern computer, reveals surprisingly large ratios. For example, a 32-bit
 
-> [图 1.13](#_bookmark21)列出了现代计算机构建块的能源成本和面积成本，显示出惊人的比率。例如，32 位
+> [图 1.13](#_bookmark21) 列出了现代计算机构建块的能源成本和面积成本，显示出惊人的比率。例如，32 位
 
 > ===
 
@@ -146,4 +145,4 @@ floating-point addition uses 30 times as much energy as an 8-bit integer add. Th
 
 The new design principle of minimizing energy per task combined with the relative energy and area costs in [Figure 1.13](#_bookmark21) have inspired a new direction for com- puter architecture, which we describe in [Chapter 7](#_bookmark322). Domain-specific processors save energy by reducing wide floating-point operations and deploying special-pur- pose memories to reduce accesses to DRAM. They use those saving to provide 10–100 more (narrower) integer arithmetic units than a traditional processor. Although such processors perform only a limited set of tasks, they perform them remarkably faster and more energy efficiently than a general-purpose processor. Like a hospital with general practitioners and medical specialists, computers in this energy-aware world will likely be combinations of general-purpose cores that can perform any task and special-purpose cores that do a few things extremely well and even more cheaply.
 
-> 最小化每个任务的能量的新设计原理，结合了[图 1.13](#_bookmark21)中的相对能量和面积成本，启发了一个新方向 - 我们在[第 7 章](#_bookmark322)中进行了描述。特定于域的处理器通过减少宽阔的浮点操作并部署特殊姿势记忆来节省能源，以减少对 DRAM 的访问。他们使用节省的人比传统处理器多提供 10-100 个整数算术单元。尽管此类处理器仅执行有限的任务，但它们的执行速度比通用处理器更快，更有效。像一家拥有全科医生和医学专家的医院一样，这个能源感知世界中的计算机可能是通用核心的组合，可以执行任何任务和专用核心，这些核心对一些事情做得非常好，甚至更便宜。
+> 最小化每个任务的能量的新设计原理，结合了[图 1.13](#_bookmark21) 中的相对能量和面积成本，启发了一个新方向 - 我们在[第 7 章](#_bookmark322)中进行了描述。特定于域的处理器通过减少宽阔的浮点操作并部署特殊姿势记忆来节省能源，以减少对 DRAM 的访问。他们使用节省的人比传统处理器多提供 10-100 个整数算术单元。尽管此类处理器仅执行有限的任务，但它们的执行速度比通用处理器更快，更有效。像一家拥有全科医生和医学专家的医院一样，这个能源感知世界中的计算机可能是通用核心的组合，可以执行任何任务和专用核心，这些核心对一些事情做得非常好，甚至更便宜。

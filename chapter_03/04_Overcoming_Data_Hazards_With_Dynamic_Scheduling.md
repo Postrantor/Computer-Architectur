@@ -1,28 +1,26 @@
-## Overcoming Data Hazards With Dynamic Scheduling
-
-> ##通过动态调度克服数据危害
+## Overcoming Data Hazards With Dynamic Scheduling(通过动态调度克服数据危害)
 
 A simple statically scheduled pipeline fetches an instruction and issues it, unless there is a data dependence between an instruction already in the pipeline and the fetched instruction that cannot be hidden with bypassing or forwarding. (Forward- ing logic reduces the effective pipeline latency so that the certain dependences do not result in hazards.) If there is a data dependence that cannot be hidden, then the hazard detection hardware stalls the pipeline starting with the instruction that uses the result. No new instructions are fetched or issued until the dependence is cleared. In this section, we explore _dynamic scheduling_, a technique by which the hard- ware reorders the instruction execution to reduce the stalls while maintaining data flow and exception behavior. Dynamic scheduling offers several advantages. First, it allows code that was compiled with one pipeline in mind to run efficiently on a different pipeline, eliminating the need to have multiple binaries and recompile for a different microarchitecture. In today’s computing environment, where much of the software is from third parties and distributed in binary form, this advantage is sig- nificant. Second, it enables handling some cases when dependences are unknown at compile time; for example, they may involve a memory reference or a data- dependent branch, or they may result from a modern programming environment that uses dynamic linking or dispatching. Third, and perhaps most importantly, it allows the processor to tolerate unpredictable delays, such as cache misses, by executing other code while waiting for the miss to resolve. In [Section 3.6](#hardware-based-speculation), we explore hardware speculation, a technique with additional performance advantages, which builds on dynamic scheduling. As we will see, the advantages of dynamic scheduling are gained at the cost of a significant increase in hardware complexity. Although a dynamically scheduled processor cannot change the data flow, it tries to avoid stalling when dependences are present. In contrast, static pipeline scheduling by the compiler (covered in [Section 3.2](#basic-compiler-techniques-for-exposing-ilp)) tries to minimize stalls by sep- arating dependent instructions so that they will not lead to hazards. Of course, compiler pipeline scheduling can also be used in code destined to run on a proces- sor with a dynamically scheduled pipeline.
 
-> 一个简单的静态计划管道会获取指令并发出指示，除非管道中的指令与绕过或转发无法隐藏的指令之间存在数据依赖性。(向前的逻辑减少了有效管道延迟，因此某些依赖性不会导致危害。)如果存在无法隐藏的数据依赖性，则危害检测硬件将管道从使用结果的指令开始。在清除依赖性之前，没有获取或发出新的说明。在本节中，我们探索 *DYNAGINIC 调度*，这是一项技术，硬件将指令执行以减少摊位，同时保持数据流量和异常行为。动态调度提供了几个优势。首先，它允许用一个管道编译的代码在不同的管道上有效运行，从而消除了具有多个二进制文件并重新编译不同微体系结构的需要。在当今的计算环境中，大部分软件来自第三方并以二进制形式分发，这是很重要的。其次，它可以在编译时间未知的情况下处理某些情况；例如，它们可能涉及内存参考或数据依赖分支，或者可能是由使用动态链接或调度的现代编程环境所致。第三，也许最重要的是，它允许处理器通过在等待 Miss 解决的同时执行其他代码来忍受不可预测的延迟，例如缓存失误。在[第 3.6 节](＃基于硬件的规范)中，我们探索了硬件猜测，这是一种具有额外性能优势的技术，其基于动态调度。正如我们将看到的那样，动态调度的优势以大量硬件复杂性的显着增加而获得。尽管动态计划的处理器无法更改数据流，但在存在依赖时，它试图避免停滞。相反，编译器的静态管道调度(涵盖[第 3.2 节](＃Basic-compiler-techniques-for-Sparbosing-ilp))尝试通过分开的依赖指令将摊位最小化，以免引起危害。当然，编译器管道调度也可以在注定的代码中用于使用动态计划的管道进行操作。
+> 一个简单的静态调度流水线获取一条指令并发出它，除非流水线中已有的指令与获取的指令之间存在无法通过绕过或转发隐藏的数据依赖性。(转发逻辑减少了有效的流水线延迟，因此某些依赖性不会导致危险。)如果存在无法隐藏的数据依赖性，则危险检测硬件将从使用结果的指令开始停止流水线。在清除相关性之前，不会获取或发出新指令。在本节中，我们将探索*动态调度*，这是一种硬件重新排序指令执行以减少停顿同时保持数据流和异常行为的技术。
+> 动态调度有几个优点。
+>
+> - 首先，它允许使用一个管道编译的代码在不同的管道上高效运行，从而无需拥有多个二进制文件并为不同的微体系结构重新编译。在当今的计算环境中，许多软件来自第三方并以二进制形式分发，这一优势非常显着。
+> - 其次，它可以处理一些编译时依赖未知的情况；例如，它们可能涉及内存引用或数据相关分支，或者它们可能来自使用动态链接或调度的现代编程环境。
+> - 第三，也许是最重要的一点，它允许处理器通过在等待未命中解决时执行其他代码来容忍不可预测的延迟，例如缓存未命中。在[第 3.6 节](#hardware-based-speculation)中，我们探讨了硬件推测，这是一种具有额外性能优势的技术，它建立在动态调度的基础上。
+>   正如我们将看到的，动态调度的优势是以显着增加硬件复杂性为代价的。尽管动态调度的处理器无法更改数据流，但它会**尝试避免在存在依赖性时停顿**。相比之下，编译器的静态流水线调度(在[第 3.2 节](#basic-compiler-techniques-for-exposing-ilp) 中介绍)试图通过**分离相关指令来最大程度地减少停顿**，这样它们就不会导致危险。当然，编译器流水线调度也可以用在注定要在具有动态调度流水线的处理器上运行的代码中。
 
-> Figure 3.9 The misprediction rate for the integer SPECCPU2006 benchmarks on the Intel Core i7 920 and 6700. The misprediction rate is computed as the ratio of completed branches that are mispredicted versus all completed branches. This could understate the misprediction rate somewhat because if a branch is mispredicted and led to another mispredicted branch (which should not have been executed), it will be counted as only one misprediction. On average, the i7 920 mispredicts branches 1.3 times as often as the i7 6700.
+Figure 3.9 The misprediction rate for the integer SPECCPU2006 benchmarks on the Intel Core i7 920 and 6700. The misprediction rate is computed as the ratio of completed branches that are mispredicted versus all completed branches. This could understate the misprediction rate somewhat because if a branch is mispredicted and led to another mispredicted branch (which should not have been executed), it will be counted as only one misprediction. On average, the i7 920 mispredicts branches 1.3 times as often as the i7 6700.
 
->> 图 3.9 Intel Core i7 920 和 6700 上的整数 SpecCPU2006 基准的错误预测率。计算错误预测率是根据已完成的分支机构的比率进行了错误预测的分支，而所有已完成的分支的比率。这可能会低估错误预测的率，因为如果一个分支机构被错误预测并导致另一个错误预测的分支(不应该执行)，则将仅计算为一个错误预测。平均而言，i7 920 错误预测的分支是 I7 6700 的频率 1.3 倍。
->>
+> 图 3.9 Intel Core i7 920 和 6700 上的整数 SpecCPU2006 基准的错误预测率。计算错误预测率是根据已完成的分支机构的比率进行了错误预测的分支，而所有已完成的分支的比率。这可能会低估错误预测的率，因为如果一个分支机构被错误预测并导致另一个错误预测的分支(不应该执行)，则将仅计算为一个错误预测。平均而言，i7 920 错误预测的分支是 I7 6700 的频率 1.3 倍。
 
-### Dynamic Scheduling: The Idea
-
-> ###动态调度：这个想法
+### Dynamic Scheduling: The Idea(动态调度：这个想法)
 
 A major limitation of simple pipelining techniques is that they use in-order instruc- tion issue and execution: instructions are issued in program order, and if an instruc- tion is stalled in the pipeline, no later instructions can proceed. Thus, if there is a dependence between two closely spaced instructions in the pipeline, it will lead to a hazard, and a stall will result. If there are multiple functional units, these units could lie idle. If instruction _j_ depends on a long-running instruction _i,_ currently in execution in the pipeline, then all instructions after _j_ must be stalled until _i_ is finished and _j_ can execute. For example, consider this code:
 
-> 简单的管道技术的一个主要局限性是他们使用固定的指导问题和执行：按计划顺序发布说明，如果在管道中停滞不前，则不得以后的说明可以继续进行。因此，如果管道中两个紧密间隔的说明之间存在依赖性，则会导致危险，并且会导致摊位。如果有多个功能单元，这些单元可能会闲置。如果指令 *j* 取决于长期运行的指令 *i，*当前在管道中执行，则必须将* j*之后的所有指令停滞不前，直到 *i* 完成并且 *j* 可以执行。例如，考虑此代码：
+> 简单的管道技术的一个主要局限性是他们使用固定的指导问题和执行：按计划顺序发布说明，如果在管道中停滞不前，则不得以后的说明可以继续进行。因此，如果管道中两个紧密间隔的说明之间存在依赖性，则会导致危险，并且会导致摊位。如果有多个功能单元，这些单元可能会闲置。如果指令 _j_ 取决于长期运行的指令 *i，*当前在管道中执行，则必须将* j*之后的所有指令停滞不前，直到 _i_ 完成并且 _j_ 可以执行。例如，考虑此代码：
 
 > ===
-
->> ===
->>
 
 The fsub.d instruction cannot execute because the dependence of fadd.d on fdiv.d causes the pipeline to stall; yet, fsub.d is not data-dependent on any- thing in the pipeline. This hazard creates a performance limitation that can be elim- inated by not requiring instructions to execute in program order.
 
@@ -34,16 +32,13 @@ In the classic five-stage pipeline, both structural and data hazards could be ch
 
 To allow us to begin executing the fsub.d in the preceding example, we must separate the issue process into two parts: checking for any structural hazards and waiting for the absence of a data hazard. Thus we still use in-order instruction issue (i.e., instructions issued in program order), but we want an instruction to begin exe- cution as soon as its data operands are available. Such a pipeline does _out-of-order execution_, which implies _out-of-order completion_.
 
-> 为了让我们开始在上一个示例中执行 FSUB.D，我们必须将问题过程分为两个部分：检查任何结构性危害并等待缺乏数据危害。因此，我们仍然使用固定指令问题(即按程序顺序发布的说明)，但是我们希望一旦提供数据操作数，就可以开始进行指导。这样的管道执行 *out-Out corderecution*，这意味着 *out-Out of-Out of-Out contemion*。
+> 为了让我们开始在上一个示例中执行 FSUB.D，我们必须将问题过程分为两个部分：检查任何结构性危害并等待缺乏数据危害。因此，我们仍然使用固定指令问题(即按程序顺序发布的说明)，但是我们希望一旦提供数据操作数，就可以开始进行指导。这样的管道执行 _out-Out corderecution_，这意味着 _out-Out of-Out of-Out contemion_。
 
 Out-of-order execution introduces the possibility of WAR and WAW hazards, which do not exist in the five-stage integer pipeline and its logical extension to an in-order floating-point pipeline. Consider the following RISC-V floating-point code sequence:
 
 > 排序的执行引入了战争和 WAW 危害的可能性，在五阶段的整数管道中不存在及其逻辑扩展，并将其逻辑扩展到订购的浮点管道。考虑以下 RISC-V 浮点代码序列：
 
 > ===
-
->> ===
->>
 
 There is an antidependence between the fmul.d and the fadd.d (for the register f0), and if the pipeline executes the fadd.d before the fmul.d (which is wait- ing for the fdiv.d), it will violate the antidependence, yielding a WAR hazard. Likewise, to avoid violating output dependences, such as the write of f0 by fadd.d before fdiv.d completes, WAW hazards must be handled. As we will see, both these hazards are avoided by the use of register renaming.
 
@@ -55,34 +50,26 @@ Out-of-order completion also creates major complications in handling excep- tion
 
 Although exception behavior must be preserved, dynamically scheduled pro- cessors could generate _imprecise_ exceptions. An exception is _imprecise_ if the processor state when an exception is raised does not look exactly as if the instruc- tions were executed sequentially in strict program order. Imprecise exceptions can occur because of two possibilities:
 
-> 尽管必须保留异常行为，但动态计划的监事可以生成 *imprecise* 例外。例外是 *imprecise* 如果在升级异常时的处理器状态看起来并不完全好像以严格的程序顺序依次执行指令。由于有两种可能性，可能会出现不精确的例外：
+> 尽管必须保留异常行为，但动态计划的监事可以生成 _imprecise_ 例外。例外是 _imprecise_ 如果在升级异常时的处理器状态看起来并不完全好像以严格的程序顺序依次执行指令。由于有两种可能性，可能会出现不精确的例外：
 
-1. The pipeline may have _already completed_ instructions that are
-
-> 1.管道可能具有 *already 已完成*指令
-
-_later_ in program order than the instruction causing the exception.
-
-> *later* 在程序顺序中比导致例外的指令。
-
+1. The pipeline may have _already completed_ instructions that are _later_ in program order than the instruction causing the exception.
 2. The pipeline may have _not yet completed_ some instructions that are _earlier_ in program order than the instruction causing the exception.
 
-> 2.管道可能具有*不完成*在程序顺序上 *earlier* 的某些指令比导致例外的指令。
+> 1. 流水线可能有 *already completed* 指令，这些指令在程序顺序上比导致异常的指令*晚*。
+> 2. 流水线可能*还没有完成*一些指令，这些指令在程序顺序上比导致异常的指令*早*。
 
 Imprecise exceptions make it difficult to restart execution after an exception. Rather than address these problems in this section, we will discuss a solution that provides precise exceptions in the context of a processor with speculation in [Section 3.6](#hardware-based-speculation). For floating-point exceptions, other solutions have been used, as dis- cussed in Appendix J.
 
-> 不精确的例外使得在例外后很难重新启动执行。我们将讨论在本节中解决这些问题，而是讨论一个解决方案，该解决方案在[3.6](＃基于硬件的规范)中具有猜测的处理器的上下文中提供了精确的例外。对于浮点异常，已在附录 J 中提出的其他解决方案已被使用。
+> 不精确的异常导致异常后很难重新开始执行。我们将在 [第 3.6 节](#hardware-based-speculation)中讨论一种在处理器上下文中提供精确异常的解决方案，而不是在本节中解决这些问题。对于浮点异常，已使用其他解决方案，如附录 J 中所述。
 
 To allow out-of-order execution, we essentially split the ID pipe stage of our simple five-stage pipeline into two stages:
 
 > 为了允许排序执行，我们本质上将简单五阶段管道的 ID 管道阶段分为两个阶段：
 
 1. _Issue_—Decode instructions, check for structural hazards.
-
-> 1. _issue_-指定说明，检查结构性危害。
-
 2. _Read operands_—Wait until no data hazards, then read operands.
 
+> 1. _issue_-指定说明，检查结构性危害。
 > 2. \_read 操作数 - 等待直到没有数据危害为止，然后阅读操作数。
 
 An instruction fetch stage precedes the issue stage and may fetch either to an instruction register or into a queue of pending instructions; instructions are then issued from the register or queue. The execution stage follows the read operands stage, just as in the five-stage pipeline. Execution may take multiple cycles, depend- ing on the operation.
@@ -91,19 +78,17 @@ An instruction fetch stage precedes the issue stage and may fetch either to an i
 
 We distinguish when an instruction _begins execution_ and when it _completes execution_; between the two times, the instruction is _in execution._ Our pipeline allows multiple instructions to be in execution at the same time; without this capa- bility, a major advantage of dynamic scheduling is lost. Having multiple instruc- tions in execution at once requires multiple functional units, pipelined functional units, or both. Because these two capabilities—pipelined functional units and multiple functional units—are essentially equivalent for the purposes of pipeline control, we will assume the processor has multiple functional units.
 
-> 我们区分指令 *begins execution* 及其 *completes execution*;在两次之间，指令是*in 执行。*我们的管道允许同时执行多个指令；没有这种能力，动态调度的主要优势就会丢失。在执行中具有多种指导需要多个功能单元，管道功能单元或两者兼而有之。由于这两个功能(涉及二级功能单元和多个功能单元)本质上是相当于管道控制的目的，因此我们将假设处理器具有多个功能单元。
+> 我们区分指令 _begins execution_ 及其 _completes execution_;在两次之间，指令是*in 执行。*我们的管道允许同时执行多个指令；没有这种能力，动态调度的主要优势就会丢失。在执行中具有多种指导需要多个功能单元，管道功能单元或两者兼而有之。由于这两个功能(涉及二级功能单元和多个功能单元)本质上是相当于管道控制的目的，因此我们将假设处理器具有多个功能单元。
 
 In a dynamically scheduled pipeline, all instructions pass through the issue stage in order (in-order issue); however, they can be stalled or can bypass each other in the second stage (read operands) and thus enter execution out of order. _Scoreboarding_ is a technique for allowing instructions to execute out of order when there are sufficient resources and no data dependences; it is named after the CDC 6600 scoreboard, which developed this capability. Here we focus on a more sophis- ticated technique, called _Tomasulo_’_s algorithm._ The primary difference is that Tomasulo’s algorithm handles antidependences and output dependences by effec- tively renaming the registers dynamically. Additionally, Tomasulo’s algorithm can be extended to handle _speculation_, a technique to reduce the effect of control dependences by predicting the outcome of a branch, executing instructions at the predicted destination address, and taking corrective actions when the prediction was wrong. While the use of scoreboarding is probably sufficient to support sim- pler processors, more sophisticated, higher performance processors make use of speculation.
 
-> 在动态安排的管道中，所有指令都以秩序(按顺序发行)通过了问题阶段；但是，它们可以在第二阶段(读取操作数)中停滞或可以绕过对方，从而输入执行。*scoreboarding* 是一种技术，可以在有足够的资源且没有数据依赖的情况下允许指令执行订单；它以 CDC 6600 计分板的名字命名，该记分牌开发了此功能。在这里，我们专注于一种更柔和的技术，称为* tomasulo *’_ s algorithm。此外，可以扩展 tomasulo 的算法来处理\_speculation_，这是一种通过预测分支的结果，在预测的目标地址执行指令以及在预测是错误时采取纠正措施来减少控制依赖的效果的技术。虽然计分板的使用可能足以支持模拟处理器，但更复杂的高性能处理器可以利用投机。
+> 在动态安排的管道中，所有指令都以秩序(按顺序发行)通过了问题阶段；但是，它们可以在第二阶段(读取操作数)中停滞或可以绕过对方，从而输入执行。_scoreboarding_ 是一种技术，可以在有足够的资源且没有数据依赖的情况下允许指令执行订单；它以 CDC 6600 计分板的名字命名，该记分牌开发了此功能。在这里，我们专注于一种更柔和的技术，称为* tomasulo *’_ s algorithm。此外，可以扩展 tomasulo 的算法来处理\_speculation_，这是一种通过预测分支的结果，在预测的目标地址执行指令以及在预测是错误时采取纠正措施来减少控制依赖的效果的技术。虽然计分板的使用可能足以支持模拟处理器，但更复杂的高性能处理器可以利用投机。
 
 ### Dynamic Scheduling Using Tomasulo’s Approach
 
-> ###使用 Tomasulo 的方法进行动态调度
-
 The IBM 360/91 floating-point unit used a sophisticated scheme to allow out-of- order execution. This scheme, invented by Robert Tomasulo, tracks when oper- ands for instructions are available to minimize RAW hazards and introduces reg- ister renaming in hardware to minimize WAW and WAR hazards. Although there are many variations of this scheme in recent processors, they all rely on two key principles: dynamically determining when an instruction is ready to execute and renaming registers to avoid unnecessary hazards.
 
-> IBM 360/91 浮点单元使用了复杂的方案来允许订单外执行。该计划由罗伯特·托马苏洛(Robert Tomasulo)发明，可以进行操作时，可以进行操作，以最大程度地减少原始危害并引入硬件重命名的重命名，以最大程度地减少 WAW 和战争危害。尽管该方案在最近的处理器中有很多变化，但它们都依赖于两个关键原则：动态确定何时准备执行和重命名注册表以避免不必要的危害。
+> IBM 360/91 浮点单元使用了复杂的方案来允许订单外执行。该计划由罗伯特·托马苏洛(Robert Tomasulo)发明，可以进行操作时，可以进行操作，以最大程度地减少原始危害并引入硬件重命名的重命名，以最大程度地减少 WAW 和战争危害。尽管该方案在最近的处理器中有很多变化，但它们都依赖于两个关键原则：**动态确定何时准备执行和重命名注册表以避免不必要的危害**。
 
 IBM’s goal was to achieve high floating-point performance from an instruction set and from compilers designed for the entire 360 computer family, rather than from specialized compilers for the high-end processors. The 360 architecture had only four double-precision floating-point registers, which limited the effective- ness of compiler scheduling; this fact was another motivation for the Tomasulo approach. In addition, the IBM 360/91 had long memory accesses and long floating-point delays, which Tomasulo’s algorithm was designed to overcome. At the end of the section, we will see that Tomasulo’s algorithm can also support the overlapped execution of multiple iterations of a loop.
 
@@ -123,9 +108,6 @@ To better understand how register renaming eliminates WAR and WAW haz- ards, con
 
 > ===
 
->> ===
->>
-
 There are two antidependences: between the fadd.d and the fsub.d and between the fsd and the fmul.d. There is also an output dependence between the fadd.d and the fmul.d, leading to three possible hazards: WAR hazards on the use of f8 by fadd.d and its use by the fsub.d, as well as a WAW hazard because the fadd.d may finish later than the fmul.d. There are also three true data dependences: between the fdiv.d and the fadd.d, between the fsub.d and the fmul.d, and between the fadd.d and the fsd.
 
 > 有两种抗想者：在 FADD.D 和 FSUB.D 之间以及 FSD 和 FMUL.D 之间。FADD.D 和 FMUL.D 之间也存在输出依赖性，导致了三种可能的危害：FADD.D 使用 F8 的战争危害及其使用 FSUB.D，以及 WAW 危险，因为 FADD.D 可能比 FMUL.D 完成。还有三个真实的数据依赖性：在 fdiv.d 和 fadd.d 之间，fsub.d 和 fmul.d 之间以及 FADD.D 和 FSD 之间。
@@ -135,9 +117,6 @@ These three name dependences can all be eliminated by register renaming. For sim
 > 这三个名称依赖都可以通过登记命名来消除。为简单起见，假设存在两个临时寄存器 S 和 T。使用 S 和 T，可以在没有任何依赖的情况下重写该序列
 
 > ===
-
->> ===
->>
 
 In addition, any subsequent uses of f8 must be replaced by the register T. In this example, the renaming process can be done statically by the compiler. Finding any uses of f8 that are later in the code requires either sophisticated compiler analysis or hardware support because there may be intervening branches between the pre- ceding code segment and a later use of f8. As we will see, Tomasulo’s algorithm can handle renaming across branches.
 
@@ -153,15 +132,15 @@ Because there can be more reservation stations than real registers, the techniqu
 
 The use of reservation stations, rather than a centralized register file, leads to two other important properties. First, hazard detection and execution control are distributed: the information held in the reservation stations at each functional unit determines when an instruction can begin execution at that unit. Second, results are passed directly to functional units from the reservation stations where they are buffered, rather than going through the registers. This bypassing is done with a common result bus that allows all units waiting for an operand to be loaded simul- taneously (on the 360/91, this is called the _common data bus_, or CDB). In pipelines that issue multiple instructions per clock and also have multiple execution units, more than one result bus will be needed.
 
-> 保留站的使用，而不是集中式寄存器文件，导致了另外两个重要属性。首先，分配了危险检测和执行控制：在每个功能单元的预订站中保存的信息确定指令何时可以在该单元处执行。其次，结果将直接传递给预订站的功能单元，而这些单元被缓冲而不是浏览寄存器。此旁路是使用通用结果总线完成的，该总线允许所有等待操作数的单位模拟加载(在 360/91 上，这称为 *Common Data Bus* 或 CDB)。在每个时钟发出多个说明并具有多个执行单元的管道中，将需要多个结果总线。
+> 保留站的使用，而不是集中式寄存器文件，导致了另外两个重要属性。首先，分配了危险检测和执行控制：在每个功能单元的预订站中保存的信息确定指令何时可以在该单元处执行。其次，结果将直接传递给预订站的功能单元，而这些单元被缓冲而不是浏览寄存器。此旁路是使用通用结果总线完成的，该总线允许所有等待操作数的单位模拟加载(在 360/91 上，这称为 _Common Data Bus_ 或 CDB)。在每个时钟发出多个说明并具有多个执行单元的管道中，将需要多个结果总线。
 
 [Figure 3.10](#_bookmark108) shows the basic structure of a Tomasulo-based processor, includ- ing both the floating-point unit and the load/store unit; none of the execution con- trol tables is shown. Each reservation station holds an instruction that has been issued and is awaiting execution at a functional unit. If the operand values for that instruction have been computed, they are also stored in that entry; otherwise, the reservation station entry keeps the names of the reservation stations that will pro- vide the operand values.
 
-> [图 3.10](#\_ bookmark108)显示了基于 tomasulo 的处理器的基本结构，其中包括浮点单元和负载/存储单元；没有显示执行控制表。每个预订站都有已发行的指令，并正在等待功能部门执行。如果计算了该指令的操作数值，则它们也存储在该条目中；否则，预订站条目将保留预订站的名称，这些预订站将为操作数值提供。
+> [图 3.10](#_bookmark108) 显示了基于 tomasulo 的处理器的基本结构，其中包括浮点单元和负载/存储单元；没有显示执行控制表。每个预订站都有已发行的指令，并正在等待功能部门执行。如果计算了该指令的操作数值，则它们也存储在该条目中；否则，预订站条目将保留预订站的名称，这些预订站将为操作数值提供。
 
 The load buffers and store buffers hold data or addresses coming from and going to memory and behave almost exactly like reservation stations, so we dis- tinguish them only when necessary. The floating-point registers are connected by a pair of buses to the functional units and by a single bus to the store buffers. All results from the functional units and from memory are sent on the common data bus, which goes everywhere except to the load buffer. All reservation stations have tag fields, employed by the pipeline control.
 
-> 负载缓冲区和存储缓冲区保留了来自和进入内存的数据或地址几乎完全像预订站一样，因此我们只有在必要时才分辨它们。浮点寄存器通过一对公共汽车连接到功能单元，并通过单个总线连接到商店缓冲区。来自功能单元和内存的所有结果均在公共数据总线上发送，除了负载缓冲区外，该总线无处不在。所有预订站都有管道控制使用的标签字段。
+> 负载缓冲区和存储缓冲区保留了来自和进入内存的数据或地址几乎完全像预订站一样，因此我们只有在必要时才分辨它们。浮点寄存器通过一对公共汽车连接到功能单元，并通过单个总线连接到存储缓冲区。来自功能单元和内存的所有结果均在公共数据总线上发送，除了负载缓冲区外，该总线无处不在。所有预订站都有管道控制使用的标签字段。
 
 Before we describe the details of the reservation stations and the algorithm, let’s look at the steps an instruction goes through. There are only three steps, although each one can now take an arbitrary number of clock cycles:
 
@@ -169,20 +148,25 @@ Before we describe the details of the reservation stations and the algorithm, le
 
 1. _Issue_—Get the next instruction from the head of the instruction queue, which is maintained in FIFO order to ensure the maintenance of correct data flow. If there is a matching reservation station that is empty, issue the instruction to the station with the operand values, if they are currently in the registers. If there is not an empty reservation station, then there is a structural hazard, and the instruction issue stalls until a station or buffer is freed. If the operands are not in the reg- isters, keep track of the functional units that will produce the operands. This step renames registers, eliminating WAR and WAW hazards. (This stage is some- times called _dispatch_ in a dynamically scheduled processor.)
 
-> 1. _issue_-从指令队列的头部获取下一个指令，该指令按 FIFO 顺序维护，以确保维护正确的数据流。如果有一个空的匹配预订站，如果目前在寄存器中，则将指令发送给车站。如果没有空的预订站，则会存在结构性危害，并且指令问题停滞不前，直到释放站或缓冲区为止。如果操作数不在重新计算机中，请跟踪会产生操作数的功能单元。这一步骤重命名为注册，消除了战争和 WAW 危害。(此阶段在动态计划的处理器中有时称为 *disPatch*。)
+> 1. _issue_-从指令队列的头部获取下一个指令，该指令按 FIFO 顺序维护，以确保维护正确的数据流。如果有一个空的匹配预订站，如果目前在寄存器中，则将指令发送给车站。如果没有空的预订站，则会存在结构性危害，并且指令问题停滞不前，直到释放站或缓冲区为止。如果操作数不在重新计算机中，请跟踪会产生操作数的功能单元。这一步骤重命名为注册，消除了战争和 WAW 危害。(此阶段在动态计划的处理器中有时称为 _disPatch_。)
 
-![](./media/image202.png)
+![](../media/image202.png)
 
-> ！[](./媒体/image202.png)
+Figure 3.10 The basic structure of a RISC-V floating-point unit using Tomasulo’s algorithm. Instructions are sent from the instruction unit into the instruction queue from which they are issued in first-in, first-out (FIFO) order. The reservation stations include the operation and the actual operands, as well as information used for detecting and resolving hazards. Load buffers have three functions: (1) hold the components of the effective address until it is com- puted, (2) track outstanding loads that are waiting on the memory, and (3) hold the results of completed loads that are waiting for the CDB. Similarly, store buffers have three functions: (1) hold the components of the effective address until it is computed, (2) hold the destination memory addresses of outstanding stores that are waiting for the data value to store, and (3) hold the address and value to store until the memory unit is available. All results from either the FP units or the load unit are put on the CDB, which goes to the FP register file as well as to the reservation stations and store buffers. The FP adders implement addition and subtraction, and the FP multipliers do multiplication and division.
 
-> Figure 3.10 The basic structure of a RISC-V floating-point unit using Tomasulo’s algorithm. Instructions are sent from the instruction unit into the instruction queue from which they are issued in first-in, first-out (FIFO) order. The reservation stations include the operation and the actual operands, as well as information used for detecting and resolving hazards. Load buffers have three functions: (1) hold the components of the effective address until it is com- puted, (2) track outstanding loads that are waiting on the memory, and (3) hold the results of completed loads that are waiting for the CDB. Similarly, store buffers have three functions: (1) hold the components of the effective address until it is computed, (2) hold the destination memory addresses of outstanding stores that are waiting for the data value to store, and (3) hold the address and value to store until the memory unit is available. All results from either the FP units or the load unit are put on the CDB, which goes to the FP register file as well as to the reservation stations and store buffers. The FP adders implement addition and subtraction, and the FP multipliers do multiplication and division.
+> 图 3.10 使用 Tomasulo 的算法，RISC-V 浮点单元的基本结构。说明从指令单元发送到以第一票，第一(FIFO)订单发出的指令队列。预订站包括操作和实际操作数，以及用于检测和解决危害的信息。负载缓冲区具有三个功能：
+> (1)保留有效地址的组件，直到被调整为止，
+> (2)正在等待内存的未偿还负载；
+> (3)保留正在等待的完整负载的结果 CDB。
+> 同样，存储缓冲区具有三个功能：
+> (1)保留有效地址的组件，直到计算出来，
+> (2)保留正在等待数据值存储的未销售存储的目标存储器地址，并且
+> (3)保持地址和值存储，直到可用内存单元为止。
+> FP 单元或负载单元的所有结果都放在 CDB 上，该 CDB 转到 FP 寄存器文件以及预订站和存储缓冲区。FP 加法器实现加法和减法，FP 乘数进行乘法和分裂。
 
->> 图 3.10 使用 Tomasulo 的算法，RISC-V 浮点单元的基本结构。说明从指令单元发送到以第一票，第一(FIFO)订单发出的指令队列。预订站包括操作和实际操作数，以及用于检测和解决危害的信息。负载缓冲区具有三个功能：(1)保留有效地址的组件，直到被调整为止，(2)正在等待内存的未偿还负载；(3)保留正在等待的完整负载的结果 CDB。同样，商店缓冲区具有三个功能：(1)保留有效地址的组件，直到计算出来，(2)保留正在等待数据值存储的未销售商店的目标存储器地址，并且(3)保持地址和值存储，直到可用内存单元为止。FP 单元或负载单元的所有结果都放在 CDB 上，该 CDB 转到 FP 寄存器文件以及预订站和存储缓冲区。FP 加法器实现加法和减法，FP 乘数进行乘法和分裂。
->>
+1. _Execute_—If one or more of the operands is not yet available, monitor the com- mon data bus while waiting for it to be computed. When an operand becomes available, it is placed into any reservation station awaiting it. When all the oper- ands are available, the operation can be executed at the corresponding functional unit. By delaying instruction execution until the operands are available, RAW hazards are avoided. (Some dynamically scheduled processors call this step "issue," but we use the name "execute," which was used in the first dynamically scheduled processor, the CDC 6600.)
 
-1. _Execute_—If one or more of the operands is not yet available, monitor the com- mon data bus while waiting for it to be computed. When an operand becomes available, it is placed into any reservation station awaiting it. When all the oper- ands are available, the operation can be executed at the corresponding functional unit. By delaying instruction execution until the operands are available, RAW hazards are avoided. (Some dynamically scheduled processors call this step “issue,” but we use the name “execute,” which was used in the first dynamically scheduled processor, the CDC 6600.)
-
-> 1. _execute_ - 如果尚未使用一个或多个操作数，请在等待其计算时监视 common 数据总线。当操作数可用时，将其放置在等待它的任何预订站中。当所有操作都可用时，可以在相应的功能单元处执行操作。通过延迟指令执行，直到操作数可用，可以避免原始危害。(一些动态计划的处理器称此步骤为“问题”，但我们使用名称为“执行”，该名称已在第一个动态计划的处理器 CDC 6600 中使用。)
+> 1. _execute_ - 如果尚未使用一个或多个操作数，请在等待其计算时监视 common 数据总线。当操作数可用时，将其放置在等待它的任何预订站中。当所有操作都可用时，可以在相应的功能单元处执行操作。通过延迟指令执行，直到操作数可用，可以避免原始危害。(一些动态计划的处理器称此步骤为 "问题" ，但我们使用名称为 "执行" ，该名称已在第一个动态计划的处理器 CDC 6600 中使用。)
 
 Notice that several instructions could become ready in the same clock cycle for the same functional unit. Although independent functional units could begin execution in the same clock cycle for different instructions, if more than one instruction is ready for a single functional unit, the unit will have to choose among them. For the floating-point reservation stations, this choice may be made arbitrarily; loads and stores, however, present an additional complication.
 
@@ -190,7 +174,7 @@ Notice that several instructions could become ready in the same clock cycle for 
 
 Loads and stores require a two-step execution process. The first step com- putes the effective address when the base register is available, and the effective address is then placed in the load or store buffer. Loads in the load buffer exe- cute as soon as the memory unit is available. Stores in the store buffer wait for the value to be stored before being sent to the memory unit. Loads and stores are maintained in program order through the effective address calculation, which will help to prevent hazards through memory.
 
-> 负载和商店需要两个步骤的执行过程。第一步是在可用的基本寄存器时将有效地址汇总的，然后将有效地址放置在负载或存储缓冲区中。可用内存单元后，将在负载缓冲区的负载中加载。存储在商店缓冲区中等待将值存储在发送到存储单元之前。通过有效的地址计算以程序顺序维护负载和商店，这将有助于防止通过记忆危害。
+> 负载和存储需要两个步骤的执行过程。第一步是在可用的基本寄存器时将有效地址汇总的，然后将有效地址放置在负载或存储缓冲区中。可用内存单元后，将在负载缓冲区的负载中加载。存储在存储缓冲区中等待将值存储在发送到存储单元之前。通过有效的地址计算以程序顺序维护负载和存储，这将有助于防止通过记忆危害。
 
 To preserve exception behavior, no instruction is allowed to initiate execu- tion until a branch that precedes the instruction in program order has completed. This restriction guarantees that an instruction that causes an exception during execution really would have been executed. In a processor using branch predic- tion (as all dynamically scheduled processors do), this means that the processor must know that the branch prediction was correct before allowing an instruction after the branch to begin execution. If the processor records the occurrence of the exception, but does not actually raise it, an instruction can start execution but not stall until it enters Write Result.
 
@@ -202,7 +186,7 @@ Speculation provides a more flexible and more complete method to handle exceptio
 
 1. _Write result_—When the result is available, write it on the CDB and from there into the registers and into any reservation stations (including store buffers) wait- ing for this result. Stores are buffered in the store buffer until both the value to be stored and the store address are available; then the result is written as soon as the memory unit is free.
 
-> 1. _write 结果_-当结果可用时，将其写在 CDB 上，然后从那里写入寄存器，然后将其写入任何预订站(包括商店缓冲区)等待此结果。商店在商店缓冲区中进行缓冲，直到两个要存储的价值都可以使用为止。然后，在内存单元免费后立即写入结果。
+> 1. _write 结果_-当结果可用时，将其写在 CDB 上，然后从那里写入寄存器，然后将其写入任何预订站(包括存储缓冲区)等待此结果。存储在存储缓冲区中进行缓冲，直到两个要存储的价值都可以使用为止。然后，在内存单元免费后立即写入结果。
 
 The data structures that detect and eliminate hazards are attached to the reserva- tion stations, to the register file, and to the load and store buffers with slightly dif- ferent information attached to different objects. These tags are essentially names for an extended set of virtual registers used for renaming. In our example, the tag field is a 4-bit quantity that denotes one of the five reservation stations or one of the five load buffers. This combination produces the equivalent of 10 registers (5 reservation sta- tions+ 5 load buffers) that can be designated as result registers (as opposed to the four double-precision registers that the 360 architecture contains). In a processor with more real registers, we want renaming to provide an even larger set of virtual registers, often numbering in the hundreds. The tag field describes which reservation station contains the instruction that will produce a result needed as a source operand.
 
@@ -219,87 +203,3 @@ In Tomasulo’s scheme, as well as the subsequent methods we look at for sup- po
 It is important to remember that the tags in the Tomasulo scheme refer to the buffer or unit that will produce a result; the register names are discarded when an instruction issues to a reservation station. (This is a key difference between Toma- sulo’s scheme and scoreboarding: in scoreboarding, operands stay in the registers and are read only after the producing instruction completes and the consuming instruction is ready to execute.)
 
 > 重要的是要记住，tomasulo 方案中的标签是指将产生结果的缓冲区或单元。当指令向预订站发出指令时，寄存器名称将被丢弃。(这是 Toma-Sulo 的方案和记分牌之间的关键区别：在记分板中，操作数留在寄存器中，并且仅在生产指令完成并准备执行消耗指令后才阅读。)
-
-Each reservation station has seven fields:
-
-> 每个预订站都有七个字段：
-
-- Op—The operation to perform on source operands S1 and S2.
-
-> - OP-在源操作数 S1 和 S2 上执行的操作。
-
-- Qj, Qk—The reservation stations that will produce the corresponding
-
-> -QJ，QK-将产生相应的预订站
-
-source operand; a value of zero indicates that the source operand is
-
-> 来源操作数；零值表示源操作数为
-
-already available in Vj or Vk, or is unnecessary.
-
-> 已经在 VJ 或 VK 中可用，或者是不必要的。
-
-- Vj, Vk—The value of the source operands. Note that only one of the V
-
-> -VJ，VK-源操作数的值。请注意，只有一个 V
-
-fields or the Q field is valid for each operand. For loads, the Vk
-
-> 字段或 Q 字段对每个操作数有效。对于负载，VK
-
-field is used to hold the offset field.
-
-> 字段用于保存偏移字段。
-
-- A—Used to hold information for the memory address calculation for a
-
-> - a-用于保留用于存储地址计算的信息
-
-load or store. Initially, the immediate field of the instruction is
-
-> 加载或存储。最初，该说明的直接字段是
-
-stored here; after the address calculation, the effective address is
-
-> 存储在这里；地址计算后，有效地址为
-
-stored here.
-
-> 存储在这里。
-
-- Busy—Indicates that this reservation station and its accompanying
-
-> - 忙 - 指出该预订站及其随附的
-
-functional unit are occupied.
-
-> 功能单元被占用。
-
-The register file has a field, Qi:
-
-> 寄存器文件有一个字段，QI：
-
-- Qi—The number of the reservation station that contains the operation
-
-> -QI-包含操作的预订站的数量
-
-whose result should be stored into this register. If the value of Qi
-
-> 其结果应存储在此寄存器中。如果 Qi 的值
-
-is blank (or 0), no
-
-> 是空白(或 0)，不
-
-currently active instruction is computing a result destined for this register, meaning that the value is simply the register contents.
-
-> 当前的活动指令是计算该寄存器的结果，这意味着该值只是寄存器内容。
-
-The load and store buffers each have a field, A, which holds the result of the effec- tive address once the first step of execution has been completed.
-
-> 负载和存储缓冲区每个都有一个字段 A，一旦执行的第一步完成后，该字段将保持效率地址的结果。
-
-In the next section, we will first consider some examples that show how these mechanisms work and then examine the detailed algorithm.
-
-> 在下一部分中，我们将首先考虑一些示例，以显示这些机制如何工作，然后检查详细的算法。

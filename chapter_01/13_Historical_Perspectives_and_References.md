@@ -1,6 +1,4 @@
-## Historical Perspectives and References
-
-> ##历史观点和参考
+## Historical Perspectives and References(历史观点和参考)
 
 Appendix M (available online) includes historical perspectives on the key ideas presented in each of the chapters in this text. These historical perspective sections allow us to trace the development of an idea through a series of machines or to describe significant projects. If you’re interested in examining the initial develop- ment of an idea or processor or want further reading, references are provided at the end of each history. For this chapter, see Section M.2, “The Early Development of Computers,” for a discussion on the early development of digital computers and performance measurement methodologies.
 

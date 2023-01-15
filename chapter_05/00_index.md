@@ -1,33 +1,21 @@
 1. [Introduction](#introduction-3) 368
-2. [Centralized Shared-Memory
-   Architectures](#centralized-shared-memory-architectures) 377
-3. [Performance of Symmetric Shared-Memory
-   Multiprocessors](#performance-of-symmetric-shared-memory-multiprocessors)
-   393
-4. [Distributed Shared-Memory and Directory-Based
-   Coherence](#distributed-shared-memory-and-directory-based-coherence)
-   404
+2. [Centralized Shared-Memory Architectures](#centralized-shared-memory-architectures) 377
+3. [Performance of Symmetric Shared-Memory Multiprocessors](#performance-of-symmetric-shared-memory-multiprocessors) 393
+4. [Distributed Shared-Memory and Directory-Based Coherence](#distributed-shared-memory-and-directory-based-coherence) 404
 5. [Synchronization: The Basics](#synchronization-the-basics) 412
-6. [Models of Memory Consistency: An
-   Introduction](#models-of-memory-consistency-an-introduction) 417
+6. [Models of Memory Consistency: An Introduction](#models-of-memory-consistency-an-introduction) 417
 7. [Cross-Cutting Issues](#cross-cutting-issues-2) 422
-8. [Putting It All Together: Multicore Processors and Their
-   Performance](#_bookmark247) 426
+8. [Putting It All Together: Multicore Processors and Their Performance](#_bookmark247) 426
 9. [Fallacies and Pitfalls](#putting-multicore-and-smt-together) 438
-10. [The Future of Multicore Scaling](#the-future-of-multicore-scaling)
-    442
+10. [The Future of Multicore Scaling](#the-future-of-multicore-scaling) 442
 11. [Concluding Remarks](#concluding-remarks-3) 444
-12. [Historical Perspectives and
-    References](#historical-perspectives-and-references-2) 445
-    [Case Studies and Exercises by Amr Zaky and David A. Wood](#case-studies-and-exercises-by-amr-zaky-and-david-a.-wood) 446
+12. [Historical Perspectives and References](#historical-perspectives-and-references-2) 445
+
+[Case Studies and Exercises by Amr Zaky and David A. Wood](#case-studies-and-exercises-by-amr-zaky-and-david-a.-wood) 446
 
 The turning away from the conventional organization came in the middle 1960s, when the law of diminishing returns began to take effect in the effort to increase the operational speed of a computer.
 
 . . . Electronic circuits are ultimately limited in their speed of operation by the speed of light . . . and many of the circuits were already operating in the nanosecond range.
-
-[W. Jack Bouknight et al.,](#_bookmark930)
-
-[_The Illiac IV System_ (1972)](#_bookmark930)
 
 We are dedicating all of our future product development to multicore designs. We believe this is a key inflection point for the industry.
 

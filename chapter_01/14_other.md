@@ -10,8 +10,7 @@
 
 Many factors are involved in the price of a computer chip. Intel is spending $7 billion to complete its Fab 42 fabrication facility for 7 nm technology. In this case study, we explore a hypothetical company in the same situation and how different design deci- sions involving fabrication technology, area, and redundancy affect the cost of chips.
 
-1. [10/10] <1.6> [Figure 1.26](#_bookmark41) gives hypothetical relevant chip statistics that influence the cost of several current chips. In the next few exercises, you will be exploring the
-   effect of different possible design decisions for the Intel chips.
+1. [10/10] <1.6> [Figure 1.26](#_bookmark41) gives hypothetical relevant chip statistics that influence the cost of several current chips. In the next few exercises, you will be exploring the effect of different possible design decisions for the Intel chips.
 
 Figure 1.26 Manufacturing cost factors for several hypothetical current and future processors.
 

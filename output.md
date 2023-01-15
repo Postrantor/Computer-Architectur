@@ -110,7 +110,7 @@ Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Van Den Driessche, G
 
 Smith, J.E., 1982. Decoupled access/execute computer architectures. In: Proceed- ings of the 11th International Symposium on Computer Architecture.
 
-Sony/Toshiba, 1999. ‘Emotion Engine’ in PS2 (“IPU is basically an MPEG2 decoder…”). [http://www.cpu-collection.de/?l0](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [co&l1](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Sony&l2](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Emotion](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine)
+Sony/Toshiba, 1999. ‘Emotion Engine’ in PS2 ( "IPU is basically an MPEG2 decoder…" ). [http://www.cpu-collection.de/?l0](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [co&l1](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Sony&l2](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Emotion](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine)
 
 [+Engine](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine), [http://arstechnica.com/gadgets/2000/02/ee/3/](http://arstechnica.com/gadgets/2000/02/ee/3/).
 
@@ -154,7 +154,7 @@ Moving-head disks quickly became the dominant high-speed magnetic stor- age, alt
 
 bits per square inch and a cost of about $800 per megabyte. IBM also invented the floppy disk drive in 1970, originally to hold microcode for the IBM 370 series. Floppy disks became popular with the PC about 10 years later.
 
-The second major disk breakthrough was the so-called Winchester disk design in about 1973. Winchester disks benefited from two related properties. First, inte- grated circuits lowered the costs of not only CPUs but also of disk controllers and the electronics to control disk arms. Reductions in the cost of the disk electronics made it unnecessary to share the electronics and thus made nonremovable disks economical. Since the disk was fixed and could be in a sealed enclosure, both the environmental and control problems were greatly reduced. Sealing the system allowed the heads to fly closer to the surface, which in turn enabled increases in areal density. The first sealed disk that IBM shipped had two spindles, each with a 30 MB disk; the moniker “30-30” for the disk led to the name Winchester. (America’s most popular sporting rifle, the Winchester 94, was nicknamed the “30-30” after the caliber of its cartridge.) Winchester disks grew rapidly in popu- larity in the 1980s, completely replacing removable disks by the middle of that decade. Before this time, the cost of the electronics to control the disk meant that the media had to be removable.
+The second major disk breakthrough was the so-called Winchester disk design in about 1973. Winchester disks benefited from two related properties. First, inte- grated circuits lowered the costs of not only CPUs but also of disk controllers and the electronics to control disk arms. Reductions in the cost of the disk electronics made it unnecessary to share the electronics and thus made nonremovable disks economical. Since the disk was fixed and could be in a sealed enclosure, both the environmental and control problems were greatly reduced. Sealing the system allowed the heads to fly closer to the surface, which in turn enabled increases in areal density. The first sealed disk that IBM shipped had two spindles, each with a 30 MB disk; the moniker  "30-30"  for the disk led to the name Winchester. (America’s most popular sporting rifle, the Winchester 94, was nicknamed the  "30-30"  after the caliber of its cartridge.) Winchester disks grew rapidly in popu- larity in the 1980s, completely replacing removable disks by the middle of that decade. Before this time, the cost of the electronics to control the disk meant that the media had to be removable.
 
 As mentioned in Appendix D, as DRAMs started to close the areal density gap and appeared to be catching up with disk storage, internal meetings at IBM called into question the future of disk drives. Disk designers concluded that disks must improve at 60% per year to forestall the DRAM threat, in contrast to the historical 29% per year. The essential enabler was magnetoresistive heads, with giant magnetoresistive heads enabling the current densities. Because of this competition, the gap in time between when a density record is achieved in the lab and when a disk is shipped with that density has closed considerably.
 
@@ -174,19 +174,19 @@ The Berkeley paper was written before the World Wide Web, but it captured the im
 
 The RAID ideas soon spread to the rest of the workstation and server industry. An article explaining RAID in *Byte* magazine (see Anderson \[1990\]) led to RAID products being offered on desktop PCs, which was something of a surprise to the Berkeley group. They had focused on performance with good availability, but higher availability was attractive to the PC market.
 
-Another surprise was the cost of the disk arrays. With redundant power sup- plies and fans, the ability to “hot swap” a disk drive, the RAID hardware controller itself, the redundant disks, and so on, the first disk arrays cost many times the cost of the disks. Perhaps as a result, the “inexpensive” in RAID morphed into
+Another surprise was the cost of the disk arrays. With redundant power sup- plies and fans, the ability to  "hot swap"  a disk drive, the RAID hardware controller itself, the redundant disks, and so on, the first disk arrays cost many times the cost of the disks. Perhaps as a result, the  "inexpensive"  in RAID morphed into
 
-“independent.” Many marketing departments and technical writers today know of RAID only as “redundant arrays of independent disks.”
+"independent."  Many marketing departments and technical writers today know of RAID only as  "redundant arrays of independent disks."
 
 The EMC transformation was successful; in 2006, EMC was the leading supplier of storage systems, and NetApp was the leading supplier of Network- Attached Storage systems. RAID was a $30 billion industry in 2006, and more than 80% of the non-PC drive sales were found in RAIDs. In recognition of their role, in 1999 Garth Gibson, Randy Katz, and David Patterson received the IEEE Reynold
 
-B. Johnson Information Storage Award “for the development of Redundant Arrays of Inexpensive Disks (RAID).”
+B. Johnson Information Storage Award  "for the development of Redundant Arrays of Inexpensive Disks (RAID)."
 
 ### I/O Buses and Controllers
 
 The ubiquitous microprocessor inspired not only the personal computers of the 1970s but also the trend in the late 1980s and 1990s of moving controller functions into I/O devices. I/O devices have continued this trend by moving controllers into the devices themselves. These devices are called *intelligent devices*, and some bus standards (e.g., SCSI) have been created specifically for them. Intelligent devices can relax the timing constraints by handling many low-level tasks themselves and queuing the results. For example, many SCSI-compatible disk drives include a track buffer on the disk itself, supporting read ahead and connect/disconnect. Thus, on a SCSI string some disks can be seeking and others loading their track buffer while one is transferring data from its buffer over the SCSI bus. The controller in the original RAMAC, built from vacuum tubes, only needed to move the head over the desired track, wait for the data to pass under the head, and transfer data with calculated parity. SCSI, which stands for *small computer systems interface*, is an example of one company inventing a bus and generously encouraging other com- panies to build devices that would plug into it. Shugart created this bus, originally called SASI. It was later standardized by the IEEE.
 
-There have been several candidates to be the successor to SCSI, with the cur- rent leading contender being Fibre Channel Arbitrated Loop (FC-AL). The SCSI committee continues to increase the clock rate of the bus, giving this standard a new life, and SCSI is lasting much longer than some of its proposed successors. With the creation of serial interfaces for SCSI (“Serial Attach SCSI”) and ATA (“Serial ATA”), they may have very long lives.
+There have been several candidates to be the successor to SCSI, with the cur- rent leading contender being Fibre Channel Arbitrated Loop (FC-AL). The SCSI committee continues to increase the clock rate of the bus, giving this standard a new life, and SCSI is lasting much longer than some of its proposed successors. With the creation of serial interfaces for SCSI ( "Serial Attach SCSI" ) and ATA ( "Serial ATA" ), they may have very long lives.
 
 Perhaps the first multivendor bus was the PDP-11 Unibus in 1970 from DEC. Alas, this open-door policy on buses is in contrast to companies with proprietary buses using patented interfaces, thereby preventing competition from plug- compatible vendors. Making a bus proprietary also raises costs and lowers the number of available I/O devices that plug into it, since such devices must have an interface designed just for that bus. The PCI bus pushed by Intel represented a return to open, standard I/O buses inside computers. Its immediate successor is PCI-X, with Infiniband under development in 2000. Both were standardized by multicompany trade associations.
 
@@ -194,53 +194,53 @@ The machines of the RAMAC era gave us I/O interrupts as well as storage devices.
 
 The early IBM 360s pioneered many of the ideas that we use in I/O systems today. The 360 was the first commercial machine to make heavy use of DMA, and it introduced the notion of I/O programs that could be interpreted by the device. Chaining of I/O programs was an important feature. The concept of channels intro- duced in the 360 corresponds to the I/O bus of today.
 
-Myer and Sutherland \[1968\] wrote a classic paper on the trade-off of complex- ity and performance in I/O controllers. Borrowing the religious concept of the “wheel of reincarnation,” they eventually noticed they were caught in a loop of continuously increasing the power of an I/O processor until it needed its own simpler coprocessor. Their quote in Appendix D captures their cautionary tale.
+Myer and Sutherland \[1968\] wrote a classic paper on the trade-off of complex- ity and performance in I/O controllers. Borrowing the religious concept of the  "wheel of reincarnation,"  they eventually noticed they were caught in a loop of continuously increasing the power of an I/O processor until it needed its own simpler coprocessor. Their quote in Appendix D captures their cautionary tale.
 
 The IBM mainframe I/O channels, with their I/O processors, can be thought of as an inspiration for Infiniband, with their processors on their Host Channel Adaptor cards.
 
 ### References
 
-Anderson, D. \[2003\]. “You don’t know jack about disks,” *Queue* 1:4 (June), 20–30.
+Anderson, D. \[2003\].  "You don’t know jack about disks,"  *Queue* 1:4 (June), 20–30.
 
-Anderson, D., J. Dykes, and E. Riedel \[2003\]. “SCSI vs. ATA—more than an interface,” *Proc. 2nd USENIX Conf. on File and Storage Technology (FAST* ’*03)*, March 31–April 2, 2003, San Francisco.
+Anderson, D., J. Dykes, and E. Riedel \[2003\].  "SCSI vs. ATA—more than an interface,"  *Proc. 2nd USENIX Conf. on File and Storage Technology (FAST* ’*03)*, March 31–April 2, 2003, San Francisco.
 
-Anderson, M. H. \[1990\]. “Strength (and safety) in numbers (RAID, disk storage technology),” *Byte* 15:13 (December), 337–339.
+Anderson, M. H. \[1990\].  "Strength (and safety) in numbers (RAID, disk storage technology),"  *Byte* 15:13 (December), 337–339.
 
 Anon. et al. \[1985\]. *A Measure of Transaction Processing Power*, Tandem Tech. Rep. TR 85.2. Also appeared in *Datamation*, 31:7 (April), 112–118.
 
-Bashe, C. J., W. Buchholz, G. V. Hawkins, J. L. Ingram, and N. Rochester \[1981\]. “The architecture of IBM’s early computers,” *IBM J. Research and Develop- ment* 25:5 (September), 363–375.
+Bashe, C. J., W. Buchholz, G. V. Hawkins, J. L. Ingram, and N. Rochester \[1981\].  "The architecture of IBM’s early computers,"  *IBM J. Research and Develop- ment* 25:5 (September), 363–375.
 
 Bashe, C. J., L. R. Johnson, J. H. Palmer, and E. W. Pugh \[1986\]. *IBM*’*s Early Computers*, MIT Press, Cambridge, Mass.
 
-Blaum, M., J. Brady, J. Bruck, and J. Menon \[1994\]. “EVENODD: An optimal scheme for tolerating double disk failures in RAID architectures,” *Proc. 21st Annual Int*’*l. Symposium on Computer Architecture (ISCA)*, April 18–21, 1994, Chicago, 245–254.
+Blaum, M., J. Brady, J. Bruck, and J. Menon \[1994\].  "EVENODD: An optimal scheme for tolerating double disk failures in RAID architectures,"  *Proc. 21st Annual Int*’*l. Symposium on Computer Architecture (ISCA)*, April 18–21, 1994, Chicago, 245–254.
 
-Blaum, M., J. Brady, J. Bruck, and J. Menon \[1995\]. “EVENODD: An optimal scheme for tolerating double disk failures in RAID architectures,” *IEEE Trans. on Computers* 44:2 (February), 192–202.
+Blaum, M., J. Brady, J. Bruck, and J. Menon \[1995\].  "EVENODD: An optimal scheme for tolerating double disk failures in RAID architectures,"  *IEEE Trans. on Computers* 44:2 (February), 192–202.
 
-Blaum, M., J. Brady, J., Bruck, J. Menon, and A. Vardy \[2001\]. “The EVENODD code and its generalization,” in H. Jin, T. Cortes, and R. Buyya, eds., *High Per- formance Mass Storage and Parallel I/O: Technologies and Applications*, IEEE & Wiley Press, New York, 187–208.
+Blaum, M., J. Brady, J., Bruck, J. Menon, and A. Vardy \[2001\].  "The EVENODD code and its generalization,"  in H. Jin, T. Cortes, and R. Buyya, eds., *High Per- formance Mass Storage and Parallel I/O: Technologies and Applications*, IEEE & Wiley Press, New York, 187–208.
 
-Blaum, M., J. Bruck, and A. Vardy \[1996\]. “MDS array codes with independent parity symbols,” *IEEE Trans. on Information Theory*, IT-42 (March), 529–542.
+Blaum, M., J. Bruck, and A. Vardy \[1996\].  "MDS array codes with independent parity symbols,"  *IEEE Trans. on Information Theory*, IT-42 (March), 529–542.
 
-Brady, J. T. \[1986\]. “A theory of productivity in the creative process,” *IEEE CG&A* (May), 25–34.
+Brady, J. T. \[1986\].  "A theory of productivity in the creative process,"  *IEEE CG&A* (May), 25–34.
 
-Brown, A., and D. A. Patterson \[2000\]. “Towards maintainability, availability, and growth benchmarks: A case study of software RAID systems.” *Proc. 2000 USE- NIX Annual Technical Conf.*, June 18–23, San Diego, Calif.
+Brown, A., and D. A. Patterson \[2000\].  "Towards maintainability, availability, and growth benchmarks: A case study of software RAID systems."  *Proc. 2000 USE- NIX Annual Technical Conf.*, June 18–23, San Diego, Calif.
 
-Bucher, I. V., and A. H. Hayes \[1980\]. “I/O performance measurement on Cray-1 and CDC 7000 computers,” *Proc. Computer Performance Evaluation Users Group, 16th Meeting*, October 20–23, 1980, Orlando, Fl., 245–254.
+Bucher, I. V., and A. H. Hayes \[1980\].  "I/O performance measurement on Cray-1 and CDC 7000 computers,"  *Proc. Computer Performance Evaluation Users Group, 16th Meeting*, October 20–23, 1980, Orlando, Fl., 245–254.
 
-Chen, P. M., G. A. Gibson, R. H. Katz, and D. A. Patterson \[1990\]. “An evaluation of redundant arrays of inexpensive disks using an Amdahl 5890,” *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Computer Systems*, May 22–25, 1990, Boulder, Colo.
+Chen, P. M., G. A. Gibson, R. H. Katz, and D. A. Patterson \[1990\].  "An evaluation of redundant arrays of inexpensive disks using an Amdahl 5890,"  *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Computer Systems*, May 22–25, 1990, Boulder, Colo.
 
-Chen, P. M., and E. K. Lee \[1995\]. “Striping in a RAID level 5 disk array,” *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Computer Systems*, May 15–19, 1995, Ottawa, Canada, 136–145.
+Chen, P. M., and E. K. Lee \[1995\].  "Striping in a RAID level 5 disk array,"  *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Computer Systems*, May 15–19, 1995, Ottawa, Canada, 136–145.
 
-Chen, P. M., E. K. Lee, G. A. Gibson, R. H. Katz, and D. A. Patterson \[1994\]. “RAID: High-performance, reliable secondary storage,” *ACM Computing Sur- veys* 26:2 (June), 145–188.
+Chen, P. M., E. K. Lee, G. A. Gibson, R. H. Katz, and D. A. Patterson \[1994\].  "RAID: High-performance, reliable secondary storage,"  *ACM Computing Sur- veys* 26:2 (June), 145–188.
 
-Corbett, P., B. English, A. Goel, T. Grcanac, S. Kleiman, J. Leong, and S. Sankar \[2004\]. “Row-diagonal parity for double disk failure correction,” *Proc. 3rd USENIX Conf. on File and Storage Technology (FAST* ’*04)*, March 31–April 2, 2004, San Francisco.
+Corbett, P., B. English, A. Goel, T. Grcanac, S. Kleiman, J. Leong, and S. Sankar \[2004\].  "Row-diagonal parity for double disk failure correction,"  *Proc. 3rd USENIX Conf. on File and Storage Technology (FAST* ’*04)*, March 31–April 2, 2004, San Francisco.
 
-Denehy, T. E., J. Bent, F. I. Popovici, A. C. Arpaci-Dusseau, and R. H. Arpaci- Dusseau \[2004\]. “Deconstructing storage arrays,” *Proc. 11th Int*’*l. Conf. on Architectural Support for Programming Languages and Operating Systems (ASPLOS)*, October 7–13, 2004, Boston, Mass., 59–71.
+Denehy, T. E., J. Bent, F. I. Popovici, A. C. Arpaci-Dusseau, and R. H. Arpaci- Dusseau \[2004\].  "Deconstructing storage arrays,"  *Proc. 11th Int*’*l. Conf. on Architectural Support for Programming Languages and Operating Systems (ASPLOS)*, October 7–13, 2004, Boston, Mass., 59–71.
 
-Doherty, W. J., and R. P. Kelisky \[1979\]. “Managing VM/CMS systems for user effectiveness,” *IBM Systems J.* 18:1, 143–166.
+Doherty, W. J., and R. P. Kelisky \[1979\].  "Managing VM/CMS systems for user effectiveness,"  *IBM Systems J.* 18:1, 143–166.
 
-Douceur, J. R., and W. J. Bolosky \[1999\]. “A large scale study of file-system con- tents,” *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Com- puter Systems*, May 1–9, 1999, Atlanta, Ga., 59–69.
+Douceur, J. R., and W. J. Bolosky \[1999\].  "A large scale study of file-system con- tents,"  *Proc. ACM SIGMETRICS Conf. on Measurement and Modeling of Com- puter Systems*, May 1–9, 1999, Atlanta, Ga., 59–69.
 
-Enriquez, P. \[2001\]. “What happened to my dial tone? A study of FCC service disruption reports,” poster, *Richard Tapia Symposium on the Celebration of Diversity in Computing*, October 18–20, 2001, Houston, Tex.
+Enriquez, P. \[2001\].  "What happened to my dial tone? A study of FCC service disruption reports,"  poster, *Richard Tapia Symposium on the Celebration of Diversity in Computing*, October 18–20, 2001, Houston, Tex.
 
 Friesenborg, S. E., and R. J. Wicks \[1985\]. *DASD Expectations: The 3380, 3380- 23, and MVS/XA*, Tech. Bulletin GG22-9363-02, IBM Washington Systems Center, Gaithersburg, Md.
 
@@ -248,93 +248,93 @@ Gibson, G. A. \[1992\]. *Redundant Disk Arrays: Reliable, Parallel Secondary Sto
 
 TR 03.308-1, IBM Santa Teresa Laboratory, San Jose, Calif.
 
-Gray, J. \[1990\]. “A census of Tandem system availability between 1985 and 1990,” *IEEE Trans. on Reliability*, 39:4 (October), 409–418.
+Gray, J. \[1990\].  "A census of Tandem system availability between 1985 and 1990,"  *IEEE Trans. on Reliability*, 39:4 (October), 409–418.
 
 Gray, J. (ed.) \[1993\]. *The Benchmark Handbook for Database and Transaction Processing Systems*, 2nd ed., Morgan Kaufmann, San Francisco.
 
 Gray, J., and A. Reuter \[1993\]. *Transaction Processing: Concepts and Tech- niques*, Morgan Kaufmann, San Francisco.
 
-Gray, J., and D. P. Siewiorek \[1991\]. “High-availability computer systems.” *Com- puter* 24:9 (September), 39–48.
+Gray, J., and D. P. Siewiorek \[1991\].  "High-availability computer systems."  *Com- puter* 24:9 (September), 39–48.
 
-Gray, J., and C. van Ingen \[2005\]. *Empirical Measurements of Disk Failure Rates and Error Rates*,” MSR-TR-2005-166, Microsoft Research, Redmond, Wash. Gurumurthi, S., A. Sivasubramaniam, and V. Natarajan \[2005\]. Disk Drive Road- map from the Thermal Perspective: A Case for Dynamic Thermal Management, *Proceedings of the International Symposium on Computer Architecture (ISCA)*,
+Gray, J., and C. van Ingen \[2005\]. *Empirical Measurements of Disk Failure Rates and Error Rates*,"  MSR-TR-2005-166, Microsoft Research, Redmond, Wash. Gurumurthi, S., A. Sivasubramaniam, and V. Natarajan \[2005\]. Disk Drive Road- map from the Thermal Perspective: A Case for Dynamic Thermal Management, *Proceedings of the International Symposium on Computer Architecture (ISCA)*,
 
 June, 38–49.
 
 Henly, M., and B. McNutt \[1989\]. *DASD I/O Characteristics: A Comparison of MVS to VM*, Tech. Rep. TR 02.1550, IBM General Products Division, San Jose, Calif.
 
-Hewlett-Packard. \[1998\]. “HP’s ‘5NINES:5MINUTES’ vision extends leadership and re-defines high availability in mission-critical environments,” February 10, *[www.future.enterprisecomputing.hp.com/ia64/news/5nines\_vision\_pr.html](http://www.future.enterprisecomputing.hp.com/ia64/news/5nines_vision_pr.html).*
+Hewlett-Packard. \[1998\].  "HP’s ‘5NINES:5MINUTES’ vision extends leadership and re-defines high availability in mission-critical environments,"  February 10, *[www.future.enterprisecomputing.hp.com/ia64/news/5nines\_vision\_pr.html](http://www.future.enterprisecomputing.hp.com/ia64/news/5nines_vision_pr.html).*
 
-Hoagland, A. S. \[1963\]. *Digital Magnetic Recording*, Wiley, New York. Hospodor, A. D., and A. S. Hoagland \[1993\]. “The changing nature of disk con-
+Hoagland, A. S. \[1963\]. *Digital Magnetic Recording*, Wiley, New York. Hospodor, A. D., and A. S. Hoagland \[1993\].  "The changing nature of disk con-
 
-trollers.” *Proc. IEEE* 81:4 (April), 586–594.
+trollers."  *Proc. IEEE* 81:4 (April), 586–594.
 
 IBM. \[1982\]. *The Economic Value of Rapid Response Time*, GE20-0752-0, IBM, White Plains, N.Y., 11–82.
 
 Imprimis. \[1989\]. *Imprimis Product Specification, 97209 Sabre Disk Drive IPI-2 Interface 1.2 GB*, Document No. 64402302, Imprimis, Dallas, Tex.
 
-Jain, R. \[1991\]. *The Art of Computer Systems Performance Analysis: Techniques for Experimental Design, Measurement, Simulation, and Modeling*, Wiley, New York. Katz, R. H., D. A. Patterson, and G. A. Gibson \[1989\]. “Disk system architectures for high performance computing,” *Proc. IEEE* 77:12 (December), 1842–1858. Kim, M. Y. \[1986\]. “Synchronized disk interleaving,” *IEEE Trans. on Computers*
+Jain, R. \[1991\]. *The Art of Computer Systems Performance Analysis: Techniques for Experimental Design, Measurement, Simulation, and Modeling*, Wiley, New York. Katz, R. H., D. A. Patterson, and G. A. Gibson \[1989\].  "Disk system architectures for high performance computing,"  *Proc. IEEE* 77:12 (December), 1842–1858. Kim, M. Y. \[1986\].  "Synchronized disk interleaving,"  *IEEE Trans. on Computers*
 
 C-35:11 (November), 978–988.
 
-Kuhn, D. R. \[1997\]. “Sources of failure in the public switched telephone network,”
+Kuhn, D. R. \[1997\].  "Sources of failure in the public switched telephone network,"
 
 *IEEE Computer* 30:4 (April), 31–36.
 
-Lambright, D. \[2000\]. “Experiences in measuring the reliability of a cache-based storage system,” *Proc. of First Workshop on Industrial Experiences with Sys- tems Software (WIESS 2000), Co-Located with the 4th Symposium on Operating Systems Design and Implementation (OSDI)*, October 22, 2000, San Diego, Calif.
+Lambright, D. \[2000\].  "Experiences in measuring the reliability of a cache-based storage system,"  *Proc. of First Workshop on Industrial Experiences with Sys- tems Software (WIESS 2000), Co-Located with the 4th Symposium on Operating Systems Design and Implementation (OSDI)*, October 22, 2000, San Diego, Calif.
 
-Laprie, J.-C. \[1985\]. “Dependable computing and fault tolerance: Concepts and terminology,” *Proc. 15th Annual Int*’*l. Symposium on Fault-Tolerant Comput- ing*, June 19–21, 1985, Ann Arbor, Mich., 2–11.
+Laprie, J.-C. \[1985\].  "Dependable computing and fault tolerance: Concepts and terminology,"  *Proc. 15th Annual Int*’*l. Symposium on Fault-Tolerant Comput- ing*, June 19–21, 1985, Ann Arbor, Mich., 2–11.
 
 Lazowska, E. D., J. Zahorjan, G. S. Graham, and K. C. Sevcik \[1984\]. *Quantitative System Performance: Computer System Analysis Using Queueing Network Models*, Prentice Hall, Englewood Cliffs, N.J. (Although out of print, it is avail- able online at *[www.cs.washington.edu/homes/lazowska/qsp/](http://www.cs.washington.edu/homes/lazowska/qsp/).)*
 
-Leiner, A. L. \[1954\]. “System specifications for the DYSEAC,” *J. ACM* 1:2 (April), 57–81.
+Leiner, A. L. \[1954\].  "System specifications for the DYSEAC,"  *J. ACM* 1:2 (April), 57–81.
 
-Leiner, A. L., and S. N. Alexander \[1954\]. “System organization of the DYSEAC,”
+Leiner, A. L., and S. N. Alexander \[1954\].  "System organization of the DYSEAC,"
 
 *IRE Trans. of Electronic Computers* EC-3:1 (March), 1–10.
 
 Maberly, N. C. \[1966\]. *Mastering Speed Reading*, New American Library, New York.
 
-Major, J. B. \[1989\]. “Are queuing models within the grasp of the unwashed?” *Proc. Int*’*l. Conf. on Management and Performance Evaluation of Computer Systems*, December 11–15, 1989, Reno, Nev., 831–839.
+Major, J. B. \[1989\].  "Are queuing models within the grasp of the unwashed?"  *Proc. Int*’*l. Conf. on Management and Performance Evaluation of Computer Systems*, December 11–15, 1989, Reno, Nev., 831–839.
 
-Mueller, M., L. C. Alves, W. Fischer, M. L. Fair, and I. Modi \[1999\]. “RAS strat- egy for IBM S/390 G5 and G6,” *IBM J. Research and Development*, 43:5–6 (September–November), 875–888.
+Mueller, M., L. C. Alves, W. Fischer, M. L. Fair, and I. Modi \[1999\].  "RAS strat- egy for IBM S/390 G5 and G6,"  *IBM J. Research and Development*, 43:5–6 (September–November), 875–888.
 
-Murphy, B., and T. Gent \[1995\]. “Measuring system and software reliability using an automated data collection process,” *Quality and Reliability Engineering International*, 11:5 (September–October), 341–353.
+Murphy, B., and T. Gent \[1995\].  "Measuring system and software reliability using an automated data collection process,"  *Quality and Reliability Engineering International*, 11:5 (September–October), 341–353.
 
-Myer, T. H., and I. E. Sutherland \[1968\]. “On the design of display processors,”
+Myer, T. H., and I. E. Sutherland \[1968\].  "On the design of display processors,"
 
 *Communications of the ACM*, 11:6 (June), 410–414.
 
-National Storage Industry Consortium. \[1998\]. “Tape Roadmap,” *[www.nsic.org](http://www.nsic.org/).*
+National Storage Industry Consortium. \[1998\].  "Tape Roadmap,"  *[www.nsic.org](http://www.nsic.org/).*
 
-Nelson, V. P. \[1990\]. “Fault-tolerant computing: Fundamental concepts,” *Com- puter* 23:7 (July), 19–25.
+Nelson, V. P. \[1990\].  "Fault-tolerant computing: Fundamental concepts,"  *Com- puter* 23:7 (July), 19–25.
 
-Nyberg, C. R., T. Barclay, Z. Cvetanovic, J. Gray, and D. Lomet \[1994\]. “Alpha- Sort: A RISC machine sort,” *Proc. ACM SIGMOD*, May 24–27, 1994, Minneapolis, Minn.
+Nyberg, C. R., T. Barclay, Z. Cvetanovic, J. Gray, and D. Lomet \[1994\].  "Alpha- Sort: A RISC machine sort,"  *Proc. ACM SIGMOD*, May 24–27, 1994, Minneapolis, Minn.
 
-Okada, S., S. Okada, Y. Matsuda, T. Yamada, and A. Kobayashi \[1999\]. “System on a chip for digital still camera,” *IEEE Trans. on Consumer Electron- ics* 45:3 (August), 584–590.
+Okada, S., S. Okada, Y. Matsuda, T. Yamada, and A. Kobayashi \[1999\].  "System on a chip for digital still camera,"  *IEEE Trans. on Consumer Electron- ics* 45:3 (August), 584–590.
 
 Patterson, D. A., G. A. Gibson, and R. H. Katz \[1987\]. *A Case for Redundant Arrays of Inexpensive Disks (RAID)*, Tech. Rep. UCB/CSD 87/391, University of California, Berkeley. Also appeared in *Proc. ACM SIGMOD*, June 1–3, 1988, Chicago, 109–116.
 
-Pavan, P., R. Bez, P. Olivo, and E. Zanoni \[1997\]. “Flash memory cells—an over- view,” *Proc. IEEE* 85:8 (August), 1248–1271.
+Pavan, P., R. Bez, P. Olivo, and E. Zanoni \[1997\].  "Flash memory cells—an over- view,"  *Proc. IEEE* 85:8 (August), 1248–1271.
 
 Robinson, B., and L. Blount \[1986\]. *The VM/HPO 3880-23 Performance Results*, IBM Tech. Bulletin GG66-0247-00, IBM Washington Systems Center, Gaithersburg, Md.
 
-Salem, K., and H. Garcia-Molina \[1986\]. “Disk striping,” *Proc. 2nd Int*’*l. IEEE Conf. on Data Engineering*, February 5–7, 1986, Washington, D.C., 249–259.
+Salem, K., and H. Garcia-Molina \[1986\].  "Disk striping,"  *Proc. 2nd Int*’*l. IEEE Conf. on Data Engineering*, February 5–7, 1986, Washington, D.C., 249–259.
 
 Scranton, R. A., D. A. Thompson, and D. W. Hunter \[1983\]. *The Access Time Myth*, Tech. Rep. RC 10197 (45223), IBM, Yorktown Heights, N.Y.
 
 Seagate. \[2000\]. *Seagate Cheetah 73 Family: ST173404LW/LWV/LC/LCV Prod- uct Manual*, Vol. 1, Seagate, Scotts Valley, Calif. (*[www.seagate.com/support/](http://www.seagate.com/support/disc/manuals/scsi/29478b.pdf) [disc/manuals/scsi/29478b.pdf](http://www.seagate.com/support/disc/manuals/scsi/29478b.pdf)*).
 
-Smotherman, M. \[1989\]. “A sequencing-based taxonomy of I/O systems and review of historical machines,” *Computer Architecture News* 17:5 (September), 5–15. Reprinted in *Computer Architecture Readings*, M. D. Hill, N. P. Jouppi, and G. S. Sohi, eds., Morgan Kaufmann, San Francisco, 1999, 451–461.
+Smotherman, M. \[1989\].  "A sequencing-based taxonomy of I/O systems and review of historical machines,"  *Computer Architecture News* 17:5 (September), 5–15. Reprinted in *Computer Architecture Readings*, M. D. Hill, N. P. Jouppi, and G. S. Sohi, eds., Morgan Kaufmann, San Francisco, 1999, 451–461.
 
-Talagala, N. \[2000\]. “Characterizing Large Storage Systems: Error Behavior and Performance Benchmarks,” Ph.D. dissertation, Computer Science Division, University of California, Berkeley.
+Talagala, N. \[2000\].  "Characterizing Large Storage Systems: Error Behavior and Performance Benchmarks,"  Ph.D. dissertation, Computer Science Division, University of California, Berkeley.
 
 Talagala, N., and D. Patterson \[1999\]. *An Analysis of Error Behavior in a Large Storage System*, Tech. Report UCB//CSD-99-1042, Computer Science Divi- sion, University of California, Berkeley.
 
 Talagala, N., R. Arpaci-Dusseau, and D. Patterson \[2000\]. *Micro-Benchmark Based Extraction of Local and Global Disk Characteristics*, CSD-99-1063, Computer Science Division, University of California, Berkeley.
 
-Talagala, N., S. Asami, D. Patterson, R. Futernick, and D. Hart \[2000\]. “The art of massive storage: A case study of a Web image archive,” *IEEE Computer* (November), 22–28.
+Talagala, N., S. Asami, D. Patterson, R. Futernick, and D. Hart \[2000\].  "The art of massive storage: A case study of a Web image archive,"  *IEEE Computer* (November), 22–28.
 
-Thadhani, A. J. \[1981\]. “Interactive user productivity,” *IBM Systems J.* 20:4, 407– 423.
+Thadhani, A. J. \[1981\].  "Interactive user productivity,"  *IBM Systems J.* 20:4, 407– 423.
 
 Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., Kudlur, M., 2016. TensorFlow: A System for Large-Scale <span id="_bookmark916" class="anchor"></span>Machine Learning. In: OSDI (November), vol. 16, pp. 265–283.
 
@@ -1500,7 +1500,7 @@ Patterson, D.A., Gibson, G.A., Katz, R.H., 1987. A Case for Redundant Arrays of 
 
 [Pinkston, T.M., Warnakulasuriya, S., 1997. On deadlocks in interconnection networks.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2325) [In: 24th Annual International Symposium on Computer Architecture (ISCA), June](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2325) [2–4, 1997, Denver, CO.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2325)
 
-[Pinkston, T.M., Benner, A., Krause, M., Robinson, I., Sterling, T., 2003. InfiniBand: the ‘de](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [facto’ future standard for system and local area networks or just a scalable replacement](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [for PCI buses?”. Cluster Comput. 6 (2), 95–104 (Special issue on communication archi-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [tecture for clusters).](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330)
+[Pinkston, T.M., Benner, A., Krause, M., Robinson, I., Sterling, T., 2003. InfiniBand: the ‘de](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [facto’ future standard for system and local area networks or just a scalable replacement](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [for PCI buses?" . Cluster Comput. 6 (2), 95–104 (Special issue on communication archi-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330) [tecture for clusters).](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2330)
 
 [Postiff, M.A., Greene, D.A., Tyson, G.S., Mudge, T.N., 1999. The limits of instruction level](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2335) [parallelism in SPEC95 applications. Comput. Architect. News 27 (1), 31–40.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2335)
 
@@ -1588,7 +1588,7 @@ Rep. UCB/CSD 88/447, University of California, Berkeley.
 
 [Santoro, M.R., Bewick, G., Horowitz, M.A., 1989. Rounding algorithms for IEEE multi-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2500) [pliers. In: Proceedings of Ninth IEEE Symposium on Computer Arithmetic, September](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2500) [6–8, Santa Monica, CA, pp. 176–183.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2500)
 
-Satran, J., Smith, D., Meth, K., Sapuntzakis, C., Wakeley, M., Von Stamwitz, P., Haagens, R., Zeidner, E., Dalle Ore, L., Klein, Y., 2001. “iSCSI,” IPS Working Group of IETF, Internet draft. [www.ietf.org/internet-drafts/draft-ietf-ips-iscsi-07.txt](http://www.ietf.org/internet-drafts/draft-ietf-ips-iscsi-07.txt).
+Satran, J., Smith, D., Meth, K., Sapuntzakis, C., Wakeley, M., Von Stamwitz, P., Haagens, R., Zeidner, E., Dalle Ore, L., Klein, Y., 2001.  "iSCSI,"  IPS Working Group of IETF, Internet draft. [www.ietf.org/internet-drafts/draft-ietf-ips-iscsi-07.txt](http://www.ietf.org/internet-drafts/draft-ietf-ips-iscsi-07.txt).
 
 [Saulsbury, A., Wilkinson, T., Carter, J., Landin, A., 1995. An argument for simple COMA.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2505) [In: Proceedings of First IEEE Symposium on High-Performance Computer Architec-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2505) [tures, January 22–25, 1995, Raleigh, NC, pp. 276–285.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2505)
 
@@ -1708,7 +1708,7 @@ Dept. of Computer Science, University of California, San Diego.
 
 [pp. 15–25.](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2725)
 
-Sony/Toshiba, 1999. ‘Emotion Engine’ in PS2 (“IPU is basically an MPEG2 decoder…”). [http://www.cpu-collection.de/?l0](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [co&l1](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Sony&l2](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Emotion+Engine](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [http://arstechnica.](http://arstechnica.com/gadgets/2000/02/ee/3/) [com/gadgets/2000/02/ee/3/](http://arstechnica.com/gadgets/2000/02/ee/3/).
+Sony/Toshiba, 1999. ‘Emotion Engine’ in PS2 ( "IPU is basically an MPEG2 decoder…" ). [http://www.cpu-collection.de/?l0](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [co&l1](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Sony&l2](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [Emotion+Engine](http://www.cpu-collection.de/?l0=co&l1=Sony&l2=Emotion%2BEngine) [http://arstechnica.](http://arstechnica.com/gadgets/2000/02/ee/3/) [com/gadgets/2000/02/ee/3/](http://arstechnica.com/gadgets/2000/02/ee/3/).
 
 [Soundararajan, V., Heinrich, M., Verghese, B., Gharachorloo, K., Gupta, A.,](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2730) [Hennessy, J.L., 1998. Flexible use of memory for replication/migration in cache-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2730) [coherent DSM multiprocessors. In: Proceedings of 25th Annual International Sympo-](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2730) [sium on Computer Architecture (ISCA), July 3–14, 1998, Barcelona, Spain,](http://refhub.elsevier.com/B978-0-12-811905-1.09994-6/rf2730)
 
@@ -4733,7 +4733,7 @@ B-22
 
 components, 400
 
-multiprocessor, 438 multiprogrammed parallel “make”
+multiprocessor, 438 multiprogrammed parallel  "make"
 
 workload, 400
 
@@ -9517,7 +9517,7 @@ code example, K-62–64 full procedure, K-65 register allocation, K-62
 
 register preservation, K-64–65 Source routing, F-49
 
-SPARC “annulling” branch, K-18–19 SPARCLE processor, M-35–36 SPARC v.9
+SPARC  "annulling"  branch, K-18–19 SPARCLE processor, M-35–36 SPARC v.9
 
 additional instructions, K-22
 
@@ -11237,9 +11237,9 @@ Translation between GPU terms in book and official NVIDIA and OpenCL terms.
 </blockquote></td>
 <td><blockquote>
 <p>A vectorizable loop, executed on the GPU, made up of 1 or more
-“Thread Blocks” (or bodies of vectorized loop) that can execute in
+ "Thread Blocks"  (or bodies of vectorized loop) that can execute in
 parallel.</p>
-<p>OpenCL name is “index range.”</p>
+<p>OpenCL name is  "index range." </p>
 </blockquote></td>
 <td><blockquote>
 <p>A Grid is an array of Thread Blocks that can execute concurrently,
@@ -11254,11 +11254,11 @@ sequentially, or a mixture.</p>
 <p>Thread Block</p>
 </blockquote></td>
 <td><blockquote>
-<p>A vectorized loop executed on a “Streaming Multiprocessor”
-(multithreaded SIMD processor), made up of 1 or more “Warps” (or threads
-of SIMD instructions). These “Warps” (SIMD Threads) can communicate via
-“Shared Memory” (Local Memory). OpenCL calls a thread block a “work
-group.”</p>
+<p>A vectorized loop executed on a  "Streaming Multiprocessor" 
+(multithreaded SIMD processor), made up of 1 or more  "Warps"  (or threads
+of SIMD instructions). These  "Warps"  (SIMD Threads) can communicate via
+ "Shared Memory"  (Local Memory). OpenCL calls a thread block a  "work
+group." </p>
 </blockquote></td>
 <td><blockquote>
 <p>A Thread Block is an array of CUDA threads that execute concurrently
@@ -11275,10 +11275,10 @@ Grid.</p>
 <p>CUDA Thread</p>
 </blockquote></td>
 <td><blockquote>
-<p>A vertical cut of a “Warp” (or thread of SIMD instructions)
-corresponding to one element executed by one “Thread Processor” (or SIMD
+<p>A vertical cut of a  "Warp"  (or thread of SIMD instructions)
+corresponding to one element executed by one  "Thread Processor"  (or SIMD
 lane). Result is stored depending on mask.</p>
-<p>OpenCL calls a CUDA thread a “work item.”</p>
+<p>OpenCL calls a CUDA thread a  "work item." </p>
 </blockquote></td>
 <td><blockquote>
 <p>A CUDA Thread is a lightweight thread that executes a sequential
@@ -11299,7 +11299,7 @@ Thread Block. A CUDA thread has a thread ID within its Thread Block.</p>
 </blockquote></td>
 <td><blockquote>
 <p>A traditional thread, but it contains just SIMD instructions that are
-executed on a “Streaming Multiprocessor” (multithreaded SIMD processor).
+executed on a  "Streaming Multiprocessor"  (multithreaded SIMD processor).
 Results stored depending on a per element mask.</p>
 </blockquote></td>
 <td><blockquote>
@@ -11317,7 +11317,7 @@ same instruction together in a multithreaded SIMT/SIMD processor.</p>
 </blockquote></td>
 <td><blockquote>
 <p>A single SIMD instruction executed across the</p>
-<p>“Thread Processors” (SIMD lanes).</p>
+<p> "Thread Processors"  (SIMD lanes).</p>
 </blockquote></td>
 <td><blockquote>
 <p>A PTX instruction specifies an instruction executed by a CUDA
@@ -11335,10 +11335,10 @@ Thread.</p>
 <p>Streaming Multiprocessor</p>
 </blockquote></td>
 <td><blockquote>
-<p>Multithreaded SIMD processor that executes “Warps” (thread of SIMD
+<p>Multithreaded SIMD processor that executes  "Warps"  (thread of SIMD
 instructions), independent of other SIMD processors. OpenCL calls it a
-“Compute Unit.” However, CUDA programmer writes program for one lane
-rather than for a “vector” of multiple SIMD lanes.</p>
+ "Compute Unit."  However, CUDA programmer writes program for one lane
+rather than for a  "vector"  of multiple SIMD lanes.</p>
 </blockquote></td>
 <td><blockquote>
 <p>A Streaming Multiprocessor (SM) is a multithreaded SIMT/SIMD
@@ -11355,8 +11355,8 @@ lanes.</p>
 <p>Giga Thread Engine</p>
 </blockquote></td>
 <td><blockquote>
-<p>Assigns multiple “Thread Blocks” (or body of vectorized loop) to
-“Streaming Multiprocessors” (multithreaded SIMD processors).</p>
+<p>Assigns multiple  "Thread Blocks"  (or body of vectorized loop) to
+ "Streaming Multiprocessors"  (multithreaded SIMD processors).</p>
 </blockquote></td>
 <td><blockquote>
 <p>Distributes and schedules Thread Blocks of a Grid to Streaming
@@ -11371,9 +11371,9 @@ Multiprocessors as resources become available.</p>
 <p>Warp Scheduler</p>
 </blockquote></td>
 <td><blockquote>
-<p>Hardware unit that schedules and issues “Warps” (threads of SIMD
+<p>Hardware unit that schedules and issues  "Warps"  (threads of SIMD
 instructions) when they are ready to execute; includes a scoreboard to
-track “Warp” (SIMD thread) execution.</p>
+track  "Warp"  (SIMD thread) execution.</p>
 </blockquote></td>
 <td><blockquote>
 <p>A Warp Scheduler in a Streaming Multiprocessor schedules Warps for
@@ -11388,9 +11388,9 @@ execution when their next instruction is ready to execute.</p>
 <p>Thread Processor</p>
 </blockquote></td>
 <td><blockquote>
-<p>Hardware SIMD Lane that executes the operations in a “Warp” (thread
+<p>Hardware SIMD Lane that executes the operations in a  "Warp"  (thread
 of SIMD instructions) on a single element. Results stored depending on
-mask. OpenCL calls it a “Processing Element.”</p>
+mask. OpenCL calls it a  "Processing Element." </p>
 </blockquote></td>
 <td><blockquote>
 <p>A Thread Processor is a datapath and register file portion of a
@@ -11409,9 +11409,9 @@ of a Warp.</p>
 <p>Global Memory</p>
 </blockquote></td>
 <td><blockquote>
-<p>DRAM memory accessible by all “Streaming Multiprocessors” (or
-multithreaded SIMD processors) in a GPU. OpenCL calls it “Global
-Memory.”</p>
+<p>DRAM memory accessible by all  "Streaming Multiprocessors"  (or
+multithreaded SIMD processors) in a GPU. OpenCL calls it  "Global
+Memory." </p>
 </blockquote></td>
 <td><blockquote>
 <p>Global Memory is accessible by all CUDA Threads in any Thread Block
@@ -11426,11 +11426,11 @@ in any Grid. Implemented as a region of DRAM, and may be cached.</p>
 <p>Local Memory</p>
 </blockquote></td>
 <td><blockquote>
-<p>Portion of DRAM memory private to each “Thread Processor” (SIMD
-lane). OpenCL calls it “Private Memory.”</p>
+<p>Portion of DRAM memory private to each  "Thread Processor"  (SIMD
+lane). OpenCL calls it  "Private Memory." </p>
 </blockquote></td>
 <td><blockquote>
-<p>Private “thread-local” memory for a CUDA Thread. Implemented as a
+<p>Private  "thread-local"  memory for a CUDA Thread. Implemented as a
 cached region of DRAM.</p>
 </blockquote></td>
 </tr>
@@ -11442,9 +11442,9 @@ cached region of DRAM.</p>
 <p>Shared Memory</p>
 </blockquote></td>
 <td><blockquote>
-<p>Fast local SRAM for one “Streaming Multiprocessor” (multithreaded
+<p>Fast local SRAM for one  "Streaming Multiprocessor"  (multithreaded
 SIMD processor), unavailable to other Streaming Multiprocessors. OpenCL
-calls it “Local Memory.”</p>
+calls it  "Local Memory." </p>
 </blockquote></td>
 <td><blockquote>
 <p>Fast SRAM memory shared by the CUDA Threads composing a Thread Block,
@@ -11460,8 +11460,8 @@ Threads in a Thread Block at barrier synchronization points.</p>
 <p>Registers</p>
 </blockquote></td>
 <td><blockquote>
-<p>Registers in a single “Thread Processor” (SIMD lane) allocated across
-full “Thread Block” (or body of vectorized loop).</p>
+<p>Registers in a single  "Thread Processor"  (SIMD lane) allocated across
+full  "Thread Block"  (or body of vectorized loop).</p>
 </blockquote></td>
 <td><blockquote>
 <p>Private registers for a CUDA Thread. Implemented as multithreaded
@@ -11557,11 +11557,11 @@ Sixth Edition
 
 John L. Hennessy \| David A. Patterson Foreword by Norman P. Jouppi
 
-“This sixth edition comes at a critical time: Moore’s Law is fading ust as deep learning demands unprecedented compute cycles. The new chapter on domain-specific architectures documents a number of promising approaches and prophesies a rebirth in computer architecture. Like the scholars of the European Renaissance, computer architects must understand our own history, and then combine the lessons of that history with new techniques to remake the world.”
+"This sixth edition comes at a critical time: Moore’s Law is fading ust as deep learning demands unprecedented compute cycles. The new chapter on domain-specific architectures documents a number of promising approaches and prophesies a rebirth in computer architecture. Like the scholars of the European Renaissance, computer architects must understand our own history, and then combine the lessons of that history with new techniques to remake the world."
 
 — *Cliff Young, Goagle*
 
-*Computer Architecture: A Quantitative Approach, Sixth Edition* has been considered essential reading by instructors, students, and practitioners of computer design for nearly 30 years. The sixth edition of this classic textbook is fully revised with the latest developments in processor and system architecture. It now features examples from the RISC-V (“RISC Five”) instruction set architecture, a modern RISC instruction set developed and designed to be a free and openIy adoptab Ie standard. It also includes a new chapter on domain-specific architectures and an updated chapter on warehouse-scale computing that features the first public information on Google's newest WSC. True to its original mission of demystifying computer architecture, this edition continues the longstanding tradition of focusing on areas where the most exciting computing innovation is happening, while always keeping an emphasis on good engineering design.
+*Computer Architecture: A Quantitative Approach, Sixth Edition* has been considered essential reading by instructors, students, and practitioners of computer design for nearly 30 years. The sixth edition of this classic textbook is fully revised with the latest developments in processor and system architecture. It now features examples from the RISC-V ( "RISC Five" ) instruction set architecture, a modern RISC instruction set developed and designed to be a free and openIy adoptab Ie standard. It also includes a new chapter on domain-specific architectures and an updated chapter on warehouse-scale computing that features the first public information on Google's newest WSC. True to its original mission of demystifying computer architecture, this edition continues the longstanding tradition of focusing on areas where the most exciting computing innovation is happening, while always keeping an emphasis on good engineering design.
 
 Features
 

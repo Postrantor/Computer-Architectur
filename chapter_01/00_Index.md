@@ -1,16 +1,15 @@
 ---
 data: 2023-01-15 11:25
 ---
+<img src="../media/image1.jpeg" style="width:7.5in;height:4.79in" />
+![](../media/image2.png)
 
-<img src="./media/image1.jpeg" style="width:7.5in;height:4.79in" />
-![](./media/image2.png)
-
-<img src="./media/image4.png" style="width:0.465in;height:0.475in" />
+<img src="../media/image4.png" style="width:0.465in;height:0.475in" />
 
 ## **Computer Architecture Formulas**
 
-<img src="./media/image5.png" style="width:0.12014in;height:0.14982in" />
-<img src="./media/image6.png" style="width:0.12015in;height:0.14982in" />
+<img src="../media/image5.png" style="width:0.12014in;height:0.14982in" />
+<img src="../media/image6.png" style="width:0.12015in;height:0.14982in" />
 
 ### Sixth Edition
 
@@ -60,7 +59,7 @@ At Berkeley, Patterson led the design and implementation of RISC I, likely the f
 
 > 在伯克利，帕特森(Patterson)领导了 RISC I 的设计和实施，这可能是第一个 VLSI 减少的指令集计算机以及商业 Sparc Architecture 的基础。他是廉价磁盘(RAID)项目的冗余阵列的负责人，这导致了许多公司的可靠存储系统。他还参与了工作站(现在)项目的网络，这导致了互联网公司使用的集群技术，后来导致了云计算。他目前的兴趣是设计用于机器学习的特定领域的档案，在开放的 RISC-V 指令设置档案中传播单词，并帮助 UC Berkeley Riselab(实时智能安全执行)。
 
-![](./media/image7.png)
+![](../media/image7.png)
 
 © 2019 Elsevier Inc. All rights reserved.
 
@@ -439,7 +438,7 @@ As with earlier versions, we have strived to produce a new edition that will con
 
 The ending of Moore’s Law and Dennard scaling is having as profound effect on computer architecture as did the switch to multicore. We retain the focus on the extremes in size of computing, with personal mobile devices (PMDs) such as cell phones and tablets as the clients and warehouse-scale computers offering cloud computing as the server. We also maintain the other theme of parallelism in all its forms: _data-level parallelism (DLP)_ in Chapters [1](#_bookmark2) and [4](#_bookmark165), _instruction-level parallelism (ILP)_ in [Chapter 3](#_bookmark93), _thread-level parallelism_ in [Chapter 5](#_bookmark213), and _requestlevel parallelism_ (RLP) in [Chapter 6](#_bookmark268).
 
-> 摩尔定律和丹纳德缩放的结束对计算机架构的影响与转向多核心一样。我们将关注计算大小的极端关注，其中包括个人移动设备(PMD)，例如手机和平板电脑，例如客户和仓库级计算机，这些计算机将云计算作为服务器。我们还以各种形式维持另一个并行性的主题：*data 级并行性(dlp)*在第[1](#_bookmark2)和[4](#_bookmark165)中[第 3 章](#_bookmark93)，\_ thread-level Parallelism* [第 5 章](#* bookmark213)和*request-级别的平行*(rlp)在[第 6 章](#_bookmark268)中。
+> 摩尔定律和丹纳德缩放的结束对计算机架构的影响与转向多核心一样。我们将关注计算大小的极端关注，其中包括个人移动设备(PMD)，例如手机和平板电脑，例如客户和仓库级计算机，这些计算机将云计算作为服务器。我们还以各种形式维持另一个并行性的主题：*data 级并行性(dlp)*在第 [1](#_bookmark2) 和 [4](#_bookmark165) 中[第 3 章](#_bookmark93)，\_ thread-level Parallelism* [第 5 章](#* bookmark213)和 *request-级别的平行*(rlp)在[第 6 章](#_bookmark268)中。
 
 The most pervasive change in this edition is switching from MIPS to the RISCV instruction set. We suspect this modern, modular, open instruction set may become a significant force in the information technology industry. It may become as important in computer architecture as Linux is for operating systems.
 
@@ -451,7 +450,7 @@ The newcomer in this edition is [Chapter 7](#_bookmark322), which introduces dom
 
 As before, the first three appendices in the book give basics on the RISC-V instruction set, memory hierarchy, and pipelining for readers who have not read a book like _Computer Organization and Design_. To keep costs down but still supply supplemental material that is of interest to some readers, available online at [https://www.elsevier.com/books-and-journals/book-companion/9780128119051](https://www.elsevier.com/books-and-journals/book-companion/9780128119051) are nine more appendices. There are more pages in these appendices than there are in this book!
 
-> 和以前一样，本书中的前三个附录为 RISC-V 指令集，内存层次结构和管道提供了基础知识，这些读者尚未阅读像*Computer 组织和 Design*这样的书。为了降低成本，但仍然支持一些读者感兴趣的补充材料，请网上在线获得，网址为[[https://www.elsevier.com/books-and-journals/book-companion/9780128119051](https://www.elsevier.com/books-and-journals/book-companion/9780128119051)](<https：///[www.elsevier.com/books-and-journals/book-companion/9780128119051](http://www.elsevier.com/books-and-journals/book-companion/9780128119051)>)是九个附录。这些附录中的页面比本书中的更多！
+> 和以前一样，本书中的前三个附录为 RISC-V 指令集，内存层次结构和管道提供了基础知识，这些读者尚未阅读像 *Computer 组织和 Design* 这样的书。为了降低成本，但仍然支持一些读者感兴趣的补充材料，请网上在线获得，网址为[[https://www.elsevier.com/books-and-journals/book-companion/9780128119051](https://www.elsevier.com/books-and-journals/book-companion/9780128119051)]([https：///[www.elsevier.com/books-and-journals/book-companion/9780128119051](http://www.elsevier.com/books-and-journals/book-companion/9780128119051)](https%EF%BC%9A///%5B[www.elsevier.com/books-and-journals/book-companion/9780128119051%5D(http://www.elsevier.com/books-and-journals/book-companion/9780128119051)](http://www.elsevier.com/books-and-journals/book-companion/9780128119051%5D(http://www.elsevier.com/books-and-journals/book-companion/9780128119051))))是九个附录。这些附录中的页面比本书中的更多！
 
 This edition continues the tradition of using real-world examples to demonstrate the ideas, and the “Putting It All Together” sections are brand new. The “Putting It All Together” sections of this edition include the pipeline organizations and memory hierarchies of the ARM Cortex A8 processor, the Intel core i7 processor, the NVIDIA GTX-280 and GTX-480 GPUs, and one of the Google warehouse-scale computers.
 
@@ -481,11 +480,11 @@ Our view is that the instruction set architecture is playing less of a role toda
 
 We then move onto memory hierarchy in [Chapter 2](#_bookmark46), since it is easy to apply the cost-performance-energy principles to this material, and memory is a critical resource for the rest of the chapters. As in the past edition, [Appendix B](#_bookmark436) contains an introductory review of cache principles, which is available in case you need it. [Chapter 2](#_bookmark46) discusses 10 advanced optimizations of caches. The chapter includes virtual machines, which offer advantages in protection, software management, and hardware management, and play an important role in cloud computing. In addition to covering SRAM and DRAM technologies, the chapter includes new material both on Flash memory and on the use of stacked die packaging for extending the memory hierarchy. The PIAT examples are the ARM Cortex A8, which is used in PMDs, and the Intel Core i7, which is used in servers.
 
-> 然后，我们在[第 2 章](#_bookmark46)中移至内存层次结构，因为很容易将成本效果 能源原理应用于此材料，而内存是其余章节的关键资源。与过去的版本一样，[附录 B](#_bookmark436)包含对缓存原理的介绍性评论，如果您需要它，可以使用。[第 2 章](#_bookmark46)讨论了 10 个缓存的高级优化。本章包括虚拟机，可在保护，软件管理和硬件管理方面具有优势，并在云计算中发挥重要作用。除了涵盖 SRAM 和 DRAM 技术外，本章还包括闪存上的新材料以及使用堆叠的模具包装来扩展内存层次结构。PIAT 示例是用于 PMD 中的 ARM Cortex A8，以及用于服务器中的 Intel Core i7。
+> 然后，我们在[第 2 章](#_bookmark46)中移至内存层次结构，因为很容易将成本效果 能源原理应用于此材料，而内存是其余章节的关键资源。与过去的版本一样，[附录 B](#_bookmark436) 包含对缓存原理的介绍性评论，如果您需要它，可以使用。[第 2 章](#_bookmark46)讨论了 10 个缓存的高级优化。本章包括虚拟机，可在保护，软件管理和硬件管理方面具有优势，并在云计算中发挥重要作用。除了涵盖 SRAM 和 DRAM 技术外，本章还包括闪存上的新材料以及使用堆叠的模具包装来扩展内存层次结构。PIAT 示例是用于 PMD 中的 ARM Cortex A8，以及用于服务器中的 Intel Core i7。
 
 [Chapter 3](#_bookmark93) covers the exploitation of instruction-level parallelism in highperformance processors, including superscalar execution, branch prediction (including the new tagged hybrid predictors), speculation, dynamic scheduling, and simultaneous multithreading. As mentioned earlier, [Appendix C](#_bookmark481) is a review of pipelining in case you need it. [Chapter 3](#_bookmark93) also surveys the limits of ILP. Like [Chapter 2](#_bookmark46), the PIAT examples are again the ARM Cortex A8 and the Intel Core i7. While the third edition contained a great deal on Itanium and VLIW, this material is now in Appendix H, indicating our view that this architecture did not live up to the earlier claims.
 
-> [第 3 章](#_bookmark93)涵盖了高性能处理器中指令级并行的开发，包括超级执行，分支预测(包括新的标记的混合预测指标)，推测，动态调度和同时的多线程。如前所述，[附录 C](#_bookmark481)是对管道的评论，以防万一。[第 3 章](#_bookmark93)还调查了 ILP 的限制。像[第 2 章](#_bookmark46)一样，PIAT 示例再次是 ARM Cortex A8 和 Intel Core i7。虽然第三版在 iTanium 和 vliw 上包含了很多东西，但该材料现在在附录 H 中，这表明我们认为这种体系结构并没有符合较早的主张。
+> [第 3 章](#_bookmark93)涵盖了高性能处理器中指令级并行的开发，包括超级执行，分支预测(包括新的标记的混合预测指标)，推测，动态调度和同时的多线程。如前所述，[附录 C](#_bookmark481) 是对管道的评论，以防万一。[第 3 章](#_bookmark93)还调查了 ILP 的限制。像[第 2 章](#_bookmark46)一样，PIAT 示例再次是 ARM Cortex A8 和 Intel Core i7。虽然第三版在 iTanium 和 vliw 上包含了很多东西，但该材料现在在附录 H 中，这表明我们认为这种体系结构并没有符合较早的主张。
 
 The increasing importance of multimedia applications such as games and video processing has also increased the importance of architectures that can exploit data level parallelism. In particular, there is a rising interest in computing using graphical processing units (GPUs), yet few architects understand how GPUs really work. We decided to write a new chapter in large part to unveil this new style of computer architecture. [Chapter 4](#_bookmark165) starts with an introduction to vector architectures, which acts as a foundation on which to build explanations of multimedia SIMD instruction set extensions and GPUs. (Appendix G goes into even more depth on vector architectures.) This chapter introduces the Roofline performance model and then uses it to compare the Intel Core i7 and the NVIDIA GTX 280 and GTX 480 GPUs. The chapter also describes the Tegra 2 GPU for PMDs.
 
@@ -505,11 +504,11 @@ The new [Chapter 7](#_bookmark322) motivates the need for Domain-Specific Archit
 
 This brings us to Appendices [A](#_bookmark391) through M. [Appendix A](#_bookmark391) covers principles of ISAs, including RISC-V, and Appendix K describes 64-bit versions of RISC V, ARM, MIPS, Power, and SPARC and their multimedia extensions. It also includes some classic architectures (80x86, VAX, and IBM 360/370) and popular embedded instruction sets (Thumb-2, microMIPS, and RISC V C). Appendix H is related, in that it covers architectures and compilers for VLIW ISAs.
 
-> 这将我们带到了附录[a](#_bookmark391)。，以及 SPARC 及其多媒体扩展。它还包括一些经典体系结构(80x86，VAX 和 IBM 360/370)和流行的嵌入式指令集(Thumb-2，Micromips 和 Risc V C)。附录 H 是相关的，因为它涵盖了 Vliw Isas 的架构和编译器。
+> 这将我们带到了附录 [a](#_bookmark391)。，以及 SPARC 及其多媒体扩展。它还包括一些经典体系结构(80x86，VAX 和 IBM 360/370)和流行的嵌入式指令集(Thumb-2，Micromips 和 Risc V C)。附录 H 是相关的，因为它涵盖了 Vliw Isas 的架构和编译器。
 
 As mentioned earlier, [Appendix B](#_bookmark436) and [Appendix C](#_bookmark481) are tutorials on basic caching and pipelining concepts. Readers relatively new to caching should read [Appen-](#_bookmark436) [dix B](#_bookmark436) before [Chapter 2](#_bookmark46), and those new to pipelining should read [Appendix C](#_bookmark481) before [Chapter 3](#_bookmark93).
 
-> 如前所述，[附录 B](#_bookmark436)和[附录 C](#_bookmark481)是有关基本的可追溯和管道概念的教程。缓存相对较新的读者应阅读[appen-](#_bookmark436)[dix b](#_bookmark436)[第 2 章](#_bookmark46)，而新手的管道上的读者应阅读[附录 C](#_bookmark481)[第 3 章](#_bookmark93)。
+> 如前所述，[附录 B](#_bookmark436) 和[附录 C](#_bookmark481) 是有关基本的可追溯和管道概念的教程。缓存相对较新的读者应阅读 [appen-](#_bookmark436)[dix b](#_bookmark436)[第 2 章](#_bookmark46)，而新手的管道上的读者应阅读[附录 C](#_bookmark481)[第 3 章](#_bookmark93)。
 
 Appendix D, “Storage Systems,” has an expanded discussion of reliability and availability, a tutorial on RAID with a description of RAID 6 schemes, and rarely found failure statistics of real systems. It continues to provide an introduction to queuing theory and I/O performance benchmarks. We evaluate the cost, performance, and reliability of a real cluster: the Internet Archive. The “Putting It All Together” example is the NetApp FAS6000 filer.
 
@@ -551,7 +550,7 @@ _Instruction-Level Parallelism:_ [Appendix C](#_bookmark481), [Chapter 3](#_book
 
 _Data-Level Parallelism:_ Chapters [4](#_bookmark165), [6](#_bookmark268), and [7](#_bookmark322), Appendix G
 
-> *data 级并行性：*章节[4](#_bookmark165)，[6](#_bookmark268)和[7](#_bookmark322)，附录 G
+> *data 级并行性：*章节 [4](#_bookmark165)，[6](#_bookmark268) 和 [7](#_bookmark322)，附录 G
 
 _Thread-Level Parallelism:_ [Chapter 5](#_bookmark213), Appendices F and I
 
@@ -591,7 +590,7 @@ Brackets for each exercise (<chapter.section>) indicate the text sections of pri
 
 A variety of resources are available online at [https://www.elsevier.com/books/](https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1) > [computer-architecture/hennessy/978-0-12-811905-1](https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1), including the following:
 
-> 可以在线提供各种资源)> [Computer-Architecture/Hennessy/978-0-12-811905-1](<[https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1](https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)>)，包括下列：
+> 可以在线提供各种资源)> [Computer-Architecture/Hennessy/978-0-12-811905-1](%5Bhttps://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1%5D(https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1))，包括下列：
 
 Reference appendices, some guest authored by subject experts, covering a range of advanced topics
 
@@ -621,11 +620,11 @@ List of errata New materials and links to other resources available on the Web w
 
 Finally, it is possible to make money while reading this book. (Talk about cost performance!) If you read the Acknowledgments that follow, you will see that we went to great lengths to correct mistakes. Since a book goes through many printings, we have the opportunity to make even more corrections. If you uncover any remaining resilient bugs, please contact the publisher by electronic mail ([ca6bugs](mailto:ca6bugs@mkp.com)@[mkp.com](mailto:ca6bugs@mkp.com)).
 
-> 最后，可以在阅读这本书时赚钱。(谈论成本的能力！)如果您阅读了以下确认，您会发现我们竭尽全力纠正错误。由于一本书经历了许多印刷品，因此我们有机会进行更多的更正。如果您发现剩余的弹性错误，请通过电子邮件([Ca6bugs](mailto：ca6bugs@mkp.com)与发布者联系，@[mkp.com](mailto：ca6bugs@mkp.com))。
+> 最后，可以在阅读这本书时赚钱。(谈论成本的能力！)如果您阅读了以下确认，您会发现我们竭尽全力纠正错误。由于一本书经历了许多印刷品，因此我们有机会进行更多的更正。如果您发现剩余的弹性错误，请通过电子邮件([Ca6bugs](mailto%EF%BC%9Aca6bugs@mkp.com) 与发布者联系，@[mkp.com](mailto%EF%BC%9Aca6bugs@mkp.com))。
 
 We welcome general comments to the text and invite you to send them to a separate email address at [ca6comments](mailto:ca6comments@mkp.com)@[mkp.com](mailto:ca6comments@mkp.com).
 
-> 我们欢迎对文本的一般性评论，并邀请您将其发送到[CA6COMMENTS](mailto：ca6comments@mkp.com)@[mkp.com](mailto：ca6comments@mkp.com)的单独电子邮件地址。
+> 我们欢迎对文本的一般性评论，并邀请您将其发送到 [CA6COMMENTS](mailto%EF%BC%9Aca6comments@mkp.com)@[mkp.com](mailto%EF%BC%9Aca6comments@mkp.com) 的单独电子邮件地址。
 
 ### Concluding Remarks
 
@@ -699,47 +698,47 @@ Duane Adams, Defense Advanced Research Projects Agency; Tom Adams; Sarita Adve, 
 
 1. [Introduction](#introduction) 2
 
-> 1. [简介](＃简介)2
+> 1. [简介](%EF%BC%83%E7%AE%80%E4%BB%8B) 2
 
 2. [Classes of Computers](#classes-of-computers) 6
 
-> 2. [计算机类](＃计算机类)6
+> 2. [计算机类](%EF%BC%83%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B1%BB) 6
 
 3. [Defining Computer Architecture](#defining-computer-architecture) 11
 
-> 3. [定义计算机体系结构](＃定义计算机架构)11
+> 3. [定义计算机体系结构](%EF%BC%83%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84) 11
 
 4. [Trends in Technology](#trends-in-technology) 18
 
-> 4. [技术趋势](＃趋势技术)18
+> 4. [技术趋势](%EF%BC%83%E8%B6%8B%E5%8A%BF%E6%8A%80%E6%9C%AF) 18
 
 5. [Trends in Power and Energy in Integrated Circuits](#trends-in-power-and-energy-in-integrated-circuits) 23
 
-> 5. [综合电路中的功率和能量趋势](＃趋势在功率和能源中的电路中)23
+> 5. [综合电路中的功率和能量趋势](%EF%BC%83%E8%B6%8B%E5%8A%BF%E5%9C%A8%E5%8A%9F%E7%8E%87%E5%92%8C%E8%83%BD%E6%BA%90%E4%B8%AD%E7%9A%84%E7%94%B5%E8%B7%AF%E4%B8%AD) 23
 
 6. [Trends in Cost](#trends-in-cost) 29
 
-> 6. [成本趋势](＃成本趋势)29
+> 6. [成本趋势](%EF%BC%83%E6%88%90%E6%9C%AC%E8%B6%8B%E5%8A%BF) 29
 
 7. [Dependability](#dependability) 36
 
-> 7. [可靠性](＃可靠性)36
+> 7. [可靠性](%EF%BC%83%E5%8F%AF%E9%9D%A0%E6%80%A7) 36
 
 8. [Measuring, Reporting, and Summarizing Performance](#measuring-reporting-and-summarizing-performance) 39
 
-> 8. [测量，报告和汇总性能](＃测量报告和夏季化表现)39
+> 8. [测量，报告和汇总性能](%EF%BC%83%E6%B5%8B%E9%87%8F%E6%8A%A5%E5%91%8A%E5%92%8C%E5%A4%8F%E5%AD%A3%E5%8C%96%E8%A1%A8%E7%8E%B0) 39
 
 9. [Quantitative Principles of Computer Design](#quantitative-principles-of-computer-design) 48
 
-> 9. [计算机设计的定量原理](＃定量原理计算机设计)48
+> 9. [计算机设计的定量原理](%EF%BC%83%E5%AE%9A%E9%87%8F%E5%8E%9F%E7%90%86%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E8%AE%A1) 48
 
 10. [Putting It All Together: Performance, Price, and Power](#_bookmark30) 55
 
-> 10. [将所有内容放在一起：性能，价格和权力](#_bookmark30)55
+> 10. [将所有内容放在一起：性能，价格和权力](#_bookmark30) 55
 
 11. [Fallacies and Pitfalls](#_bookmark33) 58
 
-> 11. [谬论和陷阱](#_bookmark33)58
+> 11. [谬论和陷阱](#_bookmark33) 58
 
 12. [Concluding Remarks](#concluding-remarks-1) 64
 
@@ -747,6 +746,6 @@ Duane Adams, Defense Advanced Research Projects Agency; Tom Adams; Sarita Adve, 
 
 13. [Historical Perspectives and References](#historical-perspectives-and-references) 67
 
-> 13. [历史观点和参考](＃历史观察和参考)67
+> 13. [历史观点和参考](%EF%BC%83%E5%8E%86%E5%8F%B2%E8%A7%82%E5%AF%9F%E5%92%8C%E5%8F%82%E8%80%83) 67
 
 © 2019 Elsevier Inc. All rights reserved.

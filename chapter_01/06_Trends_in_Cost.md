@@ -1,3 +1,9 @@
+---
+data: 2023-01-15
+---
+> [!note] 芯片成本
+> 这一章主要给出了影响芯片成本的因素，并如何合理的控制芯片成本，这也是计算机架构师应该关注的事情。
+
 ## Trends in Cost(成本趋势)
 
 Although costs tend to be less important in some computer designs—specifically supercomputers—cost-sensitive designs are of growing significance. Indeed, in the past 35 years, the use of technology improvements to lower cost, as well as increase performance, has been a major theme in the computer industry.
@@ -28,7 +34,7 @@ Microprocessor prices also drop over time, but because they are less standard- i
 
 Volume is a second key factor in determining cost. Increasing volumes affect cost in several ways. First, they decrease the time needed to get through the learn- ing curve, which is partly proportional to the number of systems (or chips) man- ufactured. Second, volume decreases cost because it increases purchasing and manufacturing efficiency. As a rule of thumb, some designers have estimated that costs decrease about 10% for each doubling of volume. Moreover, volume decreases the amount of development costs that must be amortized by each com- puter, thus allowing cost and selling price to be closer and still make a profit.
 
-> 音量是确定成本的第二个关键因素。增加的量会以多种方式影响成本。首先，它们减少了通过学习曲线所需的时间，该曲线与系统(或芯片)人工的数量部分成正比。其次，体积会降低成本，因为它提高了购买和制造效率。根据经验，一些设计师估计，每次加倍的成本降低了约 10％。此外，数量减少了每个计算机必须摊销的开发成本量，从而允许成本和销售价格更接近并仍然获利。
+> 体积是确定成本的第二个关键因素。增加的量会以多种方式影响成本。首先，它们减少了通过学习曲线所需的时间，该曲线与系统(或芯片)人工的数量部分成正比。其次，体积会降低成本，因为它提高了购买和制造效率。根据经验，一些设计师估计，每次加倍的成本降低了约 10％。此外，数量减少了每个计算机必须摊销的开发成本量，从而允许成本和销售价格更接近并仍然获利。
 
 _Commodities_ are products that are sold by multiple vendors in large volumes and are essentially identical. Virtually all the products sold on the shelves of gro- cery stores are commodities, as are standard DRAMs, Flash memory, monitors, and keyboards. In the past 30 years, much of the personal computer industry has become a commodity business focused on building desktop and laptop com- puters running Microsoft Windows.
 
@@ -38,9 +44,7 @@ Because many vendors ship virtually identical products, the market is highly com
 
 > 由于许多供应商运送了几乎相同的产品，因此市场具有很高的竞争力。当然，这项竞争减少了成本和销售价格之间的差距，但也降低了成本。减少是因为商品市场既有数量又有明确的产品定义，从而使多个供应商能够竞争商品产品的建造组件。结果，由于组件的供应商之间的竞争以及供应商可以实现的效率，因此所有产品成本较低。这种竞争导致计算机业务的低端能够取得比其他部门更好的价格表现，并且在低端的利润非常有限(无论在任何商品业务中都是典型的)。
 
-### Cost of an Integrated Circuit
-
-> ###集成电路的成本
+### Cost of an Integrated Circuit(集成电路的成本)
 
 Why would a computer architecture book have a section on integrated circuit costs? In an increasingly competitive computer marketplace where standard parts—disks, Flash memory, DRAMs, and so on—are becoming a significant por- tion of any system’s cost, integrated circuit costs are becoming a greater portion of the cost that varies between computers, especially in the high-volume, cost- sensitive portion of the market. Indeed, with PMDs’ increasing reliance of whole _systems on a chip_ (SOC), the cost of the integrated circuits is much of the cost of the PMD. Thus computer designers must understand the costs of chips in order to understand the costs of current computers.
 
@@ -48,15 +52,13 @@ Why would a computer architecture book have a section on integrated circuit cost
 
 Although the costs of integrated circuits have dropped exponentially, the basic process of silicon manufacture is unchanged: A _wafer_ is still tested and chopped into _dies_ that are packaged (see [Figures 1.14–1.16](#_bookmark23)). Therefore the cost of a pack- aged integrated circuit is
 
-> 尽管集成电路的成本呈指数下降，但硅制造的基本过程却没有变化：_WAFER_ 仍经过测试并切成包装的 _dies_(见[图 1.14-1.16](#\_ bookmark23))。因此，包装的集成电路的成本为
+> 尽管集成电路的成本呈指数下降，但硅制造的基本过程却没有变化：_wafer_ 仍经过测试并切成包装的 _dies_(见[图 1.14-1.16](#_bookmark23))。因此，包装的集成电路的成本为
 
 Cost of integrated circuit Cost of die + Cost of testing die + Cost of packaging and final test
 
 > 综合电路成本模具的成本 + 测试成本模具 + 包装成本和最终测试成本
 
-### Final test yield
-
-> ###最终测试收益
+### Final test yield(最终测试收益)
 
 In this section, we focus on the cost of dies, summarizing the key issues in testing and packaging at the end.
 
@@ -66,13 +68,7 @@ Learning how to predict the number of good chips per wafer requires first learn-
 
 > 学习如何预测每个晶圆的良好芯片数量需要首先学习适合晶圆的模具，然后学习如何预测将有效的模具。从那里可以简单地预测成本：
 
-Cost of die Cost of wafer
-
-> 晶圆成本的成本
-
-Dies per wafer ×Die yield
-
-> 每晶片死亡 × 死亡产量
+> ===
 
 The most interesting feature of this initial term of the chip cost equation is its sen- sitivity to die size, shown below.
 
@@ -84,47 +80,36 @@ The number of dies per wafer is approximately the area of the wafer divided by t
 
 > ===
 
-> > ===
+The first term is the ratio of wafer area (${\pi * r}^{2}$) to die area. The second compensates for the “square peg in a round hole” problem—rectangular dies near the periphery of round wafers. Dividing the circumference ($\pi * d$) by the diagonal of a square die is approximately the number of dies along the edge.
 
-The first term is the ratio of wafer area (π*r*<sup>2</sup>) to die area. The second compensates for the “square peg in a round hole” problem—rectangular dies near the periphery of round wafers. Dividing the circumference (π*d*) by the diagonal of a square die is approximately the number of dies along the edge.
-
-> 第一项是晶圆面积(π*r*<sup> 2 </sup>)的比率。第二个补偿了“圆孔中的方形钉”问题 - 圆形晶状体周围附近的区域死亡。将圆周(π*d*)除以正方形模具的对角线大约是沿边缘的模具的数量。
+> 第一项是晶圆面积的比率。第二个补偿了“圆孔中的方形钉”问题 - 圆形晶状体周围附近的区域死亡。将圆周除以正方形模具的对角线大约是沿边缘的模具的数量。
 
 Example Find the number of dies per 300 mm (30 cm) wafer for a die that is 1.5 cm on a side and for a die that is 1.0 cm on a side.
 
 > 示例查找每 300 毫米(30 厘米)晶圆的模具的数量，侧面为 1.5 厘米，侧面为 1.0 厘米。
 
-![](./media/image31.png)
+![](../media/image31.png)
+<img src="../media/image65.jpeg" style="width:4.34848in;height:2.915in" />
 
-> ！[](./ Media/image31.png)
+Figure 1.14 Photograph of an Intel Skylake microprocessor die, which is evaluated in [Chapter 4](#_bookmark165).
 
-<img src="./media/image65.jpeg" style="width:4.34848in;height:2.915in" />
+> 图 1.14 Intel Skylake 微处理器模具的照片，该图在[第 4 章](#_bookmark165)中进行了评估。
 
-> <img src =“ ./媒体/image65.jpeg” style =“宽度：4.34848in;高度：2.915in”/>
+Figure 1.15 The components of the microprocessor die in [Figure 1.14](#_bookmark23) are labeled with their functions.
 
-> Figure 1.14 Photograph of an Intel Skylake microprocessor die, which is evaluated in [Chapter 4](#_bookmark165).
+> 图 1.15 在[图 1.14](#_bookmark23) 中，微处理器的组件带有其功能。
 
-> > 图 1.14 Intel Skylake 微处理器模具的照片，该图在[第 4 章](#\_ bookmark165)中进行了评估。
+<img src="../media/image66.png" style="width:3.5466in;height:2.68in" />
 
-> Figure 1.15 The components of the microprocessor die in [Figure 1.14](#_bookmark23) are labeled with their functions.
+Figure 1.16 This 200 mm diameter wafer of RISC-V dies was designed by SiFive. It has two types of RISC-V dies using an older, larger processing line. An FE310 die is 2.65 mm 2.72 mm and an SiFive test die that is 2.89 mm 2.72 mm. The wafer contains 1846 of the former and 1866 of the latter, totaling 3712 chips.
 
-> > 图 1.15 在[图 1.14](#\_ bookmark23)中，微处理器的组件带有其功能。
-
-<img src="./media/image66.png" style="width:3.5466in;height:2.68in" />
-
-> <img src =“ ./媒体/image66.png” style =“宽度：3.5466in;高度：2.68in”/>
-
-> Figure 1.16 This 200 mm diameter wafer of RISC-V dies was designed by SiFive. It has two types of RISC-V dies using an older, larger processing line. An FE310 die is 2.65 mm 2.72 mm and an SiFive test die that is 2.89 mm 2.72 mm. The wafer contains 1846 of the former and 1866 of the latter, totaling 3712 chips.
-
-> > 图 1.16 RISC-V 模具的直径 200 毫米直径的晶圆是由 Sifive 设计的。它具有两种类型的 RISC-V 使用较旧的较大的处理线路死亡。FE310 模具为 2.65 毫米 2.72 毫米，一个 2.89 毫米 2.72 毫米的 Sifive 测试模具。晶圆包含前者的 1846 年和 1866 年的 1866 年，总计 3712 芯片。
+> 图 1.16 RISC-V 模具的直径 200 毫米直径的晶圆是由 Sifive 设计的。它具有两种类型的 RISC-V 使用较旧的较大的处理线路死亡。FE310 模具为 2.65 毫米 2.72 毫米，一个 2.89 毫米 2.72 毫米的 Sifive 测试模具。晶圆包含前者的 1846 年和 1866 年的 1866 年，总计 3712 芯片。
 
 > ===
 
-> > ===
-
 However, this formula gives only the maximum number of dies per wafer. The critical question is: What is the fraction of _good_ dies on a wafer, or the _die yield_?A simple model of integrated circuit yield, which assumes that defects are randomly distributed over the wafer and that yield is inversely proportional to the complexity of the fabrication process, leads to the following:
 
-> 但是，该公式仅给出每个晶圆的最大模具数量。关键的问题是：*good *死亡的比例是多少，或者* die tours*？一种简单的集成电路产量模型，假设缺陷是随机分布在晶片上，并且该产率与与之复杂的复杂性成反比制造过程，导致以下内容：
+> 但是，该公式仅给出每个晶圆的最大模具数量。关键的问题是：_good_ 死亡的比例是多少，或者 _die tours_？一种简单的集成电路产量模型，假设缺陷是随机分布在晶片上，并且该产率与与之复杂的复杂性成反比制造过程，导致以下内容：
 
 Die yield = Wafer yield × 1/(1 + Defects per unit area ×Die area)_N_
 
@@ -132,31 +117,29 @@ Die yield = Wafer yield × 1/(1 + Defects per unit area ×Die area)_N_
 
 This Bose-Einstein formula is an empirical model developed by looking at the yield of many manufacturing lines (Sydow, 2006), and it still applies today. _Wafer yield_ accounts for wafers that are completely bad and so need not be tested. For simplicity, we’ll just assume the wafer yield is 100%. Defects per unit area is a measure of the random manufacturing defects that occur. In 2017 the value was typically 0.08–0.10 defects per square inch for a 28-nm node and 0.10–0.30 for the newer 16 nm node because it depends on the maturity of the process (recall the learning curve mentioned earlier). The metric versions are 0.012–0.016 defects per square centimeter for 28 nm and 0.016–0.047 for 16 nm. Finally, N is a parameter called the process-complexity factor, a measure of manufacturing difficulty. For 28 nm processes in 2017, N is 7.5–9.5. For a 16 nm process, N ranges from 10 to 14.
 
-> 这个 Bose-Einstein 公式是通过查看许多制造线的产量而开发的经验模型(Sydow，2006 年)，并且今天仍然适用。*WAFER 屈服*对完全不好的晶粒说明，因此不必进行测试。为简单起见，我们只假设晶圆产量为 100％。单位面积缺陷是对发生的随机制造缺陷的量度。在 2017 年，对于 28 nm 节点，该值通常为 0.08–0.10 每平方英寸的缺陷，而新的 16 nm 节点的值为 0.10–0.30，因为它取决于该过程的成熟度(请回顾前面提到的学习曲线)。度量版本为 0.012-0.016 每平方厘米的缺陷为 28 nm，为 0.016-0.047，为 16 nm。最后，n 是一个称为过程复杂性因子的参数，这是制造难度的量度。对于 2017 年的 28 nm 流程，n 为 7.5–9.5。对于 16 nm 的过程，n 的范围为 10 到 14。
+> 这个 Bose-Einstein 公式是通过查看许多制造线的产量而开发的经验模型(Sydow，2006 年)，并且今天仍然适用。_wafer yield_ 对完全不好的晶粒说明，因此不必进行测试。为简单起见，我们只假设晶圆产量为 100％。单位面积缺陷是对发生的随机制造缺陷的量度。在 2017 年，对于 28 nm 节点，该值通常为 0.08–0.10 每平方英寸的缺陷，而新的 16 nm 节点的值为 0.10–0.30，因为它取决于该过程的成熟度(请回顾前面提到的学习曲线)。度量版本为 0.012-0.016 每平方厘米的缺陷为 28 nm，为 0.016-0.047，为 16 nm。最后，n 是一个称为过程复杂性因子的参数，这是制造难度的量度。对于 2017 年的 28 nm 流程，n 为 7.5–9.5。对于 16 nm 的过程，n 的范围为 10 到 14。
 
-Example Find the die yield for dies that are 1.5 cm on a side and 1.0 cm on a side, assuming a defect density of 0.047 per cm<sup>2</sup> and _N_ is 12.
+Example Find the die yield for dies that are 1.5 cm on a side and 1.0 cm on a side, assuming a defect density of 0.047 per ${cm}^{2}$ and _N_ is 12.
 
-> 示例在侧面找到 1.5 厘米的模具的模具产量，侧面为 1.0 cm，假设缺陷密度为每厘米 0.047 <sup> 2 </sup> </sup>，而 _n_ 为 12。
+> 示例在侧面找到 1.5 厘米的模具的模具产量，侧面为 1.0 cm，假设缺陷密度为每厘米 0.047 cm，而 _n_ 为 12。
 
 > ===
-
-> > ===
 
 The bottom line is the number of good dies per wafer. Less than half of all the large dies are good, but nearly 70% of the small dies are good.
 
 > 底线是每晶片的好污垢数。不到一半的大模具很好，但是将近 70％的小模具良好。
 
-Although many microprocessors fall between 1.00 and 2.25 cm<sup>2</sup>, low-end embedded 32-bit processors are sometimes as small as 0.05 cm<sup>2</sup>, processors used for embedded control (for inexpensive IoT devices) are often less than 0.01 cm<sup>2</sup>, and high-end server and GPU chips can be as large as 8 cm<sup>2</sup>.
+Although many microprocessors fall between 1.00 and 2.25 ${cm}^{2}$, low-end embedded 32-bit processors are sometimes as small as 0.05 ${cm}^{2}$, processors used for embedded control (for inexpensive IoT devices) are often less than 0.01 ${cm}^{2}$, and high-end server and GPU chips can be as large as 8 ${cm}^{2}$.
 
-> 尽管许多微处理器介于 1.00 至 2.25 cm <sup> 2 </sup>之间，但低端嵌入式 32 位处理器有时会小至 0.05 cm <sup> 2 </sup>，用于嵌入式控制的处理器(用于廉价的控制器)物联网设备)通常小于 0.01 cm <sup> 2 </sup>，高端服务器和 GPU 芯片可以大至 8 cm <sup> 2 </sup>。
+> 尽管许多微处理器介于 1.00 至 2.25 cm 之间，但低端嵌入式 32 位处理器有时会小至 0.05 cm，用于嵌入式控制的处理器(用于廉价的控制器)物联网设备)通常小于 0.01 cm，高端服务器和 GPU 芯片可以大至 8 cm。
 
 Given the tremendous price pressures on commodity products such as DRAM and SRAM, designers have included redundancy as a way to raise yield. For a number of years, DRAMs have regularly included some redundant memory cells so that a certain number of flaws can be accommodated. Designers have used sim- ilar techniques in both standard SRAMs and in large SRAM arrays used for caches within microprocessors. GPUs have 4 redundant processors out of 84 for the same reason. Obviously, the presence of redundant entries can be used to boost the yield significantly.
 
 > 鉴于 DRAM 和 SRAM 等商品产品的价格压力很大，设计师包括冗余，以提高产量。多年来，DRAM 定期包括一些冗余记忆单元，以便可以容纳一定数量的缺陷。设计师在标准 SRAM 和微处理器中用于缓存的大型 SRAM 阵列中都使用了模拟技术。出于相同的原因，GPU 在 84 个中有 4 个冗余处理器。显然，可以使用冗余条目的存在来显着提高产量。
 
-In 2017 processing of a 300 mm (12-inch) diameter wafer in a 28-nm technol- ogy costs between `$4000` and `$5000`, and a 16-nm wafer costs about `$7000`. Assuming a processed wafer cost of `$7000`, the cost of the 1.00 cm <sup>2</sup> die would be around `$16`, but the cost per die of the 2.25 cm <sup>2</sup> die would be about `$58`, or almost four times the cost of a die that is a little over twice as large.
+In 2017 processing of a 300 mm (12-inch) diameter wafer in a 28-nm technol- ogy costs between `$4000` and `$5000`, and a 16-nm wafer costs about `$7000`. Assuming a processed wafer cost of `$7000`, the cost of the 1.00 ${cm }^{2}$ die would be around `$16`, but the cost per die of the 2.25 ${cm }^{2}$ die would be about `$58`, or almost four times the cost of a die that is a little over twice as large.
 
-> 在 2017 年处理 300 毫米(12 英寸)直径的晶圆，以 28 纳米的技术成本介于$ 4000'和$ 5000'之间，而 16 纳米的晶圆成本约为$ 7000。假设处理的晶圆成本为“ $ 7000”，则 1.00 cm <sup> 2 </sup>死亡的费用将大约$ 16``` $ 16'，但是 2.25 cm <sup> 2 </sup> die 的每日费用为 2.25 cm 大约是“ $ 58”，或者是死亡成本的四倍，其大于两倍。
+> 在 2017 年处理 300 毫米(12 英寸)直径的晶圆，以 28 纳米的技术成本介于 `$4000` 和 `$5000` 之间，而 16 纳米的晶圆成本约为 $7000。假设处理的晶圆成本为 $7000，则 1.00 cm 死亡的费用将大约$ 16``` $ 16'，但是 2.25 cm die 的每日费用为 2.25 cm 大约是“ $ 58”，或者是死亡成本的四倍，其大于两倍。
 
 What should a computer designer remember about chip costs? The manufactur- ing process dictates the wafer cost, wafer yield, and defects per unit area, so the sole control of the designer is die area. In practice, because the number of defects per unit area is small, the number of good dies per wafer, and therefore the cost per die, grows roughly as the square of the die area. The computer designer affects die size, and thus cost, both by what functions are included on or excluded from the die and by the number of I/O pins.
 
@@ -172,23 +155,19 @@ The preceding analysis focused on the variable costs of producing a functional d
 
 The good news is that semiconductor companies offer “shuttle runs” to dramat- ically lower the costs of tiny test chips. They lower costs by putting many small designs onto a single die to amortize the mask costs, and then later split the dies into smaller pieces for each project. Thus TSMC delivers 80–100 untested dies that are 1.57 1.57 mm in a 28 nm process for `$30,000` in 2017. Although these die are tiny, they offer the architect millions of transistors to play with. For example, sev- eral RISC-V processors would fit on such a die.
 
-> 好消息是，半导体公司提供“班车运行”，以戏剧性地降低小型测试芯片的成本。他们通过将许多小型设计放在单个模具上以摊销面具成本，然后将模具分成小块，以降低成本。因此，TSMC 在 2017 年的 28 nm 工艺中提供 80-100 个未经测试的模具，在 28 nm 的过程中为 1.57 1.57 毫米。尽管这些模具很小，但它们为工程师提供了数百万晶体管。例如，SEV-SEV-RISC-V 处理器适合这种模具。
+> 好消息是，半导体公司提供“shuttle runs”，以戏剧性地降低小型测试芯片的成本。他们通过将许多小型设计放在单个模具上以摊销面具成本，然后将模具分成小块，以降低成本。因此，TSMC 在 2017 年的 28 nm 工艺中提供 80-100 个未经测试的模具，在 28 nm 的过程中为 1.57 1.57 毫米。尽管这些模具很小，但它们为工程师提供了数百万晶体管。例如，SEV-SEV-RISC-V 处理器适合这种模具。
 
 Although shuttle runs help with prototyping and debugging runs, they don’t address small-volume production of tens to hundreds of thousands of parts. Because mask costs are likely to continue to increase, some designers are incorpo- rating reconfigurable logic to enhance the flexibility of a part and thus reduce the cost implications of masks.
 
 > 尽管航天飞机运行有助于原型制作和调试运行，但它们并没有解决数十至数十万个零件的小批量生产。由于面具成本可能会继续增加，因此一些设计师不可能重新配置逻辑，以增强零件的灵活性，从而降低面具的成本含义。
 
-### Cost Versus Price
-
-> ###成本与价格
+### Cost Versus Price(成本与价格)
 
 With the commoditization of computers, the margin between the cost to manufac- ture a product and the price the product sells for has been shrinking. Those margins pay for a company’s research and development (R&D), marketing, sales, manufacturing equipment maintenance, building rental, cost of financing, pretax profits, and taxes. Many engineers are surprised to find that most companies spend only 4% (in the commodity PC business) to 12% (in the high-end server business) of their income on R&D, which includes all engineering.
 
 > 随着计算机的商品化，制造产品的成本与产品出售的价格之间的余量正在缩小。这些利润率为公司的研发(R＆D)，营销，销售，制造设备维护，建筑租金，融资成本，税前利润和税收付费。许多工程师惊讶地发现，大多数公司在 R＆D 上的收入中仅花费 4％(在商品 PC 业务中)(在高端服务器业务中)，其中包括所有工程。
 
-### Cost of Manufacturing Versus Cost of Operation
-
-> ###制造成本与运营成本
+### Cost of Manufacturing Versus Cost of Operation(制造成本与运营成本)
 
 For the first four editions of this book, cost meant the cost to build a computer and price meant price to purchase a computer. With the advent of WSCs, which contain tens of thousands of servers, the cost to operate the computers is significant in addi- tion to the cost of purchase. Economists refer to these two costs as capital expenses (CAPEX) and operational expenses (OPEX).
 
@@ -196,4 +175,4 @@ For the first four editions of this book, cost meant the cost to build a compute
 
 As [Chapter 6](#_bookmark268) shows, the amortized purchase price of servers and networks is about half of the monthly cost to operate a WSC, assuming a short lifetime of the IT equipment of 3–4 years. About 40% of the monthly operational costs are for power use and the amortized infrastructure to distribute power and to cool the IT equipment, despite this infrastructure being amortized over 10–15 years. Thus, to lower operational costs in a WSC, computer architects need to use energy efficiently.
 
-> 正如[第 6 章](#\_ bookmark268)所示，服务器和网络的摊销购买价格约为经营 WSC 的每月成本的一半，假设 IT 设备的寿命为 3 - 4 年。每月运营成本的大约 40％用于电力使用和摊销基础设施，以分发电力和冷却 IT 设备，尽管该基础设施已在 10 - 15 年内摊销。因此，为了降低 WSC 中的运营成本，计算机工程师需要有效地使用能源。
+> 正如[第 6 章](#_bookmark268)所示，服务器和网络的摊销购买价格约为经营 WSC 的每月成本的一半，假设 IT 设备的寿命为 3 - 4 年。每月运营成本的大约 40％用于电力使用和摊销基础设施，以分发电力和冷却 IT 设备，尽管该基础设施已在 10 - 15 年内摊销。因此，为了降低 WSC 中的运营成本，计算机工程师需要有效地使用能源。
