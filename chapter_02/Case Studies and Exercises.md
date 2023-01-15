@@ -298,12 +298,12 @@ cycles, assume the cycle time output using CACTI, which corresponds to the maxim
    that is 16 bytes wide. Assume that the L2 can be written with 16 bytes every 4 processor cycles, the time to receive the first 16 byte block from the memory con- troller is 120 cycles, each additional 16 byte block from main memory requires 16 cycles, and data can be bypassed directly into the read port of the L2 cache. Ignore any cycles to transfer the miss request to the L2 cache and the requested data to the L1 cache.
 10. &lt;2.3&gt; How many cycles would it take to service an L2 cache miss with and without critical word first and early restart?
 11. &lt;2.3&gt; Do you think critical word first and early restart would be more important for L1 caches or L2 caches, and what factors would contribute to their
-   relative importance?
+    relative importance?
 12. 12\] &lt;2.3&gt; You are designing a write buffer between a write-through L1 cache and a write-back L2 cache. The L2 cache write data bus is 16 B wide and can per-
-   form a write to an independent cache address every four processor cycles.
+    form a write to an independent cache address every four processor cycles.
 13. &lt;2.3&gt; How many bytes wide should each write buffer entry be?
 14. &lt;2.3&gt; What speedup could be expected in the steady state by using a merging write buffer instead of a nonmerging buffer when zeroing memory
-   by the execution of 64-bit stores if all other instructions could be issued in parallel with the stores and the blocks are present in the L2 cache?
+    by the execution of 64-bit stores if all other instructions could be issued in parallel with the stores and the blocks are present in the L2 cache?
 15. &lt;2.3&gt; What would the effect of possible L1 misses be on the number of required write buffer entries for systems with blocking and nonblocking caches?
 
 <!-- -->

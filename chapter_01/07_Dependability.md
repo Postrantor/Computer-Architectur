@@ -12,7 +12,7 @@ Computers are designed and constructed at different layers of abstraction. We ca
 
 One difficult question is deciding when a system is operating properly. This theoretical point became concrete with the popularity of Internet services. Infra- structure providers started offering _service level agreements_ (SLAs) or _service level objectives_ (SLOs) to guarantee that their networking or power service would be dependable. For example, they would pay the customer a penalty if they did not meet an agreement of some hours per month. Thus an SLA could be used to decide whether the system was up or down.
 
-> 一个困难的问题是确定系统何时正常运行。这个理论上的观点随着互联网服务的普及而变得具体。INFRA-结构提供商开始提供_服务级协议_（SLA）或_服务级别目标_（SLO），以确保其网络或电力服务可靠。例如，如果他们每月不符合数小时的协议，他们将向客户支付罚款。因此，可以使用 SLA 来确定系统是向上还是向下。
+> 一个困难的问题是确定系统何时正常运行。这个理论上的观点随着互联网服务的普及而变得具体。INFRA-结构提供商开始提供_服务级协议_(SLA)或_服务级别目标_(SLO)，以确保其网络或电力服务可靠。例如，如果他们每月不符合数小时的协议，他们将向客户支付罚款。因此，可以使用 SLA 来确定系统是向上还是向下。
 
 Systems alternate between two states of service with respect to an SLA:
 
@@ -28,11 +28,11 @@ specified.
 
 2. _Service interruption_, where the delivered service is different from the SLA. Transitions between these two states are caused by _failures_ (from state 1 to state 2) or _restorations_ (2 to 1). Quantifying these transitions leads to the two main mea- sures of dependability:
 
-> 2. _服务中断_，其中交付服务与 SLA 不同。这两个状态之间的过渡是由_failures _（从状态 1 到状态 2）或_Restorations _（2 至 1）引起的。量化这些过渡会导致可靠性的两个主要表现：
+> 2. _服务中断_，其中交付服务与 SLA 不同。这两个状态之间的过渡是由_failures _(从状态 1 到状态 2)或_Restorations _(2 至 1)引起的。量化这些过渡会导致可靠性的两个主要表现：
 
 - _Module reliability_ is a measure of the continuous service accomplishment (or, equivalently, of the time to failure) from a reference initial instant. Therefore the _mean time to failure_ (MTTF) is a reliability measure. The reciprocal of MTTF is a rate of failures, generally reported as failures per billion hours of operation, or _FIT_ (for _failures in time_). Thus an MTTF of 1,000,000 hours equals 10<sup>9</sup>/10<sup>6</sup> or 1000 FIT. Service interruption is measured as _mean time to repair_ (MTTR). _Mean time between failures_ (MTBF) is simply the sum of MTTF+ MTTR. Although MTBF is widely used, MTTF is often the more appropriate term. If a collection of modules has exponentially distributed lifetimes—meaning that the age of a module is not important in probability of failure—the overall failure rate of the collection is the sum of the failure rates of the modules.
 
-> - _MODULE 可靠性_是从参考初始瞬间开始的连续服务成就（或等效的失败时间）的度量。因此，失败的时间_（MTTF）是一个可靠性度量。MTTF 的倒数是故障率，通常报告为每十亿小时的操作或_fit_（用于_FITURES _FITERINE）。因此，1,000,000 小时的 MTTF 等于 10 <sup> 9 </sup>/10 <sup> 6 </sup>或 1000 Fit。服务中断被测量为_ mean 进行修理时间（MTTR）。_失败_（MTBF）之间的时间只是 MTTF+ MTTR 的总和。尽管 MTBF 被广泛使用，但 MTTF 通常是更合适的术语。如果模块的集合具有指数分布的寿命（即模块的年龄在失败概率中并不重要），则该收集的总失败率是模块的故障率的总和。
+> - _MODULE 可靠性_是从参考初始瞬间开始的连续服务成就(或等效的失败时间)的度量。因此，失败的时间_(MTTF)是一个可靠性度量。MTTF 的倒数是故障率，通常报告为每十亿小时的操作或_fit_(用于_FITURES _FITERINE)。因此，1,000,000 小时的 MTTF 等于 10 <sup> 9 </sup>/10 <sup> 6 </sup>或 1000 Fit。服务中断被测量为_ mean 进行修理时间(MTTR)。_失败_(MTBF)之间的时间只是 MTTF+ MTTR 的总和。尽管 MTBF 被广泛使用，但 MTTF 通常是更合适的术语。如果模块的集合具有指数分布的寿命(即模块的年龄在失败概率中并不重要)，则该收集的总失败率是模块的故障率的总和。
 
 - _Module availability_ is a measure of the service accomplishment with respect to the alternation between the two states of accomplishment and interruption. For nonredundant systems with repair, module availability is Module availability MTTF
 
@@ -40,7 +40,7 @@ specified.
 
 (MTTF + MTTR)
 
-> （MTTF + MTTR）
+> (MTTF + MTTR)
 
 Note that reliability and availability are now quantifiable metrics, rather than syn- onyms for dependability. From these definitions, we can estimate reliability of a system quantitatively if we make some assumptions about the reliability of com- ponents and that failures are independent.
 
@@ -81,7 +81,7 @@ Using the simplifying assumptions that the lifetimes are exponentially distribut
 
 The primary way to cope with failure is redundancy, either in time (repeat the operation to see if it still is erroneous) or in resources (have other components to take over from the one that failed). Once the component is replaced and the system is fully repaired, the dependability of the system is assumed to be as good as new. Let’s quantify the benefits of redundancy with an example.
 
-> 应对故障的主要方法是冗余，无论是及时的（重复该操作以查看仍然是错误的）还是资源中（有其他组件可以从失败的组件中接管）。一旦更换了组件并完全维修了系统，则假定系统的可靠性与新型一样好。让我们以示例来量化冗余的好处。
+> 应对故障的主要方法是冗余，无论是及时的(重复该操作以查看仍然是错误的)还是资源中(有其他组件可以从失败的组件中接管)。一旦更换了组件并完全维修了系统，则假定系统的可靠性与新型一样好。让我们以示例来量化冗余的好处。
 
 Example Disk subsystems often have redundant power supplies to improve dependability. Using the preceding components and MTTFs, calculate the reliability of redundant power supplies. Assume that one power supply is sufficient to run the disk subsys- tem and that we are adding one redundant power supply.
 

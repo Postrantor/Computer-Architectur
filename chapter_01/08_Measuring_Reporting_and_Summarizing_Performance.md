@@ -4,7 +4,7 @@
 
 When we say one computer is faster than another one is, what do we mean? The user of a cell phone may say a computer is faster when a program runs in less time, while an Amazon.com administrator may say a computer is faster when it com- pletes more transactions per hour. The cell phone user wants to reduce _response time_—the time between the start and the completion of an event—also referred to as _execution time_. The operator of a WSC wants to increase _throughput_—the total amount of work done in a given time.
 
-> 当我们说一台计算机比另一台计算机更快时，我们的意思是什么？手机的用户可能会说，当程序在更少的时间内运行时，计算机的速度更快，而 Amazon.com 管理员可能会说计算机每小时进行更多交易时，计算机的速度更快。手机用户希望减少 *response Time*（事件的开始和完成之间的时间）也称为 *EXECTICE TIME*。WSC 的操作员希望增加 *throughput* - 在给定时间内完成的工作总量。
+> 当我们说一台计算机比另一台计算机更快时，我们的意思是什么？手机的用户可能会说，当程序在更少的时间内运行时，计算机的速度更快，而 Amazon.com 管理员可能会说计算机每小时进行更多交易时，计算机的速度更快。手机用户希望减少 *response Time*(事件的开始和完成之间的时间)也称为 *EXECTICE TIME*。WSC 的操作员希望增加 *throughput* - 在给定时间内完成的工作总量。
 
 In comparing design alternatives, we often want to relate the performance of two different computers, say, X and Y. The phrase “X is faster than Y” is used here to mean that the response time or execution time is lower on X than on Y for the given task. In particular, “X is _n_ times as fast as Y” will mean
 
@@ -28,7 +28,7 @@ Unfortunately, time is not always the metric quoted in comparing the perfor- man
 
 Even execution time can be defined in different ways depending on what we count. The most straightforward definition of time is called _wall-clock time_, _response time_, or _elapsed time_, which is the latency to complete a task, including storage accesses, memory accesses, input/output activities, operating system over- head—everything. With multiprogramming, the processor works on another pro- gram while waiting for I/O and may not necessarily minimize the elapsed time of one program. Thus we need a term to consider this activity. _CPU time_ recognizes this distinction and means the time the processor is computing, _not_ including the time waiting for I/O or running other programs. (Clearly, the response time seen by the user is the elapsed time of the program, not the CPU time.)
 
-> 甚至可以根据我们计算的内容来以不同的方式定义执行时间。时间最直接的定义称为* WALL-CLOCK TIME*，*RESPONSE TIME* 或 *ELAPSED TIME*，这是完成任务的延迟，包括存储访问，内存访问，输入/输出活动，操作系统，操作系统，越过 heast-Heast-everything。通过多编程，处理器在等待 I/O 时在另一个程序上起作用，并且不一定会最大程度地减少一个程序的经过的时间。因此，我们需要一个术语来考虑这项活动。*cpu Time* 识别此区别，表示处理器正在计算的时间，_not_，包括等待 I/O 或运行其他程序的时间。（显然，用户看到的响应时间是程序的经过的时间，而不是 CPU 时间。）
+> 甚至可以根据我们计算的内容来以不同的方式定义执行时间。时间最直接的定义称为* WALL-CLOCK TIME*，*RESPONSE TIME* 或 *ELAPSED TIME*，这是完成任务的延迟，包括存储访问，内存访问，输入/输出活动，操作系统，操作系统，越过 heast-Heast-everything。通过多编程，处理器在等待 I/O 时在另一个程序上起作用，并且不一定会最大程度地减少一个程序的经过的时间。因此，我们需要一个术语来考虑这项活动。*cpu Time* 识别此区别，表示处理器正在计算的时间，_not_，包括等待 I/O 或运行其他程序的时间。(显然，用户看到的响应时间是程序的经过的时间，而不是 CPU 时间。)
 
 Computer users who routinely run the same programs would be the perfect can- didates to evaluate a new computer. To evaluate a new system, these users would simply compare the execution time of their _workloads_—the mixture of programs and operating system commands that users run on a computer. Few are in this happy situation, however. Most must rely on other methods to evaluate computers, and often other evaluators, hoping that these methods will predict performance for their usage of the new computer. One approach is benchmark programs, which are programs that many companies use to establish the relative performance of their computers.
 
@@ -40,7 +40,7 @@ Computer users who routinely run the same programs would be the perfect can- did
 
 The best choice of benchmarks to measure performance is real applications, such as Google Translate mentioned in [Section 1.1](#introduction). Attempts at running programs that are much simpler than a real application have led to performance pitfalls. Examples include
 
-> 衡量性能的最佳选择是真实的应用程序，例如[1.1 节]（＃简介）中提到的 Google 翻译。尝试运行比实际应用程序要简单得多的程序导致了性能陷阱。示例包括
+> 衡量性能的最佳选择是真实的应用程序，例如[1.1 节](＃简介)中提到的 Google 翻译。尝试运行比实际应用程序要简单得多的程序导致了性能陷阱。示例包括
 
 - _Kernels_, which are small, key pieces of real applications.
 
@@ -48,7 +48,7 @@ The best choice of benchmarks to measure performance is real applications, such 
 
 - _Toy programs_, which are 100-line programs from beginning programming assignments, such as Quicksort.
 
-> - _toy 程序_，是从启动编程作业（例如 QuickSort）的 100 行程序。
+> - _toy 程序_，是从启动编程作业(例如 QuickSort)的 100 行程序。
 
 - _Synthetic benchmarks_, which are fake programs invented to try to match the profile and behavior of real applications, such as Dhrystone.
 
@@ -56,11 +56,11 @@ The best choice of benchmarks to measure performance is real applications, such 
 
 All three are discredited today, usually because the compiler writer and architect can conspire to make the computer appear faster on these stand-in programs than on real applications. Regrettably for your authors—who dropped the fallacy about using synthetic benchmarks to characterize performance in the fourth edition of this book since we thought all computer architects agreed it was disreputable— the synthetic program Dhrystone is still the most widely quoted benchmark for embedded processors in 2017!
 
-> 今天，这三个都被抹黑了，通常是因为编译器作家和建筑师可以合谋使计算机在这些备用程序上的显示速度比实际应用程序更快。遗憾的是，对于您的作者来说，他放弃了使用合成基准来表征本书第四版的性能的谬论，因为我们认为所有计算机建筑师都同意它是不可偿还的 - 合成程序 Dhrystone 仍然是 2017 年嵌入式处理器的最广泛报道呢
+> 今天，这三个都被抹黑了，通常是因为编译器作家和工程师可以合谋使计算机在这些备用程序上的显示速度比实际应用程序更快。遗憾的是，对于您的作者来说，他放弃了使用合成基准来表征本书第四版的性能的谬论，因为我们认为所有计算机工程师都同意它是不可偿还的 - 合成程序 Dhrystone 仍然是 2017 年嵌入式处理器的最广泛报道呢
 
 Another issue is the conditions under which the benchmarks are run. One way to improve the performance of a benchmark has been with benchmark-specific compiler flags; these flags often caused transformations that would be illegal on many programs or would slow down performance on others. To restrict this pro- cess and increase the significance of the results, benchmark developers typically require the vendor to use one compiler and one set of flags for all the programs in the same language (such as C++ or C). In addition to the question of compiler flags, another question is whether source code modifications are allowed. There are three different approaches to addressing this question:
 
-> 另一个问题是运行基准的条件。提高基准性能的一种方法是使用基准特定的编译器标志。这些标志通常会导致在许多程序上是非法的转换，或者会减慢其他程序的性能。为了限制此过程并提高结果的重要性，基准开发人员通常要求供应商使用一个编译器和一组标志，以使用相同语言的所有程序（例如 C ++ 或 C）。除了编译器标志的问题外，另一个问题是是否允许源代码修改。解决这个问题有三种不同的方法：
+> 另一个问题是运行基准的条件。提高基准性能的一种方法是使用基准特定的编译器标志。这些标志通常会导致在许多程序上是非法的转换，或者会减慢其他程序的性能。为了限制此过程并提高结果的重要性，基准开发人员通常要求供应商使用一个编译器和一组标志，以使用相同语言的所有程序(例如 C ++ 或 C)。除了编译器标志的问题外，另一个问题是是否允许源代码修改。解决这个问题有三种不同的方法：
 
 1. No source code modifications are allowed.
 
@@ -76,7 +76,7 @@ Another issue is the conditions under which the benchmarks are run. One way to i
 
 The key issue that benchmark designers face in deciding to allow modification of the source is whether such modifications will reflect real practice and provide useful insight to users, or whether these changes simply reduce the accuracy of the bench- marks as predictors of real performance. As we will see in [Chapter 7](#_bookmark322), domain- specific architects often follow the third option when creating processors for well-defined tasks.
 
-> 基准设计师决定允许修改源的关键问题是这种修改是否会反映出真实实践并为用户提供有用的见解，或者这些更改是否仅仅降低了基准标记的准确性作为真实性能的预测指标。正如我们将在[第 7 章]（#\_ bookmark322）中看到的那样，域特定的架构师通常在创建定义明确任务的处理器时遵循第三个选项。
+> 基准设计师决定允许修改源的关键问题是这种修改是否会反映出真实实践并为用户提供有用的见解，或者这些更改是否仅仅降低了基准标记的准确性作为真实性能的预测指标。正如我们将在[第 7 章](#\_ bookmark322)中看到的那样，域特定的架构师通常在创建定义明确任务的处理器时遵循第三个选项。
 
 To overcome the danger of placing too many eggs in one basket, collections of benchmark applications, called _benchmark suites_, are a popular measure of perfor- mance of processors with a variety of applications. Of course, such collections are only as good as the constituent individual benchmarks. Nonetheless, a key advan- tage of such suites is that the weakness of any one benchmark is lessened by the presence of the other benchmarks. The goal of a benchmark suite is that it will char- acterize the real relative performance of two computers, particularly for programs not in the suite that customers are likely to run.
 
@@ -84,7 +84,7 @@ To overcome the danger of placing too many eggs in one basket, collections of be
 
 A cautionary example is the Electronic Design News Embedded Microproces- sor Benchmark Consortium (or EEMBC, pronounced “embassy”) benchmarks.
 
-> 一个警告的例子是电子设计新闻嵌入的微处理学基准联盟（或 EEMBC，发音为“使馆”）基准。
+> 一个警告的例子是电子设计新闻嵌入的微处理学基准联盟(或 EEMBC，发音为“使馆”)基准。
 
 It is a set of 41 kernels used to predict performance of different embedded applications: automotive/industrial, consumer, networking, office automation, and telecommunications. EEMBC reports unmodified performance and “full fury” performance, where almost anything goes. Because these benchmarks use small kernels, and because of the reporting options, EEMBC does not have the reputation of being a good predictor of relative performance of different embedded computers in the field. This lack of success is why Dhrystone, which EEMBC was trying to replace, is sadly still used.
 
@@ -92,7 +92,7 @@ It is a set of 41 kernels used to predict performance of different embedded appl
 
 One of the most successful attempts to create standardized benchmark appli- cation suites has been the SPEC (Standard Performance Evaluation Corporation), which had its roots in efforts in the late 1980s to deliver better benchmarks for workstations. Just as the computer industry has evolved over time, so has the need for different benchmark suites, and there are now SPEC benchmarks to cover many application classes. All the SPEC benchmark suites and their reported results are found at [http://www.spec.org](http://www.spec.org/).
 
-> 建立标准化基准应用套件的最成功的尝试之一是 Spec（标准绩效评估公司），该规范扎根于 1980 年代后期的努力，以为工作站提供更好的基准。正如计算机行业随着时间的推移而发展的一样，需要不同的基准套件，现在有规格的基准来涵盖许多申请课程。所有规格基准套件及其报告的结果均在[http://www.spec.org]（[http://www.spec.org/](http://www.spec.org/)）上找到。
+> 建立标准化基准应用套件的最成功的尝试之一是 Spec(标准绩效评估公司)，该规范扎根于 1980 年代后期的努力，以为工作站提供更好的基准。正如计算机行业随着时间的推移而发展的一样，需要不同的基准套件，现在有规格的基准来涵盖许多申请课程。所有规格基准套件及其报告的结果均在[http://www.spec.org]([http://www.spec.org/](http://www.spec.org/))上找到。
 
 Although we focus our discussion on the SPEC benchmarks in many of the following sections, many benchmarks have also been developed for PCs running the Windows operating system.
 
@@ -104,7 +104,7 @@ Although we focus our discussion on the SPEC benchmarks in many of the following
 
 Desktop benchmarks divide into two broad classes: processor-intensive bench- marks and graphics-intensive benchmarks, although many graphics benchmarks include intensive processor activity. SPEC originally created a benchmark set focusing on processor performance (initially called SPEC89), which has evolved into its sixth generation: SPEC CPU2017, which follows SPEC2006, SPEC2000, SPEC95 SPEC92, and SPEC89. SPEC CPU2017 consists of a set of 10 integer benchmarks (CINT2017) and 17 floating-point benchmarks (CFP2017). [Figure 1.17](#_bookmark26) describes the current SPEC CPU benchmarks and their ancestry.
 
-> 桌面基准分为两个广泛的类别：处理器密集型标记和图形密集型基准测试，尽管许多图形基准都包括密集的处理器活动。Spec 最初创建了一个专注于处理器性能（最初称为 SPEC89）的基准集，该基准已演变为第六代：SPEC CPU2017，遵循 SPEC2006，SPEC2000，SPEC95 SPEC92 和 SPEC89。规格 CPU2017 由一组 10 个整数基准（CINT2017）和 17 个浮点基准（CFP2017）组成。[图 1.17]（#\_ bookmark26）描述了当前的规格 CPU 基准及其祖先。
+> 桌面基准分为两个广泛的类别：处理器密集型标记和图形密集型基准测试，尽管许多图形基准都包括密集的处理器活动。Spec 最初创建了一个专注于处理器性能(最初称为 SPEC89)的基准集，该基准已演变为第六代：SPEC CPU2017，遵循 SPEC2006，SPEC2000，SPEC95 SPEC92 和 SPEC89。规格 CPU2017 由一组 10 个整数基准(CINT2017)和 17 个浮点基准(CFP2017)组成。[图 1.17](#\_ bookmark26)描述了当前的规格 CPU 基准及其祖先。
 
 > ===
 
@@ -115,15 +115,15 @@ Desktop benchmarks divide into two broad classes: processor-intensive bench- mar
 
 SPEC benchmarks are real programs modified to be portable and to minimize the effect of I/O on performance. The integer benchmarks vary from part of a C compiler to a go program to a video compression. The floating-point benchmarks include molecular dynamics, ray tracing, and weather forecasting. The SPEC CPU suite is useful for processor benchmarking for both desktop systems and single-processor servers. We will see data on many of these programs throughout this book. However, these programs share little with modern programming lan- guages and environments and the Google Translate application that [Section 1.1](#introduction) describes. Nearly half of them are written at least partially in Fortran! They are even statically linked instead of being dynamically linked like most real pro- grams. Alas, the SPEC2017 applications themselves may be real, but they are not inspiring. It’s not clear that SPECINT2017 and SPECFP2017 capture what is exciting about computing in the 21st century.
 
-> 规格基准是实际修改的实际程序，以便于便携式，并最大程度地减少 I/O 对性能的影响。整数基准分析从 C 编译器的一部分到 GO 程序，再到视频压缩。浮点基准包括分子动力学，射线跟踪和天气预报。SPEC CPU 套件可用于台式系统和单处理器服务器的处理器基准测试。在本书中，我们将看到许多此类程序的数据。但是，这些程序与现代编程语言和环境以及 Google 翻译应用程序[1.1]（＃简介）所描述的应用程序很少。其中近一半至少部分写在 Fortran 中！它们甚至是静态链接的，而不是像大多数真实的研究一样动态链接。las，Spec2017 应用程序本身可能是真实的，但它们并不鼓舞。目前尚不清楚 Specint2017 和 SpecFP2017 捕获了 21 世纪的计算令人兴奋的内容。
+> 规格基准是实际修改的实际程序，以便于便携式，并最大程度地减少 I/O 对性能的影响。整数基准分析从 C 编译器的一部分到 GO 程序，再到视频压缩。浮点基准包括分子动力学，射线跟踪和天气预报。SPEC CPU 套件可用于台式系统和单处理器服务器的处理器基准测试。在本书中，我们将看到许多此类程序的数据。但是，这些程序与现代编程语言和环境以及 Google 翻译应用程序[1.1](＃简介)所描述的应用程序很少。其中近一半至少部分写在 Fortran 中！它们甚至是静态链接的，而不是像大多数真实的研究一样动态链接。las，Spec2017 应用程序本身可能是真实的，但它们并不鼓舞。目前尚不清楚 Specint2017 和 SpecFP2017 捕获了 21 世纪的计算令人兴奋的内容。
 
 In [Section 1.11](#_bookmark33), we describe pitfalls that have occurred in developing the SPEC CPUbenchmark suite, as well as the challenges in maintaining a useful and pre- dictive benchmark suite.
 
-> 在[第 1.11 节]（#\_ bookmark33）中，我们描述了开发规格 CPubench 套件中发生的陷阱，以及维护有用且具有预示性基准的基准套件的挑战。
+> 在[第 1.11 节](#\_ bookmark33)中，我们描述了开发规格 CPubench 套件中发生的陷阱，以及维护有用且具有预示性基准的基准套件的挑战。
 
 SPEC CPU2017 is aimed at processor performance, but SPEC offers many other benchmarks. [Figure 1.18](#_bookmark27) lists the 17 SPEC benchmarks that are active in 2017.
 
-> SPEC CPU2017 针对处理器性能，但 SPEC 提供了许多其他基准测试。[图 1.18]（#\_ bookmark27）列出了 2017 年活跃的 17 个规格基准。
+> SPEC CPU2017 针对处理器性能，但 SPEC 提供了许多其他基准测试。[图 1.18](#\_ bookmark27)列出了 2017 年活跃的 17 个规格基准。
 
 ##### _Server Benchmarks_
 
@@ -131,19 +131,19 @@ SPEC CPU2017 is aimed at processor performance, but SPEC offers many other bench
 
 Just as servers have multiple functions, so are there multiple types of benchmarks. The simplest benchmark is perhaps a processor throughput-oriented benchmark. SPEC CPU2017 uses the SPEC CPU benchmarks to construct a simple throughput benchmark where the processing rate of a multiprocessor can be measured by run- ning multiple copies (usually as many as there are processors) of each SPEC CPU benchmark and converting the CPU time into a rate. This leads to a measurement called the SPECrate, and it is a measure of request-level parallelism from Section
 
-> 就像服务器具有多个功能一样，也有多种类型的基准测试。最简单的基准可能是处理器吞吐量的基准测试。SPEC CPU2017 使用 SPEC CPU 基准来构建一个简单的吞吐量基准，在其中可以通过运行多个副本（通常与处理器一样多的处理器）来测量多处理器的处理速率，并将 CPU 时间转换为 CPU 时间速度。这导致了一个称为 Specrate 的测量，它是从部分中的请求级并行性的度量
+> 就像服务器具有多个功能一样，也有多种类型的基准测试。最简单的基准可能是处理器吞吐量的基准测试。SPEC CPU2017 使用 SPEC CPU 基准来构建一个简单的吞吐量基准，在其中可以通过运行多个副本(通常与处理器一样多的处理器)来测量多处理器的处理速率，并将 CPU 时间转换为 CPU 时间速度。这导致了一个称为 Specrate 的测量，它是从部分中的请求级并行性的度量
 
 1.2. To measure thread-level parallelism, SPEC offers what they call high- performance computing benchmarks around OpenMP and MPI as well as for accelerators such as GPUs (see [Figure 1.18](#_bookmark27)).
 
-> 1.2。为了测量线程级并行性，SPEC 提供了他们所谓的 OpenMP 和 MPI 周围的高性能计算基准以及 GPU 等加速器（请参见[图 1.18]（#\_ bookmark27））。
+> 1.2。为了测量线程级并行性，SPEC 提供了他们所谓的 OpenMP 和 MPI 周围的高性能计算基准以及 GPU 等加速器(请参见[图 1.18](#\_ bookmark27))。
 
 Other than SPECrate, most server applications and benchmarks have signifi- cant I/O activity arising from either storage or network traffic, including bench- marks for file server systems, for web servers, and for database and transaction- processing systems. SPEC offers both a file server benchmark (SPECSFS) and a Java server benchmark. (Appendix D discusses some file and I/O system bench- marks in detail.) SPECvirt_Sc2013 evaluates end-to-end performance of virtua- lized data center servers. Another SPEC benchmark measures power, which we examine in [Section 1.10](#_bookmark30).
 
-> 除了规格外，大多数服务器应用程序和基准测试都具有由存储或网络流量引起的重要的 I/O 活动，包括文件服务器系统的基准标记，用于 Web 服务器以及数据库和交易 - 处理系统。SPEC 同时提供文件服务器基准（SPECSFS）和 Java 服务器基准。（附录 D 详细讨论了一些文件和 I/O 系统基准标记。）SpecVirt*Sc2013 评估 Virtua-Lized 数据中心服务器的端到端性能。另一个规格基准测量功率，我们在[1.10]（#* Bookmark30）中检查了功率。
+> 除了规格外，大多数服务器应用程序和基准测试都具有由存储或网络流量引起的重要的 I/O 活动，包括文件服务器系统的基准标记，用于 Web 服务器以及数据库和交易 - 处理系统。SPEC 同时提供文件服务器基准(SPECSFS)和 Java 服务器基准。(附录 D 详细讨论了一些文件和 I/O 系统基准标记。)SpecVirt*Sc2013 评估 Virtua-Lized 数据中心服务器的端到端性能。另一个规格基准测量功率，我们在[1.10](#* Bookmark30)中检查了功率。
 
 Transaction-processing (TP) benchmarks measure the ability of a system to handle transactions that consist of database accesses and updates. Airline reserva- tion systems and bank ATM systems are typical simple examples of TP; more sophisticated TP systems involve complex databases and decision-making.
 
-> 事务处理（TP）基准测量系统处理由数据库访问和更新组成的交易的能力。航空公司保留系统和银行 ATM 系统是 TP 的典型简单示例；更复杂的 TP 系统涉及复杂的数据库和决策。
+> 事务处理(TP)基准测量系统处理由数据库访问和更新组成的交易的能力。航空公司保留系统和银行 ATM 系统是 TP 的典型简单示例；更复杂的 TP 系统涉及复杂的数据库和决策。
 
 > Figure 1.18 Active benchmarks from SPEC as of 2017.
 
@@ -152,11 +152,11 @@ Transaction-processing (TP) benchmarks measure the ability of a system to handle
 
 In the mid-1980s, a group of concerned engineers formed the vendor-independent Transaction Processing Council (TPC) to try to create realistic and fair benchmarks for TP. The TPC benchmarks are described at [http://www.tpc.org](http://www.tpc.org/).
 
-> 在 1980 年代中期，一群有关工程师组成了独立于供应商的交易处理委员会（TPC），试图为 TP 创建现实且公平的基准。TPC 基准测试在[http://www.tpc.org]（[http://www.tpc.org/](http://www.tpc.org/)）上进行了描述。
+> 在 1980 年代中期，一群有关工程师组成了独立于供应商的交易处理委员会(TPC)，试图为 TP 创建现实且公平的基准。TPC 基准测试在[http://www.tpc.org]([http://www.tpc.org/](http://www.tpc.org/))上进行了描述。
 
 The first TPC benchmark, TPC-A, was published in 1985 and has since been replaced and enhanced by several different benchmarks. TPC-C, initially created in 1992, simulates a complex query environment. TPC-H models ad hoc decision support—the queries are unrelated and knowledge of past queries cannot be used to optimize future queries. The TPC-DI benchmark, a new data integration (DI) task also known as ETL, is an important part of data warehousing. TPC-E is an online transaction processing (OLTP) workload that simulates a brokerage firm’s customer accounts.
 
-> 第一个 TPC 基准 TPC-A 于 1985 年出版，此后已被几种不同的基准取代和增强。TPC-C 最初于 1992 年创建，模拟了一个复杂的查询环境。TPC-H 模型临时决策支持 - 查询是无关的，过去查询的知识不能用于优化未来的查询。TPC-DI 基准测试是一种新的数据集成（DI）任务，也称为 ETL，是数据仓库的重要组成部分。TPC-E 是一种在线交易处理（OLTP）工作负载，可模拟经纪公司的客户帐户。
+> 第一个 TPC 基准 TPC-A 于 1985 年出版，此后已被几种不同的基准取代和增强。TPC-C 最初于 1992 年创建，模拟了一个复杂的查询环境。TPC-H 模型临时决策支持 - 查询是无关的，过去查询的知识不能用于优化未来的查询。TPC-DI 基准测试是一种新的数据集成(DI)任务，也称为 ETL，是数据仓库的重要组成部分。TPC-E 是一种在线交易处理(OLTP)工作负载，可模拟经纪公司的客户帐户。
 
 Recognizing the controversy between traditional relational databases and “No SQL” storage solutions, TPCx-HS measures systems using the Hadoop file system running MapReduce programs, and TPC-DS measures a decision support system that uses either a relational database or a Hadoop-based system. TPC-VMS and TPCx-V measure database performance for virtualized systems, and TPC-Energy adds energy metrics to all the existing TPC benchmarks.
 
@@ -194,11 +194,11 @@ Rather than pick weights, we could normalize execution times to a reference comp
 
 Notice that the execution times on the reference computer drop out and the choice of the reference computer is irrelevant when the comparisons are made as a ratio, which is the approach we consistently use. [Figure 1.19](#_bookmark28) gives an example.
 
-> 请注意，当对比较进行比较时，参考计算机上的执行时间掉落，参考计算机的选择是无关紧要的，这是我们一致使用的方法。[图 1.19]（#\_ bookmark28）给出了一个示例。
+> 请注意，当对比较进行比较时，参考计算机上的执行时间掉落，参考计算机的选择是无关紧要的，这是我们一致使用的方法。[图 1.19](#\_ bookmark28)给出了一个示例。
 
 Because a SPECRatio is a ratio rather than an absolute execution time, the mean must be computed using the _geometric_ mean. (Because SPECRatios have no units, comparing SPECRatios arithmetically is meaningless.) The formula is
 
-> 由于规格是比率而不是绝对执行时间，因此必须使用* geometric*均值来计算平均值。（因为 Specratios 没有单位，因此算术比较算术是毫无意义的。）公式为
+> 由于规格是比率而不是绝对执行时间，因此必须使用* geometric*均值来计算平均值。(因为 Specratios 没有单位，因此算术比较算术是毫无意义的。)公式为
 
 > ===
 
@@ -226,9 +226,9 @@ Example Show that the ratio of the geometric means is equal to the geometric mea
 
 That is, the ratio of the geometric means of the SPECRatios of A and B is the geo- metric mean of the performance ratios of A to B of all the benchmarks in the suite. [Figure 1.19](#_bookmark28) demonstrates this validity using examples from SPEC.
 
-> 也就是说，A 和 B 的 Specratios 的几何平均值比是套件中所有基准的 A 与 B 的性能比的地理平均值。[图 1.19]（#\_ bookmark28）使用规格中的示例演示了这种有效性。
+> 也就是说，A 和 B 的 Specratios 的几何平均值比是套件中所有基准的 A 与 B 的性能比的地理平均值。[图 1.19](#\_ bookmark28)使用规格中的示例演示了这种有效性。
 
 > Figure 1.19 SPEC2006Cint execution times (in seconds) for the Sun Ultra 5—the reference computer of SPEC2006—and execution times and SPECRatios for the AMD A10 and Intel Xeon E5-2690. The final two columns show the ratios of execution times and SPEC ratios. This figure demonstrates the irrelevance of the reference computer in relative performance. The ratio of the execution times is identical to the ratio of the SPEC ratios, and the ratio of the geometric means (63.7231.91/20.86 2.00) is identical to the geometric mean of the ratios (2.00). [Section 1.11](#_bookmark33) discusses libquantum, whose performance is orders of magnitude higher than the other SPEC benchmarks.
 
->> 图 1.19 Spec2006Cint 执行时间（以秒为单位）的 Sun Ultra 5（Spec2006 的参考计算机）以及 AMD A10 和 Intel Xeon E5-2690 的执行时间和 Specratios。最后两列显示了执行时间和规格比率的比率。该图证明了参考计算机在相对性能方面的无关。执行时间的比率与规格比的比率相同，几何均值（63.7231.91/20.86 2.00）的比率与比率的几何平均值相同（2.00）。[1.11]（#\_ bookmark33）讨论了 libquantum，其性能比其他规格基准高的数量级。
+>> 图 1.19 Spec2006Cint 执行时间(以秒为单位)的 Sun Ultra 5(Spec2006 的参考计算机)以及 AMD A10 和 Intel Xeon E5-2690 的执行时间和 Specratios。最后两列显示了执行时间和规格比率的比率。该图证明了参考计算机在相对性能方面的无关。执行时间的比率与规格比的比率相同，几何均值(63.7231.91/20.86 2.00)的比率与比率的几何平均值相同(2.00)。[1.11](#\_ bookmark33)讨论了 libquantum，其性能比其他规格基准高的数量级。
 >>

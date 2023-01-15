@@ -20,7 +20,7 @@ Our first example is the use of parallelism at the system level. To improve the 
 
 At the level of an individual processor, taking advantage of parallelism among instructions is critical to achieving high performance. One of the simplest ways to do this is through pipelining. (Pipelining is explained in more detail in [Appendix C](#_bookmark481) and is a major focus of [Chapter 3](#_bookmark93).) The basic idea behind pipelining is to overlap instruction execution to reduce the total time to complete an instruction sequence. A key insight into pipelining is that not every instruction depends on its immediate predecessor, so executing the instructions completely or partially in parallel may be possible. Pipelining is the best-known example of ILP.
 
-> 在单个处理器的层面上，在指示中利用并行性对于实现高性能至关重要。做到这一点的最简单方法之一是通过管道进行。（在[附录 C]（#_ bookmark481）中更详细地解释管道，并且是[第 3 章]（#_ bookmark93）的主要重点。）管道上的基本思想是重叠指令执行，以减少总时间来完成一个完成的时间指令序列。对管道的关键洞察力是，并非每个指令都取决于其直接的前身，因此可以完全或部分地并行执行指令。管道是 ILP 的最著名示例。
+> 在单个处理器的层面上，在指示中利用并行性对于实现高性能至关重要。做到这一点的最简单方法之一是通过管道进行。(在[附录 C](#_ bookmark481)中更详细地解释管道，并且是[第 3 章](#_ bookmark93)的主要重点。)管道上的基本思想是重叠指令执行，以减少总时间来完成一个完成的时间指令序列。对管道的关键洞察力是，并非每个指令都取决于其直接的前身，因此可以完全或部分地并行执行指令。管道是 ILP 的最著名示例。
 
 Parallelism can also be exploited at the level of detailed digital design. For example, set-associative caches use multiple banks of memory that are typically searched in parallel to find a desired item. Arithmetic-logical units use carry- lookahead, which uses parallelism to speed the process of computing sums from linear to logarithmic in the number of bits per operand. These are more examples of _data-level parallelism_.
 
@@ -36,7 +36,7 @@ Important fundamental observations have come from properties of programs. The mo
 
 Two different types of locality have been observed. _Temporal locality_ states that recently accessed items are likely to be accessed soon. _Spatial locality_ says that items whose addresses are near one another tend to be referenced close together in time. We will see these principles applied in [Chapter 2](#_bookmark46).
 
-> 已经观察到两种不同类型的地方。*temporal locality* 状态*最近很快就会访问最近访问的项目。* -Spatial locality *说，地址彼此接近的项目往往会及时地关闭。我们将在[第 2 章]（#* bookmark46）中看到这些原理。
+> 已经观察到两种不同类型的地方。*temporal locality* 状态*最近很快就会访问最近访问的项目。* -Spatial locality *说，地址彼此接近的项目往往会及时地关闭。我们将在[第 2 章](#* bookmark46)中看到这些原理。
 
 ### Focus on the Common Case
 
@@ -88,7 +88,7 @@ Amdahl’s Law gives us a quick way to find the speedup from some enhance- ment,
 
 1. _The fraction of the computation time in the original computer that can be con- verted to take advantage of the enhancement_—For example, if 40 seconds of the execution time of a program that takes 100 seconds in total can use an enhancement, the fraction is 40/100. This value, which we call Fraction<sub>enhanced</sub>, is always less than or equal to 1.
 
-> 1. \_原始计算机中计算时间的分数可以使用以利用增强功能，例如，如果程序的执行时间的 40 秒（总计需要 100 秒）可以使用增强功能，则分数为 40/100。我们称之为分数<sub>增强</sub>的值始终小于或等于 1。
+> 1. \_原始计算机中计算时间的分数可以使用以利用增强功能，例如，如果程序的执行时间的 40 秒(总计需要 100 秒)可以使用增强功能，则分数为 40/100。我们称之为分数<sub>增强</sub>的值始终小于或等于 1。
 
 2. _The improvement gained by the enhanced execution mode, that is, how much faster the task would run if the enhanced mode were used for the entire pro- gram_—This value is the time of the original mode over the time of the enhanced mode. If the enhanced mode takes, say, 4 seconds for a portion of the program, while it is 40 seconds in the original mode, the improvement is 40/4 or 10. We call this value, which is always greater than 1, Speedup<sub>enhanced</sub>.
 
@@ -120,7 +120,7 @@ Amdahl’s Law can serve as a guide to how much an enhancement will improve perf
 
 Example A common transformation required in graphics processors is square root. Imple- mentations of floating-point (FP) square root vary significantly in performance, especially among processors designed for graphics. Suppose FP square root (FSQRT) is responsible for 20% of the execution time of a critical graphics bench- mark. One proposal is to enhance the FSQRT hardware and speed up this operation by a factor of 10. The other alternative is just to try to make all FP instructions in the graphics processor run faster by a factor of 1.6; FP instructions are responsible for half of the execution time for the application. The design team believes that they can make all FP instructions run 1.6 times faster with the same effort as required for the fast square root. Compare these two design alternatives.
 
-> 示例图形处理器中需要的常见转换是平方根。浮点（FP）平方根的凸出的性能差异很大，尤其是在为图形设计的处理器中。假设 FP 平方根（FSQRT）负责关键图形基准的 20％的执行时间。一个建议是增强 FSQRT 硬件并加快此操作的速度 10 倍。另一种选择只是试图使图形处理器中的所有 FP 指令更快地运行 1.6 倍；FP 指令负责该应用程序的一半执行时间。设计团队认为，他们可以以与快速平方根所需的相同努力来使所有 FP 指令运行的速度更快 1.6 倍。比较这两个设计替代方案。
+> 示例图形处理器中需要的常见转换是平方根。浮点(FP)平方根的凸出的性能差异很大，尤其是在为图形设计的处理器中。假设 FP 平方根(FSQRT)负责关键图形基准的 20％的执行时间。一个建议是增强 FSQRT 硬件并加快此操作的速度 10 倍。另一种选择只是试图使图形处理器中的所有 FP 指令更快地运行 1.6 倍；FP 指令负责该应用程序的一半执行时间。设计团队认为，他们可以以与快速平方根所需的相同努力来使所有 FP 指令运行的速度更快 1.6 倍。比较这两个设计替代方案。
 
 > ===
 
@@ -158,7 +158,7 @@ In the preceding examples, we needed the fraction consumed by the new and improv
 
 Essentially all computers are constructed using a clock running at a constant rate. These discrete time events are called _clock periods_, _clocks_, _cycles_, or _clock cycles_. Computer designers refer to the time of a clock period by its duration (e.g., 1 ns) or by its rate (e.g., 1 GHz). CPU time for a program can then be expressed two ways:
 
-> 本质上，所有计算机都是使用以恒定速率运行的时钟构造的。这些离散的时间事件称为 *clock ofers*，_clocks_，*cycles* 或 *Clock Cycles*。计算机设计人员是指时钟时间的时间（例如 1 ns）或速率（例如 1 GHz）。然后可以用两种方式表达 CPU 的时间：
+> 本质上，所有计算机都是使用以恒定速率运行的时钟构造的。这些离散的时间事件称为 *clock ofers*，_clocks_，*cycles* 或 *Clock Cycles*。计算机设计人员是指时钟时间的时间(例如 1 ns)或速率(例如 1 GHz)。然后可以用两种方式表达 CPU 的时间：
 
 CPU time = CPU clock cycles for a program ×Clock cycle time
 
@@ -178,7 +178,7 @@ Clock rate
 
 In addition to the number of clock cycles needed to execute a program, we can also count the number of instructions executed—the _instruction path length_ or _instruction count_ (IC). If we know the number of clock cycles and the instruction count, we can calculate the average number of _clock cycles per instruction_ (CPI). Because it is easier to work with, and because we will deal with simple processors in this chapter, we use CPI. Designers sometimes also use _instructions per clock_ (IPC), which is the inverse of CPI.
 
-> 除了执行程序所需的时钟周期数外，我们还可以计算执行的指令数 - *instruction 路径长度*或 *instruction count*（ic）。如果我们知道时钟周期的数量和指令数量，则可以计算每个指令*（CPI）的平均\_Clock 循环数。因为它更容易使用，并且由于我们将在本章中处理简单的处理器，因此我们使用 CPI。设计人员有时还会使用*每个时钟\_（IPC），这是 CPI 的倒数。
+> 除了执行程序所需的时钟周期数外，我们还可以计算执行的指令数 - *instruction 路径长度*或 *instruction count*(ic)。如果我们知道时钟周期的数量和指令数量，则可以计算每个指令*(CPI)的平均\_Clock 循环数。因为它更容易使用，并且由于我们将在本章中处理简单的处理器，因此我们使用 CPI。设计人员有时还会使用*每个时钟\_(IPC)，这是 CPI 的倒数。
 
 > ===
 
@@ -204,7 +204,7 @@ Program × Instruction ×Clock cycle = Program = CPU time
 
 As this formula demonstrates, processor performance is dependent upon three characteristics: clock cycle (or rate), clock cycles per instruction, and instruction count. Furthermore, CPU time is _equally_ dependent on these three characteristics; for example, a 10% improvement in any one of them leads to a 10% improvement in CPU time.
 
-> 正如该公式所证明的那样，处理器性能取决于三个特征：时钟周期（或速率），每指令时钟周期和指令计数。此外，CPU 时间是\_等于这三个特征。例如，其中任何一个的提高 10％会导致 CPU 时间提高 10％。
+> 正如该公式所证明的那样，处理器性能取决于三个特征：时钟周期(或速率)，每指令时钟周期和指令计数。此外，CPU 时间是\_等于这三个特征。例如，其中任何一个的提高 10％会导致 CPU 时间提高 10％。
 
 Unfortunately, it is difficult to change one parameter in complete isolation from others because the basic technologies involved in changing each characteristic are interdependent:
 
@@ -240,7 +240,7 @@ where IC*<sub>i</sub>* represents the number of times instruction _i_ is execute
 
 The latter form of the CPI calculation uses each individual CPI*<sub>i</sub>* and the fraction of occurrences of that instruction in a program (i.e., IC*<sub>i</sub>* Instruction count). Because it must include pipeline effects, cache misses, and any other memory system inefficiencies, CPI*<sub>i</sub>* should be measured and not just calculated from a table in the back of a reference manual.
 
-> CPI 计算的后一种形式使用每个单独的 CPI* <sub> i </sub>*，以及该指令在程序中的出现分数（即，IC* <sub> i </sub>*指令计数）。因为它必须包括管道效应，缓存误差和任何其他内存系统效率低下，因此应测量 CPI* <sub> i </sub>*，而不仅仅是从参考手册背面的表中计算出来。
+> CPI 计算的后一种形式使用每个单独的 CPI* <sub> i </sub>*，以及该指令在程序中的出现分数(即，IC* <sub> i </sub>*指令计数)。因为它必须包括管道效应，缓存误差和任何其他内存系统效率低下，因此应测量 CPI* <sub> i </sub>*，而不仅仅是从参考手册背面的表中计算出来。
 
 Consider our performance example on page 52, here modified to use measure- ments of the frequency of the instructions and of the instruction CPI values, which, in practice, are obtained by simulation or by hardware instrumentation.
 
@@ -296,4 +296,4 @@ To use the processor performance equation as a design tool, we need to be able t
 
 Techniques that help with energy efficiency, such as dynamic voltage fre- quency scaling and overclocking (see [Section 1.5](#trends-in-power-and-energy-in-integrated-circuits)), make this equation harder to use, because the clock speed may vary while we measure the program. A simple approach is to turn off those features to make the results reproducible. Fortunately, as performance and energy efficiency are often highly correlated—taking less time to run a program generally saves energy—it’s probably safe to consider perfor- mance without worrying about the impact of DVFS or overclocking on the results.
 
-> 有助于能源效率的技术，例如动态电压频率缩放和超频（请参阅[1.5]（第 1.5 节）（＃趋势中的趋势和能量融合电路）），使此方程式更难使用，更难使用，因为在我们测量程序时，时钟速度可能会有所不同。一种简单的方法是关闭这些功能以使结果可重现。幸运的是，由于性能和能源效率通常高度相关 - 花更少的时间运行程序通常可以节省能源 - 因此可以安全地考虑穿孔，而不必担心 DVFS 的影响或超频对结果的影响。
+> 有助于能源效率的技术，例如动态电压频率缩放和超频(请参阅[1.5](第 1.5 节)(＃趋势中的趋势和能量融合电路))，使此方程式更难使用，更难使用，因为在我们测量程序时，时钟速度可能会有所不同。一种简单的方法是关闭这些功能以使结果可重现。幸运的是，由于性能和能源效率通常高度相关 - 花更少的时间运行程序通常可以节省能源 - 因此可以安全地考虑穿孔，而不必担心 DVFS 的影响或超频对结果的影响。
